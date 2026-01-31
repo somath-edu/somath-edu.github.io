@@ -19,25 +19,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4 # 최신 버전(v4)으로 변경
+        uses: actions/checkout@v4
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1 # 오류가 나던 옛날 버전(hash)을 버리고 최신(v1)으로 변경
+        uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
           cache-version: 0
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5 # 최신 버전(v5)으로 변경
+        uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
+        # 👇 여기가 수정되었습니다! (한글 파일명을 위한 설정 추가)
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+          LANG: C.UTF-8      # 👈 추가됨: 한글 깨짐 방지
+          LC_ALL: C.UTF-8    # 👈 추가됨: 한글 깨짐 방지
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3 # 오류 원인(v2)을 v3로 변경
+        uses: actions/upload-pages-artifact@v3
 
   deploy:
     environment:
@@ -48,4 +51,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # 오류 원인(v2)을 v4로 변경
+        uses: actions/deploy-pages@v4
