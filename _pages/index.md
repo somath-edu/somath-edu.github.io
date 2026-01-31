@@ -1,33 +1,40 @@
 ---
 layout: page
-title: Home
-id: home
+title: Somath's Library
 permalink: /
 ---
 
-# Welcome! 🌱
+![Library Image](https://images.unsplash.com/photo-1507842217121-9eac5c2ef77e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80)
 
-<p style="padding: 3em 1em; background: #f5f7ff; border-radius: 4px;">
-  Take a look at <span style="font-weight: bold">[[Your first note]]</span> to get started on your exploration.
-</p>
+<br>
 
-This digital garden template is free, open-source, and [available on GitHub here](https://github.com/maximevaillancourt/digital-garden-jekyll-template).
+## 🏛️ Welcome to the Entropy Library
+안녕하세요, **무질서를 질서로 바꾸는** 소마스(Somath)의 서재에 오신 것을 환영합니다.
+이곳은 파편화된 지식을 연결하고 구조화하는 공간입니다.
 
-The easiest way to get started is to read this [step-by-step guide explaining how to set this up from scratch](https://maximevaillancourt.com/blog/setting-up-your-own-digital-garden-with-jekyll).
+---
 
-<strong>Recently updated notes</strong>
+> [!TIP] 🧠 **Entropy Learning (엔트로피 학습법)**
+> 인지 부하를 줄이고 효율적으로 학습하는 방법론을 연구합니다.
+> - [[Entropy-Method|엔트로피 학습이란?]]
+> - [[Knowledge-Structure|지식 구조화의 기술]]
 
-<ul>
-  {% assign recent_notes = site.notes | sort: "last_modified_at_timestamp" | reverse %}
-  {% for note in recent_notes limit: 5 %}
-    <li>
-      {{ note.last_modified_at | date: "%Y-%m-%d" }} — <a class="internal-link" href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<br>
 
-<style>
-  .wrapper {
-    max-width: 46em;
-  }
-</style>
+> [!EXAMPLE] 📐 **Mathematics & Logic (수학)**
+> 개념의 확장을 통해 세상의 패턴을 읽습니다.
+> - [[Math-Concept|수학의 본질]]
+> - [[Problem-Solving|문제 해결 전략]]
+
+<br>
+
+> [!INFO] 🛠️ **Obsidian & Tools (도구)**
+> 제 2의 뇌를 만드는 디지털 정원 가꾸기.
+> - [[Obsidian-Setup|옵시디언 설정]]
+> - [[Digital-Garden|디지털 정원 기록]]
+
+---
+
+<div style="text-align: center; color: gray; font-size: 0.8em;">
+  🌱 Cultivated by Somath since 2026
+</div>
