@@ -13,7 +13,7 @@ permalink: /
 
 ## 🗺️ 지식 지도 (Click to Explore)
 
-![[대문.excalidraw|100%]]
+![[Drawing 2026-02-01 22.16.51.excalidraw]]
 👆 **위 지도의 키워드를 누르면 해당 지식으로 이동합니다.**
 
 ---
