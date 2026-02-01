@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지식의 정원 - 전자책 도서관</title>
+    <style>
+        /* 기본 설정 */
+        :root {
+            --primary-color: #2c3e50; /* 짙은 남색 (신뢰감) */
+            --accent-color: #27ae60;  /* 차분한 녹색 (정원/성장 의미) */
+            --bg-color: #f8f9fa;      /* 밝은 회색 배경 */
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        
+        /* 헤더 영역 */
+        header {
+            background-color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h1 { margin: 0; font-size: 2rem; color: var(--primary-color); }
+        .subtitle { color: #666; margin-top: 10px; font-size: 1.1rem; }
+
+        /* 메인 콘텐츠 영역 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 소개 섹션 */
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* 책 목록 그리드 (반응형) */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* 책 카드 디자인 */
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .book-thumb {
+            height: 200px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #adb5bd;
+            font-size: 3rem;
+        }
+
+        .book-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+        }
+
+        .book-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* 뱃지 (신간, 인기 등) */
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📚 지식의 정원</h1>
+        <p class="subtitle">배움의 본질을 탐구하는 전자책 저장소</p>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <p>안녕하세요. 이곳은 저의 지식과 경험을 정리한 '디지털 가든'입니다.<br>
+            엔트로피 학습법을 비롯하여, 성장을 돕는 다양한 전자책을 만나보세요.</p>
+        </section>
+
+        <div class="book-grid">
+
+            <article class="book-card">
+                <div class="book-thumb">📖</div> <div class="book-info">
+                    <span class="badge">대표작</span>
+                    <h2 class="book-title">엔트로피 학습법</h2>
+                    <p class="book-desc">
+                        왜 우리는 학습할수록 더 혼란스러운가?<br>
+                        심리적 엔트로피를 감소시키고 몰입을 이끌어내는<br>
+                        새로운 학습의 패러다임을 제시합니다.
+                    </p>
+                    <a href="entropy-learning.html" class="btn">책 보러가기 →</a>
+                </div>
+            </article>
+
+            <article class="book-card">
+                <div class="book-thumb">📝</div>
+                <div class="book-info">
+                    <span class="badge">실용서</span>
+                    <h2 class="book-title">누적 직독직해 연습장</h2>
+                    <p class="book-desc">
+                        영어 어순 그대로, 이미지를 통해 체득하는 직독직해.<br>
+                        직접 쓰면서 익히는 워크북 형태의 전자책입니다.
+                    </p>
+                    <a href="#" class="btn">준비 중</a>
+                </div>
+            </article>
+
+            <article class="book-card">
+                <div class="book-thumb">🌱</div>
+                <div class="book-info">
+                    <span class="badge">Coming Soon</span>
+                    <h2 class="book-title">준비 중인 프로젝트</h2>
+                    <p class="book-desc">
+                        중학교 과학 개념서 및 새로운 인사이트를 담은<br>
+                        차기작들이 준비되고 있습니다.
+                    </p>
+                    <a href="#" class="btn" style="background-color: #ccc;">발행 예정</a>
+                </div>
+            </article>
+
+        </div>
+        </div>
+
+    <footer>
+        <p>© 2026 지식의 정원. All rights reserved.<br>
+        Powered by GitHub Pages & Obsidian</p>
+    </footer>
+
+</body>
+</html>
