@@ -32,7 +32,7 @@
 
         header {
             text-align: center;
-            padding: 10px 0 5px; /* 헤더 높이 최소화 유지 */
+            padding: 10px 0 5px;
             border-bottom: 1px solid var(--line-color);
         }
         .brand-mini {
@@ -47,7 +47,7 @@
         .book-container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 10px 20px 80px; /* 하단 여백 충분히 확보 (네비게이션 공간) */
+            padding: 10px 20px 80px; /* 하단 여백 충분히 확보 */
         }
 
         .chapter-header {
@@ -93,7 +93,7 @@
             font-family: var(--font-title);
             font-size: 1.5rem;
             text-align: center;
-            margin-top: 10px;    /* 선 밑으로 바짝 당김 유지 */
+            margin-top: 10px;    
             margin-bottom: 10px; 
             color: var(--text-main);
             border-bottom: 2px solid var(--text-main);
@@ -158,12 +158,12 @@
             border: 0;
             height: 1px;
             background: var(--line-color);
-            margin: 15px 0; /* 구분선 위아래 간격 최소화 유지 */
+            margin: 15px 0;
         }
 
-        /* --- [추가됨] 3단 네비게이션 스타일 --- */
+        /* --- [핵심 수정] 3단 네비게이션 푸터 --- */
         .book-navigation {
-            margin-top: 40px;
+            margin-top: 50px;
             padding-top: 20px;
             border-top: 1px solid var(--line-color);
             display: flex; /* 가로 배치 */
@@ -186,7 +186,7 @@
             background-color: #f5f0eb;
         }
 
-        /* 가운데 '서재로' 버튼 강조 */
+        /* 가운데 '서재로' 버튼 */
         .nav-center {
             font-weight: 600;
             border: 1px solid var(--line-color);
@@ -197,9 +197,9 @@
             border-color: var(--text-main);
         }
 
-        /* 빈 공간 채우기용 (버튼 없을 때 레이아웃 깨짐 방지) */
+        /* 빈 공간 채우기용 (좌/우 버튼 없을 때 레이아웃 유지) */
         .nav-placeholder {
-            width: 60px; 
+            width: 60px; /* 버튼 대략적인 너비 */
         }
 
         @media (max-width: 600px) {
