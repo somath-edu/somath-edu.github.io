@@ -3,202 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>지식의 정원 - 전자책 도서관</title>
+    <title>Archiv : 지식의 서재</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+KR:wght@300;500;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        /* 기본 설정 */
+        /* --- 변수 및 기본 설정 --- */
         :root {
-            --primary-color: #2c3e50; /* 짙은 남색 (신뢰감) */
-            --accent-color: #27ae60;  /* 차분한 녹색 (정원/성장 의미) */
-            --bg-color: #f8f9fa;      /* 밝은 회색 배경 */
-            --text-color: #333;
+            --bg-main: #121212;       /* 아주 깊은 검정 */
+            --bg-card: #1e1e1e;       /* 카드 배경 */
+            --text-main: #e0e0e0;     /* 기본 텍스트 (완전 흰색보다 눈이 편함) */
+            --text-muted: #a0a0a0;    /* 보조 텍스트 */
+            --accent-gold: #d4af37;   /* 금박 느낌의 포인트 컬러 */
+            --font-serif: 'Noto Serif KR', serif;
+            --font-sans: 'Pretendard', sans-serif;
+            --font-eng: 'Cinzel', serif; /* 영어 제목용 */
         }
 
         body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-sans);
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
         
-        /* 헤더 영역 */
-        header {
-            background-color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        h1 { margin: 0; font-size: 2rem; color: var(--primary-color); }
-        .subtitle { color: #666; margin-top: 10px; font-size: 1.1rem; }
-
-        /* 메인 콘텐츠 영역 */
+        /* --- 레이아웃 --- */
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
         }
 
-        /* 소개 섹션 */
-        .intro {
+        /* --- 헤더 --- */
+        header {
+            padding: 40px 0;
             text-align: center;
-            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 60px;
         }
 
-        /* 책 목록 그리드 (반응형) */
-        .book-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .brand-name {
+            font-family: var(--font-eng);
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
         }
 
-        /* 책 카드 디자인 */
-        .book-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #eee;
+        /* --- Hero Section (메인 대표작 강조) --- */
+        .hero {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 100px;
+            flex-wrap: wrap; /* 모바일 대응 */
         }
 
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .hero-image-wrapper {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
         }
 
-        .book-thumb {
-            height: 200px;
-            background-color: #e9ecef;
+        /* 책 표지 입체 효과 */
+        .book-cover-3d {
+            width: 280px;
+            height: 400px;
+            background: linear-gradient(135deg, #2c3e50, #000); /* 표지 이미지 없을 때 대체색 */
+            border-radius: 4px 12px 12px 4px;
+            box-shadow: 
+                -10px 0 20px rgba(0,0,0,0.5), /* 왼쪽 그림자 */
+                10px 20px 30px rgba(0,0,0,0.6), /* 바닥 그림자 */
+                inset 2px 0 5px rgba(255,255,255,0.1); /* 책등 하이라이트 */
+            transition: transform 0.4s ease;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #adb5bd;
-            font-size: 3rem;
+            color: rgba(255,255,255,0.2);
+            font-family: var(--font-eng);
+            font-size: 2rem;
+            overflow: hidden;
         }
 
-        .book-info {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        /* 실제 이미지가 들어갈 때 */
+        .book-cover-3d img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px 12px 12px 4px;
         }
 
-        .book-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin: 0 0 10px 0;
-            color: var(--primary-color);
+        .hero:hover .book-cover-3d {
+            transform: translateY(-10px) rotateY(-5deg);
         }
 
-        .book-desc {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 20px;
-            flex-grow: 1;
+        .hero-content {
+            flex: 1.2;
+            min-width: 300px;
         }
 
-        .btn {
-            display: block;
-            text-align: center;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-color);
-        }
-
-        /* 뱃지 (신간, 인기 등) */
-        .badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 8px;
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        /* 푸터 */
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #888;
+        .tag {
+            color: var(--accent-gold);
+            font-family: var(--font-eng);
             font-size: 0.9rem;
-            margin-top: 50px;
-            border-top: 1px solid #ddd;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
         }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 3rem; /* 제목 크게 */
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-family: var(--font-eng);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        /* --- 섹션 타이틀 --- */
+        .section-title {
+            font-family: var(--font-eng);
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 15px;
+            color: var(--text-main);
+        }
+
+        /* --- 그리드 리스트 (나머지 책들) --- */
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .book-item {
+            background-color: var(--bg-card);
+            padding: 20px;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .book-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .item-thumb {
+            height: 180px;
+            background-color: #2a2a2a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 2rem;
+        }
+        
+        /* 썸네일 이미지용 */
+        .item-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .item-link {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* --- 푸터 --- */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 50px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #555;
+            font-family: var(--font-eng);
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <h1>📚 지식의 정원</h1>
-        <p class="subtitle">배움의 본질을 탐구하는 전자책 저장소</p>
+        <div class="brand-name">ARCHIV : GARDEN</div>
     </header>
 
     <div class="container">
-        <section class="intro">
-            <p>안녕하세요. 이곳은 저의 지식과 경험을 정리한 '디지털 가든'입니다.<br>
-            엔트로피 학습법을 비롯하여, 성장을 돕는 다양한 전자책을 만나보세요.</p>
+        
+        <section class="hero">
+            <div class="hero-image-wrapper">
+                <div class="book-cover-3d">
+                    Book
+                </div>
+            </div>
+            <div class="hero-content">
+                <span class="tag">Editor's Choice</span>
+                <h1 class="hero-title">엔트로피<br>학습법</h1>
+                <p class="hero-desc">
+                    "왜 우리는 학습할수록 더 혼란스러운가?"<br>
+                    심리적 엔트로피를 다스려 진정한 몰입에 이르는 길.<br>
+                    당신의 뇌를 재설계하는 새로운 학습 패러다임.
+                </p>
+                <a href="엔트로피 학습법" class="btn-gold">READ NOW</a>
+            </div>
         </section>
 
-        <div class="book-grid">
-
-            <article class="book-card">
-                <div class="book-thumb">📖</div> <div class="book-info">
-                    <span class="badge">대표작</span>
-                    <h2 class="book-title">엔트로피 학습법</h2>
-                    <p class="book-desc">
-                        왜 우리는 학습할수록 더 혼란스러운가?<br>
-                        심리적 엔트로피를 감소시키고 몰입을 이끌어내는<br>
-                        새로운 학습의 패러다임을 제시합니다.
-                    </p>
-                    <a href="entropy-learning.html" class="btn">책 보러가기 →</a>
+        <h2 class="section-title">Collections</h2>
+        
+        <div class="book-list">
+            
+            <article class="book-item">
+                <div class="item-thumb">
+                     📝
                 </div>
+                <h3 class="item-title">누적 직독직해 연습장</h3>
+                <p class="item-desc">
+                    영어 어순 그대로 이미지를 떠올리며 읽는 훈련.<br>
+                    직관적인 이해를 돕는 워크북 시리즈.
+                </p>
+                <a href="누적 직독직해" class="item-link">VIEW DETAILS →</a>
             </article>
 
-            <article class="book-card">
-                <div class="book-thumb">📝</div>
-                <div class="book-info">
-                    <span class="badge">실용서</span>
-                    <h2 class="book-title">누적 직독직해 연습장</h2>
-                    <p class="book-desc">
-                        영어 어순 그대로, 이미지를 통해 체득하는 직독직해.<br>
-                        직접 쓰면서 익히는 워크북 형태의 전자책입니다.
-                    </p>
-                    <a href="#" class="btn">준비 중</a>
-                </div>
+            <article class="book-item">
+                <div class="item-thumb">🔬</div>
+                <h3 class="item-title">Science Note Vol.1</h3>
+                <p class="item-desc">
+                    중학교 2학년 과학 개념을 에세이처럼 풀어낸<br>
+                    새로운 감각의 과학 입문서.
+                </p>
+                <a href="#" class="item-link">COMING SOON →</a>
             </article>
 
-            <article class="book-card">
-                <div class="book-thumb">🌱</div>
-                <div class="book-info">
-                    <span class="badge">Coming Soon</span>
-                    <h2 class="book-title">준비 중인 프로젝트</h2>
-                    <p class="book-desc">
-                        중학교 과학 개념서 및 새로운 인사이트를 담은<br>
-                        차기작들이 준비되고 있습니다.
-                    </p>
-                    <a href="#" class="btn" style="background-color: #ccc;">발행 예정</a>
-                </div>
+            <article class="book-item">
+                <div class="item-thumb">🌿</div>
+                <h3 class="item-title">Digital Garden</h3>
+                <p class="item-desc">
+                    기록이 어떻게 지식이 되고 책이 되는가.<br>
+                    나만의 지식 정원을 가꾸는 방법.
+                </p>
+                <a href="#" class="item-link">VIEW DETAILS →</a>
             </article>
 
         </div>
-        </div>
+
+    </div>
 
     <footer>
-        <p>© 2026 지식의 정원. All rights reserved.<br>
-        Powered by GitHub Pages & Obsidian</p>
+        COPYRIGHT © 2026 ARCHIV. ALL RIGHTS RESERVED.
     </footer>
 
 </body>
