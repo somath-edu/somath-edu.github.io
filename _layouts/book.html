@@ -32,7 +32,7 @@
 
         header {
             text-align: center;
-            padding: 10px 0 5px; /* 헤더 높이 최소화 */
+            padding: 10px 0 5px; /* 헤더 높이 최소화 유지 */
             border-bottom: 1px solid var(--line-color);
         }
         .brand-mini {
@@ -47,12 +47,12 @@
         .book-container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 10px 20px 60px; /* 본문 시작 위치를 위로 바짝 당김 */
+            padding: 10px 20px 80px; /* 하단 여백 충분히 확보 (네비게이션 공간) */
         }
 
         .chapter-header {
             text-align: center;
-            margin-bottom: 15px; /* 제목과 본문 사이 간격 대폭 축소 */
+            margin-bottom: 15px;
         }
         .chapter-label {
             display: block;
@@ -89,12 +89,11 @@
             margin-bottom: 1.0rem;
         }
 
-        /* [핵심 수정] Part 제목(h1)을 위쪽 선에 바짝 붙임 */
         .content-body h1 {
             font-family: var(--font-title);
             font-size: 1.5rem;
             text-align: center;
-            margin-top: 10px;    /* 25px -> 10px (선 바로 밑으로 당김) */
+            margin-top: 10px;    /* 선 밑으로 바짝 당김 유지 */
             margin-bottom: 10px; 
             color: var(--text-main);
             border-bottom: 2px solid var(--text-main);
@@ -159,29 +158,48 @@
             border: 0;
             height: 1px;
             background: var(--line-color);
-            margin: 15px 0; /* 구분선 위아래 간격 최소화 (20px -> 15px) */
+            margin: 15px 0; /* 구분선 위아래 간격 최소화 유지 */
         }
 
-        .book-footer {
+        /* --- [추가됨] 3단 네비게이션 스타일 --- */
+        .book-navigation {
             margin-top: 40px;
-            text-align: center;
+            padding-top: 20px;
             border-top: 1px solid var(--line-color);
-            padding-top: 30px;
+            display: flex; /* 가로 배치 */
+            justify-content: space-between; /* 양 끝 정렬 */
+            align-items: center; /* 수직 중앙 정렬 */
+            font-family: var(--font-body);
         }
-        .btn-back {
-            display: inline-block;
-            padding: 8px 20px;
-            border: 1px solid var(--line-color);
-            background-color: white;
-            border-radius: 30px;
-            color: var(--text-sub);
+
+        /* 공통 버튼 스타일 */
+        .nav-btn {
             text-decoration: none;
-            font-size: 0.85rem;
-            transition: 0.3s;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
-        .btn-back:hover {
-            border-color: var(--text-main);
+        .nav-btn:hover {
             color: var(--text-main);
+            background-color: #f5f0eb;
+        }
+
+        /* 가운데 '서재로' 버튼 강조 */
+        .nav-center {
+            font-weight: 600;
+            border: 1px solid var(--line-color);
+            border-radius: 30px;
+            padding: 8px 20px;
+        }
+        .nav-center:hover {
+            border-color: var(--text-main);
+        }
+
+        /* 빈 공간 채우기용 (버튼 없을 때 레이아웃 깨짐 방지) */
+        .nav-placeholder {
+            width: 60px; 
         }
 
         @media (max-width: 600px) {
@@ -192,6 +210,11 @@
                 max-width: 100%;   
                 max-height: 250px; 
                 margin: 15px auto;
+            }
+            /* 모바일에서 버튼 글씨 조금 작게 */
+            .nav-btn {
+                font-size: 0.8rem; 
+                padding: 6px 8px;
             }
         }
     </style>
@@ -216,8 +239,20 @@
             {{ content }}
         </div>
 
-        <div class="book-footer">
-            <a href="/" class="btn-back">← 서재로 돌아가기</a>
+        <div class="book-navigation">
+            
+            {% if page.prev_link %}
+                <a href="{{ page.prev_link }}" class="nav-btn">← 이전</a>
+            {% else %}
+                <span class="nav-placeholder"></span> {% endif %}
+
+            <a href="/entropy.html" class="nav-btn nav-center">서재로</a>
+
+            {% if page.next_link %}
+                <a href="{{ page.next_link }}" class="nav-btn">다음 →</a>
+            {% else %}
+                <span class="nav-placeholder"></span> {% endif %}
+
         </div>
 
     </div>
