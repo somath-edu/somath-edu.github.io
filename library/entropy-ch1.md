@@ -1,10 +1,10 @@
 ---
 layout: book
-title: Chapter 3. 과부하 걸린 뇌의 비명
-permalink: /entropy-ch3.html
+title: Chapter 1. 학습 엔트로피란 무엇인가?
+permalink: /entropy-ch1.html
 date: 2026-02-02
-prev_link: /entropy-ch2.html
-next_link:  # 다음 글이 생기면 그때 추가
+prev_link:  # 1장은 이전 글이 없으니 비워둠
+next_link: /entropy-ch2.html
 ---
 
 ## 1. 물리학의 엔트로피, 교실로 들어오다
