@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archiv : 지식의 서재</title>
+    <title>SOEDU : GARDEN - 따뜻한 지식의 정원</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+KR:wght@300;500;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 변수 및 기본 설정 --- */
+        /* --- 변수 및 기본 설정 (베이지 & 파스텔 톤) --- */
         :root {
-            --bg-main: #121212;       /* 아주 깊은 검정 */
-            --bg-card: #1e1e1e;       /* 카드 배경 */
-            --text-main: #e0e0e0;     /* 기본 텍스트 (완전 흰색보다 눈이 편함) */
-            --text-muted: #a0a0a0;    /* 보조 텍스트 */
-            --accent-gold: #d4af37;   /* 금박 느낌의 포인트 컬러 */
+            --bg-main: #fdfcf8;       /* 아주 밝은 크림색 배경 */
+            --bg-card: #ffffff;       /* 카드 배경은 깨끗한 흰색 */
+            --text-main: #5d4037;     /* 따뜻한 진한 갈색 텍스트 */
+            --text-muted: #8d7f7b;    /* 부드러운 팥죽색 보조 텍스트 */
+            --accent-warm: #e5989b;   /* 따뜻한 핑크/코랄 포인트 */
+            --accent-soft: #8eb69b;   /* 부드러운 쑥색 (보조) */
+            --font-script: 'Dancing Script', cursive; /* 요청하신 흘림체 */
             --font-serif: 'Noto Serif KR', serif;
             --font-sans: 'Pretendard', sans-serif;
-            --font-eng: 'Cinzel', serif; /* 영어 제목용 */
+            --border-radius-soft: 20px; /* 둥글둥글한 모서리 값 */
         }
 
         body {
@@ -29,6 +31,9 @@
             margin: 0;
             padding: 0;
             line-height: 1.7;
+            /* 배경에 아주 은은한 종이 질감 패턴 추가 (선택사항) */
+            background-image: radial-gradient(#d7ccc8 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -37,157 +42,188 @@
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
-        /* --- 헤더 --- */
+        /* --- 헤더 (흘림체 적용) --- */
         header {
-            padding: 40px 0;
+            padding: 50px 0;
             text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .brand-name {
-            font-family: var(--font-eng);
-            font-size: 1.5rem;
-            color: var(--accent-gold);
-            letter-spacing: 2px;
+            font-family: var(--font-script); /* 흘림체 */
+            font-size: 3rem; /* 흘림체는 커야 예쁩니다 */
+            color: var(--text-main);
+            /* 약간의 기울기와 부드러운 그림자 */
+            transform: rotate(-2deg); 
+            text-shadow: 2px 2px 0px #ece0dd;
+            display: inline-block;
         }
 
-        /* --- Hero Section (메인 대표작 강조) --- */
+        /* --- Hero Section (메인 대표작) --- */
         .hero {
             display: flex;
             align-items: center;
-            gap: 50px;
-            margin-bottom: 100px;
-            flex-wrap: wrap; /* 모바일 대응 */
+            gap: 60px;
+            margin-bottom: 120px;
+            background-color: #fffbf7; /* 히어로 섹션만 살짝 다른 배경 */
+            padding: 50px;
+            border-radius: var(--border-radius-soft);
+            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.08); /* 부드러운 갈색 그림자 */
+            flex-wrap: wrap;
         }
 
         .hero-image-wrapper {
             flex: 1;
-            min-width: 300px;
+            min-width: 280px;
             display: flex;
             justify-content: center;
         }
 
-        /* 책 표지 입체 효과 */
-        .book-cover-3d {
-            width: 280px;
-            height: 400px;
-            background: linear-gradient(135deg, #2c3e50, #000); /* 표지 이미지 없을 때 대체색 */
-            border-radius: 4px 12px 12px 4px;
+        /* 책 표지 디자인 (부드럽게) */
+        .book-cover-soft {
+            width: 260px;
+            height: 380px;
+            /* 표지 없을 때 기본 파스텔 그라데이션 */
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7); 
+            border-radius: var(--border-radius-soft);
             box-shadow: 
-                -10px 0 20px rgba(0,0,0,0.5), /* 왼쪽 그림자 */
-                10px 20px 30px rgba(0,0,0,0.6), /* 바닥 그림자 */
-                inset 2px 0 5px rgba(255,255,255,0.1); /* 책등 하이라이트 */
-            transition: transform 0.4s ease;
-            position: relative;
+                5px 5px 15px rgba(93, 64, 55, 0.15),
+                inset -2px -2px 5px rgba(255,255,255,0.5);
+            transition: transform 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255,255,255,0.2);
-            font-family: var(--font-eng);
-            font-size: 2rem;
+            color: white;
+            font-family: var(--font-script);
+            font-size: 2.5rem;
             overflow: hidden;
+            position: relative;
         }
 
-        /* 실제 이미지가 들어갈 때 */
-        .book-cover-3d img {
+        /* 실제 이미지 들어갈 때 */
+        .book-cover-soft img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 4px 12px 12px 4px;
         }
 
-        .hero:hover .book-cover-3d {
-            transform: translateY(-10px) rotateY(-5deg);
+        /* 책 위에 귀여운 장식 요소 (선택사항) */
+        .book-cover-soft::after {
+            content: '♥';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .hero:hover .book-cover-soft {
+            transform: translateY(-8px) rotate(2deg); /* 살짝 들리면서 회전 */
         }
 
         .hero-content {
-            flex: 1.2;
+            flex: 1.3;
             min-width: 300px;
         }
 
-        .tag {
-            color: var(--accent-gold);
-            font-family: var(--font-eng);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: block;
+        .tag-cute {
+            background-color: #fff0f1;
+            color: var(--accent-warm);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
         }
 
         .hero-title {
             font-family: var(--font-serif);
-            font-size: 3rem; /* 제목 크게 */
+            font-size: 2.8rem;
             margin: 0 0 20px 0;
             font-weight: 700;
-            line-height: 1.2;
+            color: var(--text-main);
+            line-height: 1.3;
         }
 
         .hero-desc {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 30px;
-            font-weight: 300;
         }
 
-        .btn-gold {
+        /* 동글동글한 버튼 */
+        .btn-cute {
             display: inline-block;
-            padding: 12px 30px;
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            font-family: var(--font-eng);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            padding: 12px 35px;
+            background-color: var(--accent-warm);
+            color: white;
+            font-weight: 600;
+            border-radius: 30px; /* 알약 모양 */
+            box-shadow: 0 4px 10px rgba(229, 152, 155, 0.4);
+            transition: all 0.3s ease;
         }
 
-        .btn-gold:hover {
-            background-color: var(--accent-gold);
-            color: #000;
+        .btn-cute:hover {
+            background-color: #d4878a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(229, 152, 155, 0.5);
         }
 
         /* --- 섹션 타이틀 --- */
         .section-title {
-            font-family: var(--font-eng);
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            border-left: 3px solid var(--accent-gold);
-            padding-left: 15px;
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 50px;
             color: var(--text-main);
+            position: relative;
+        }
+        
+        /* 타이틀 밑에 귀여운 밑줄 장식 */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-soft);
+            margin: 15px auto 0;
+            border-radius: 5px;
         }
 
-        /* --- 그리드 리스트 (나머지 책들) --- */
+        /* --- 그리드 리스트 (아기자기하게) --- */
         .book-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 100px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 35px;
+            margin-bottom: 120px;
         }
 
         .book-item {
             background-color: var(--bg-card);
-            padding: 20px;
-            transition: transform 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--border-radius-soft);
+            overflow: hidden;
+            border: 2px solid #f0ece3; /* 연한 베이지 테두리 */
+            transition: all 0.3s ease;
         }
 
         .book-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-gold);
+            transform: translateY(-7px);
+            border-color: var(--accent-warm); /* 호버시 핑크 테두리 */
+            box-shadow: 0 10px 20px rgba(229, 152, 155, 0.15);
         }
 
         .item-thumb {
             height: 180px;
-            background-color: #2a2a2a;
-            margin-bottom: 20px;
+            background-color: #f4eeee; /* 연한 핑크 그레이 배경 */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #555;
-            font-size: 2rem;
+            font-size: 3rem;
         }
         
         /* 썸네일 이미지용 */
@@ -197,36 +233,50 @@
             object-fit: cover;
         }
 
+        .item-info {
+            padding: 25px;
+            text-align: center;
+        }
+
         .item-title {
             font-family: var(--font-serif);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin: 0 0 10px 0;
+            color: var(--text-main);
         }
 
         .item-desc {
             font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 20px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            line-height: 1.5;
         }
 
         .item-link {
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--accent-warm);
+            font-weight: 700;
+            display: inline-block;
+            border-bottom: 2px dotted var(--accent-warm); /* 점선 밑줄 */
+        }
+        
+        .item-link:hover {
+            color: var(--accent-soft);
+            border-bottom-color: var(--accent-soft);
         }
 
         /* --- 푸터 --- */
         footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 50px 0;
             text-align: center;
-            font-size: 0.8rem;
-            color: #555;
-            font-family: var(--font-eng);
+            padding: 50px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        
+        footer span {
+            font-family: var(--font-script);
+            font-size: 1.2rem;
+            color: var(--accent-warm);
         }
 
     </style>
@@ -234,30 +284,30 @@
 <body>
 
     <header>
-        <div class="brand-name">ARCHIV : GARDEN</div>
+        <div class="brand-name">SOEDU : GARDEN</div>
     </header>
 
     <div class="container">
         
         <section class="hero">
             <div class="hero-image-wrapper">
-                <div class="book-cover-3d">
-                    Book
+                <div class="book-cover-soft">
+                    Pick!
                 </div>
             </div>
             <div class="hero-content">
-                <span class="tag">Editor's Choice</span>
+                <span class="tag-cute">이달의 추천도서 🍓</span>
                 <h1 class="hero-title">엔트로피<br>학습법</h1>
                 <p class="hero-desc">
-                    "왜 우리는 학습할수록 더 혼란스러운가?"<br>
-                    심리적 엔트로피를 다스려 진정한 몰입에 이르는 길.<br>
-                    당신의 뇌를 재설계하는 새로운 학습 패러다임.
+                    머릿속이 복잡할 때, 어떻게 정리해야 할까요?<br>
+                    심리적 무질서를 다스리고 몰입하는 즐거움.<br>
+                    당신을 위한 따뜻한 학습 처방전입니다.
                 </p>
-                <a href="엔트로피 학습법" class="btn-gold">READ NOW</a>
+                <a href="엔트로피 학습법" class="btn-cute">책 열어보기 ♡</a>
             </div>
         </section>
 
-        <h2 class="section-title">Collections</h2>
+        <h2 class="section-title">작은 서재의 이야기들</h2>
         
         <div class="book-list">
             
@@ -265,32 +315,42 @@
                 <div class="item-thumb">
                      📝
                 </div>
-                <h3 class="item-title">누적 직독직해 연습장</h3>
-                <p class="item-desc">
-                    영어 어순 그대로 이미지를 떠올리며 읽는 훈련.<br>
-                    직관적인 이해를 돕는 워크북 시리즈.
-                </p>
-                <a href="누적 직독직해" class="item-link">VIEW DETAILS →</a>
+                <div class="item-info">
+                    <h3 class="item-title">누적 직독직해 연습장</h3>
+                    <p class="item-desc">
+                        영어 어순 그대로! 이미지를 그리며<br>
+                        재미있게 익히는 워크북이에요.
+                    </p>
+                    <a href="누적 직독직해" class="item-link">자세히 보기</a>
+                </div>
             </article>
 
             <article class="book-item">
-                <div class="item-thumb">🔬</div>
-                <h3 class="item-title">Science Note Vol.1</h3>
-                <p class="item-desc">
-                    중학교 2학년 과학 개념을 에세이처럼 풀어낸<br>
-                    새로운 감각의 과학 입문서.
-                </p>
-                <a href="#" class="item-link">COMING SOON →</a>
+                <div class="item-thumb" style="background-color: #eaf4e8; color: #8eb69b;">
+                    🌱
+                </div>
+                <div class="item-info">
+                    <h3 class="item-title">말랑말랑 과학 노트</h3>
+                    <p class="item-desc">
+                        어렵게만 느껴지던 과학 원리를<br>
+                        따뜻한 에세이처럼 풀어냈어요.
+                    </p>
+                    <span style="color: #aaa; font-size: 0.85rem;">준비 중이에요!</span>
+                </div>
             </article>
 
             <article class="book-item">
-                <div class="item-thumb">🌿</div>
-                <h3 class="item-title">Digital Garden</h3>
-                <p class="item-desc">
-                    기록이 어떻게 지식이 되고 책이 되는가.<br>
-                    나만의 지식 정원을 가꾸는 방법.
-                </p>
-                <a href="#" class="item-link">VIEW DETAILS →</a>
+                <div class="item-thumb" style="background-color: #fff5e6; color: #fbc02d;">
+                    ☕
+                </div>
+                <div class="item-info">
+                    <h3 class="item-title">오후 3시의 기록</h3>
+                    <p class="item-desc">
+                        배움과 성장에 대한 소소한 단상들.<br>
+                        당신의 오후에 작은 위로가 되길.
+                    </p>
+                    <a href="#" class="item-link">자세히 보기</a>
+                </div>
             </article>
 
         </div>
@@ -298,7 +358,8 @@
     </div>
 
     <footer>
-        COPYRIGHT © 2026 ARCHIV. ALL RIGHTS RESERVED.
+        <p>Copyright © 2026 <span>Soedu Garden</span>. All rights reserved.<br>
+        따뜻한 관심과 기록으로 자라는 공간입니다.</p>
     </footer>
 
 </body>
