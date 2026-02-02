@@ -27,7 +27,7 @@
             color: var(--text-main);
             font-family: var(--font-body);
             margin: 0;
-            line-height: 1.65;
+            line-height: 1.75; /* 줄 간격을 1.65 -> 1.75로 늘려 눈의 피로 감소 */
         }
 
         header {
@@ -47,12 +47,12 @@
         .book-container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 30px 20px 60px;
+            padding: 30px 24px 80px; /* 좌우 여백을 20px -> 24px로 살짝 확보 */
         }
 
         .chapter-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px; /* 제목과 본문 사이 간격 확보 */
         }
         .chapter-label {
             display: block;
@@ -64,10 +64,10 @@
         }
         .chapter-title {
             font-family: var(--font-title);
-            font-size: 2.0rem;
+            font-size: 1.9rem; /* 제목이 너무 크지 않게 살짝 조절 */
             margin: 0;
             word-break: keep-all;
-            line-height: 1.2;
+            line-height: 1.25;
             font-weight: 700;
         }
         .chapter-meta {
@@ -77,35 +77,41 @@
             font-family: var(--font-body);
         }
 
+        /* --- 본문 스타일링 --- */
         .content-body {
-            font-size: 1.0rem;
+            font-size: 1.05rem;       /* 폰트 사이즈 미세하게 키움 (가독성 확보) */
             text-align: left;         
             word-break: keep-all;     
             color: #423833;           
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
+        }
+
+        /* 문단 사이 간격 명시 */
+        .content-body p {
+            margin-bottom: 1.5rem; 
         }
 
         .content-body h1 {
             font-family: var(--font-title);
             font-size: 1.5rem;
             text-align: center;
-            margin-top: 25px;    
-            margin-bottom: 15px; 
+            margin-top: 40px;    /* 위쪽 여백 충분히 */
+            margin-bottom: 20px; 
             color: var(--text-main);
             border-bottom: 2px solid var(--text-main);
-            padding-bottom: 8px;
+            padding-bottom: 10px;
             line-height: 1.3;
         }
 
         .content-body h2 {
             font-family: var(--font-title);
-            font-size: 1.25rem;
-            margin-top: 25px;    
-            margin-bottom: 10px; 
+            font-size: 1.3rem;
+            margin-top: 35px;    
+            margin-bottom: 15px; 
             color: var(--text-main);
             font-weight: 700;
             border-left: 3px solid var(--accent-point);
-            padding-left: 10px;
+            padding-left: 12px;
             line-height: 1.3;
         }
 
@@ -113,34 +119,36 @@
             background: #f7f3f0;
             border: 1px solid var(--line-color);
             border-radius: 8px;
-            margin: 15px 0;
-            padding: 15px;
+            margin: 20px 0;
+            padding: 15px 20px;
             font-family: var(--font-body);
             font-size: 0.95rem;
             color: #5a4d46;
+            line-height: 1.6;
         }
         .content-body blockquote strong {
             color: var(--accent-point);
         }
 
-        /* --- [핵심 추가] 이미지 크기 제어 및 정렬 --- */
+        /* [핵심 수정] 이미지 최적화: 작고, 예쁘고, 중앙으로 */
         .content-body img {
-            display: block;           /* 블록 요소로 변경 (가운데 정렬 필수 조건) */
-            max-width: 90%;           /* 가로폭 제한 (화면 꽉 차지 않게 여백 줌) */
-            max-height: 400px;        /* 세로 높이 제한 (스크롤 압박 방지) */
+            display: block;           
+            max-width: 85%;           /* 너비를 85%로 줄여서 양옆 여백 확보 */
+            max-height: 350px;        /* 높이를 350px로 강력 제한 (스크롤 압박 해결) */
             width: auto;              /* 비율 유지 */
             height: auto;             /* 비율 유지 */
-            margin: 25px auto;        /* 위아래 25px 띄우고, 좌우는 자동(가운데 정렬) */
-            border-radius: 6px;       /* 모서리 살짝 둥글게 */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 그림자로 깊이감 추가 */
+            margin: 35px auto;        /* 위아래 여백을 넉넉히 줌 (글과 분리) */
+            border-radius: 8px;       
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* 부드러운 그림자 */
+            object-fit: contain;      /* 이미지가 찌그러지지 않게 */
         }
 
         .content-body ul {
             padding-left: 18px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .content-body li {
-            margin-bottom: 4px;
+            margin-bottom: 8px; /* 리스트 간격을 조금 더 띄움 */
             line-height: 1.6;
         }
         .content-body li strong {
@@ -153,11 +161,11 @@
             border: 0;
             height: 1px;
             background: var(--line-color);
-            margin: 20px 0;
+            margin: 40px 0; /* 구분선 여백 확보 */
         }
 
         .book-footer {
-            margin-top: 50px;
+            margin-top: 60px;
             text-align: center;
             border-top: 1px solid var(--line-color);
             padding-top: 30px;
