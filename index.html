@@ -3,279 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOEDU : GARDEN - 따뜻한 지식의 정원</title>
+    <title>SOEUD : GARDEN - 지식의 정원</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Jua&family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Noto+Serif+KR:wght@400;600&family=Pretendard:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 변수 및 기본 설정 (베이지 & 파스텔 톤) --- */
+        /* --- 변수 및 색상 설정 (따뜻한 라떼 & 베이지) --- */
         :root {
-            --bg-main: #fdfcf8;       /* 아주 밝은 크림색 배경 */
-            --bg-card: #ffffff;       /* 카드 배경은 깨끗한 흰색 */
-            --text-main: #5d4037;     /* 따뜻한 진한 갈색 텍스트 */
-            --text-muted: #8d7f7b;    /* 부드러운 팥죽색 보조 텍스트 */
-            --accent-warm: #e5989b;   /* 따뜻한 핑크/코랄 포인트 */
-            --accent-soft: #8eb69b;   /* 부드러운 쑥색 (보조) */
+            --bg-main: #fdfcf8;       /* 크림색 배경 */
+            --bg-card: #ffffff;       /* 흰색 카드 */
+            --text-main: #4a3b32;     /* 진한 커피색 텍스트 */
+            --text-sub: #8c7b75;      /* 연한 모카색 텍스트 */
+            --accent-point: #d88e88;  /* 말린 장미색 (포인트) */
+            --accent-line: #e6ddd8;   /* 연한 베이지 라인 */
             
-            /* 폰트 변수 변경 */
-            --font-logo: 'Fredoka', 'Jua', sans-serif; /* 로고용 동글이 폰트 */
-            --font-serif: 'Noto Serif KR', serif;
-            --font-sans: 'Pretendard', sans-serif;
+            /* 폰트 설정 */
+            --font-logo: 'Playfair Display', serif; /* 우아한 로고 폰트 */
+            --font-title: 'Noto Serif KR', serif;   /* 책 제목용 명조체 */
+            --font-body: 'Pretendard', sans-serif;  /* 본문용 고딕체 */
             
-            --border-radius-soft: 20px; /* 둥글둥글한 모서리 */
+            --radius: 16px; /* 적당히 둥근 모서리 */
         }
 
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
-            font-family: var(--font-sans);
+            font-family: var(--font-body);
             margin: 0;
             padding: 0;
             line-height: 1.7;
-            /* 배경에 아주 은은한 종이 질감 패턴 */
-            background-image: radial-gradient(#d7ccc8 0.5px, transparent 0.5px);
-            background-size: 20px 20px;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         
-        /* --- 레이아웃 --- */
         .container {
-            max-width: 1000px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 0 25px;
+            padding: 0 20px;
         }
 
-        /* --- 헤더 (폰트 변경됨) --- */
+        /* --- 헤더 --- */
         header {
-            padding: 60px 0; /* 여백을 조금 더 줌 */
+            padding: 70px 0;
             text-align: center;
-            margin-bottom: 40px;
         }
 
         .brand-name {
-            font-family: var(--font-logo); /* 동글동글한 폰트 적용 */
-            font-size: 3.5rem; /* 폰트가 귀여워서 조금 더 크게 */
+            font-family: var(--font-logo);
+            font-size: 3.2rem;
             color: var(--text-main);
-            letter-spacing: 2px; /* 자간을 살짝 넓혀 시원하게 */
-            /* 텍스트 그림자도 부드럽게 변경 */
-            text-shadow: 3px 3px 0px #ece0dd; 
-            display: inline-block;
             font-weight: 600;
+            letter-spacing: 1px;
+            font-style: italic; /* 이텔릭체로 감성 더하기 */
+            border-bottom: 2px solid var(--accent-point); /* 밑줄 포인트 */
+            padding-bottom: 5px;
         }
 
-        /* --- Hero Section (메인 대표작) --- */
+        .brand-sub {
+            display: block;
+            margin-top: 15px;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            font-family: var(--font-title);
+        }
+
+        /* --- 메인 히어로 섹션 --- */
         .hero {
+            background-color: #fff;
+            border: 1px solid var(--accent-line);
+            border-radius: var(--radius);
+            padding: 40px;
             display: flex;
             align-items: center;
-            gap: 60px;
-            margin-bottom: 120px;
-            background-color: #fffbf7; 
-            padding: 50px;
-            border-radius: var(--border-radius-soft);
-            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.08); 
+            gap: 50px;
+            margin-bottom: 80px;
+            box-shadow: 0 10px 25px rgba(74, 59, 50, 0.05); /* 은은한 그림자 */
             flex-wrap: wrap;
         }
 
-        .hero-image-wrapper {
+        .hero-img-box {
             flex: 1;
             min-width: 280px;
             display: flex;
             justify-content: center;
         }
 
-        /* 책 표지 디자인 */
-        .book-cover-soft {
-            width: 260px;
-            height: 380px;
-            background: linear-gradient(135deg, #ffdde1, #ee9ca7); 
-            border-radius: var(--border-radius-soft);
-            box-shadow: 
-                5px 5px 15px rgba(93, 64, 55, 0.15),
-                inset -2px -2px 5px rgba(255,255,255,0.5);
-            transition: transform 0.3s ease;
+        .book-cover {
+            width: 240px;
+            height: 350px;
+            background: linear-gradient(to bottom right, #eaddcf, #d8c3b5);
+            border-radius: 4px 12px 12px 4px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-family: var(--font-logo); /* 표지 텍스트도 동글이 폰트로 */
-            font-size: 2.5rem;
-            overflow: hidden;
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            color: #fff;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .book-cover img {
+            width: 100%; height: 100%; object-fit: cover;
         }
 
-        .book-cover-soft img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .book-cover-soft::after {
-            content: '♥';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            color: rgba(255,255,255,0.7);
-        }
-
-        .hero:hover .book-cover-soft {
-            transform: translateY(-8px) rotate(2deg); 
-        }
-
-        .hero-content {
-            flex: 1.3;
+        .hero-text-box {
+            flex: 1.5;
             min-width: 300px;
         }
 
-        .tag-cute {
-            background-color: #fff0f1;
-            color: var(--accent-warm);
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
+        .badge {
+            background-color: var(--accent-point);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
             font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 20px;
-            display: inline-block;
             margin-bottom: 15px;
+            display: inline-block;
         }
 
         .hero-title {
-            font-family: var(--font-serif);
-            font-size: 2.8rem;
+            font-family: var(--font-title);
+            font-size: 2.5rem;
             margin: 0 0 20px 0;
-            font-weight: 700;
-            color: var(--text-main);
-            line-height: 1.3;
+            line-height: 1.2;
+            word-break: keep-all;
         }
 
         .hero-desc {
-            color: var(--text-muted);
-            font-size: 1.05rem;
+            color: var(--text-sub);
             margin-bottom: 30px;
+            font-size: 1.05rem;
         }
 
-        /* 버튼 */
-        .btn-cute {
+        .btn-main {
             display: inline-block;
-            padding: 12px 35px;
-            background-color: var(--accent-warm);
-            color: white;
-            font-weight: 600;
+            padding: 12px 30px;
+            border: 1px solid var(--text-main);
             border-radius: 30px;
-            box-shadow: 0 4px 10px rgba(229, 152, 155, 0.4);
-            transition: all 0.3s ease;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.3s;
         }
 
-        .btn-cute:hover {
-            background-color: #d4878a;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(229, 152, 155, 0.5);
+        .btn-main:hover {
+            background-color: var(--text-main);
+            color: white;
+            border-color: var(--text-main);
         }
 
-        /* --- 섹션 타이틀 --- */
-        .section-title {
+        /* --- 서브 섹션 타이틀 --- */
+        .section-header {
             text-align: center;
-            font-family: var(--font-serif);
-            font-size: 1.8rem;
             margin-bottom: 50px;
-            color: var(--text-main);
             position: relative;
         }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent-soft);
-            margin: 15px auto 0;
-            border-radius: 5px;
+
+        .section-header h2 {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 600;
         }
 
-        /* --- 그리드 리스트 --- */
-        .book-list {
+        /* --- 책 리스트 (그리드) --- */
+        .grid-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 35px;
-            margin-bottom: 120px;
+            gap: 30px;
+            margin-bottom: 100px;
         }
 
-        .book-item {
-            background-color: var(--bg-card);
-            border-radius: var(--border-radius-soft);
+        .card {
+            background: white;
+            border-radius: var(--radius);
             overflow: hidden;
-            border: 2px solid #f0ece3; 
-            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            transition: 0.3s;
         }
 
-        .book-item:hover {
-            transform: translateY(-7px);
-            border-color: var(--accent-warm); 
-            box-shadow: 0 10px 20px rgba(229, 152, 155, 0.15);
+        .card:hover {
+            border-color: var(--accent-point);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(216, 142, 136, 0.15);
         }
 
-        .item-thumb {
+        .card-thumb {
             height: 180px;
-            background-color: #f4eeee; 
+            background-color: #f5f0eb;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
         
-        .item-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
-        .item-info {
+        .card-body {
             padding: 25px;
-            text-align: center;
         }
 
-        .item-title {
-            font-family: var(--font-serif);
+        .card-title {
+            font-family: var(--font-title);
             font-size: 1.2rem;
             margin: 0 0 10px 0;
-            color: var(--text-main);
+            font-weight: 600;
         }
 
-        .item-desc {
+        .card-desc {
             font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
+            color: var(--text-sub);
             line-height: 1.5;
+            margin-bottom: 20px;
+            /* 2줄 이상 넘어가면 ... 처리 */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        .item-link {
-            font-size: 0.9rem;
-            color: var(--accent-warm);
-            font-weight: 700;
-            display: inline-block;
-            border-bottom: 2px dotted var(--accent-warm);
-        }
-        
-        .item-link:hover {
-            color: var(--accent-soft);
-            border-bottom-color: var(--accent-soft);
+        .card-link {
+            font-size: 0.85rem;
+            color: var(--accent-point);
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         /* --- 푸터 --- */
         footer {
+            border-top: 1px solid var(--accent-line);
             text-align: center;
-            padding: 50px 0;
-            color: var(--text-muted);
+            padding: 60px 0;
             font-size: 0.85rem;
-        }
-        
-        footer span {
-            font-family: var(--font-logo); /* 푸터 로고도 동글이 폰트 */
-            font-size: 1.2rem;
-            color: var(--accent-warm);
+            color: var(--text-sub);
         }
 
     </style>
@@ -283,82 +247,77 @@
 <body>
 
     <header>
-        <div class="brand-name">SOEDU : GARDEN</div>
+        <div class="brand-name">SOEUD : GARDEN</div>
+        <span class="brand-sub">기록하고, 연결하고, 성장하는 공간</span>
     </header>
 
     <div class="container">
         
         <section class="hero">
-            <div class="hero-image-wrapper">
-                <div class="book-cover-soft">
-                    Pick!
+            <div class="hero-img-box">
+                <div class="book-cover">
+                    Book
                 </div>
             </div>
-            <div class="hero-content">
-                <span class="tag-cute">이달의 추천도서 🍓</span>
-                <h1 class="hero-title">엔트로피<br>학습법</h1>
+            <div class="hero-text-box">
+                <span class="badge">추천 도서</span>
+                <h1 class="hero-title">엔트로피 학습법</h1>
                 <p class="hero-desc">
-                    머릿속이 복잡할 때, 어떻게 정리해야 할까요?<br>
-                    심리적 무질서를 다스리고 몰입하는 즐거움.<br>
-                    당신을 위한 따뜻한 학습 처방전입니다.
+                    학습할수록 머릿속이 복잡해지나요?<br>
+                    심리적 엔트로피를 낮추고 몰입을 극대화하는<br>
+                    가장 과학적인 학습 전략을 소개합니다.
                 </p>
-                <a href="엔트로피 학습법" class="btn-cute">책 열어보기 ♡</a>
+                <a href="엔트로피 학습법" class="btn-main">책 읽으러 가기</a>
             </div>
         </section>
 
-        <h2 class="section-title">작은 서재의 이야기들</h2>
-        
-        <div class="book-list">
+        <div class="section-header">
+            <h2>Collections</h2>
+        </div>
+
+        <div class="grid-list">
             
-            <article class="book-item">
-                <div class="item-thumb">
-                     📝
-                </div>
-                <div class="item-info">
-                    <h3 class="item-title">누적 직독직해 연습장</h3>
-                    <p class="item-desc">
-                        영어 어순 그대로! 이미지를 그리며<br>
-                        재미있게 익히는 워크북이에요.
+            <article class="card">
+                <div class="card-thumb">📝</div>
+                <div class="card-body">
+                    <h3 class="card-title">누적 직독직해 연습장</h3>
+                    <p class="card-desc">
+                        이미지로 기억하는 영어 독해.<br>
+                        하루 한 장, 쓰면서 익히는 워크북.
                     </p>
-                    <a href="누적 직독직해" class="item-link">자세히 보기</a>
+                    <a href="누적 직독직해" class="card-link">VIEW MORE →</a>
                 </div>
             </article>
 
-            <article class="book-item">
-                <div class="item-thumb" style="background-color: #eaf4e8; color: #8eb69b;">
-                    🌱
-                </div>
-                <div class="item-info">
-                    <h3 class="item-title">말랑말랑 과학 노트</h3>
-                    <p class="item-desc">
-                        어렵게만 느껴지던 과학 원리를<br>
-                        따뜻한 에세이처럼 풀어냈어요.
+            <article class="card">
+                <div class="card-thumb" style="color: #6a9c78;">🌱</div>
+                <div class="card-body">
+                    <h3 class="card-title">말랑말랑 과학</h3>
+                    <p class="card-desc">
+                        중학 과학이 이렇게 재밌었나?<br>
+                        이야기로 풀어낸 과학의 원리.
                     </p>
-                    <span style="color: #aaa; font-size: 0.85rem;">준비 중이에요!</span>
+                    <a href="#" class="card-link" style="color:#aaa;">COMING SOON</a>
                 </div>
             </article>
 
-            <article class="book-item">
-                <div class="item-thumb" style="background-color: #fff5e6; color: #fbc02d;">
-                    ☕
-                </div>
-                <div class="item-info">
-                    <h3 class="item-title">오후 3시의 기록</h3>
-                    <p class="item-desc">
-                        배움과 성장에 대한 소소한 단상들.<br>
-                        당신의 오후에 작은 위로가 되길.
+            <article class="card">
+                <div class="card-thumb" style="color: #d88e88;">🌸</div>
+                <div class="card-body">
+                    <h3 class="card-title">디지털 가든 가이드</h3>
+                    <p class="card-desc">
+                        옵시디언으로 짓는 나만의 지식 정원.<br>
+                        기록이 책이 되는 과정을 담았습니다.
                     </p>
-                    <a href="#" class="item-link">자세히 보기</a>
+                    <a href="#" class="card-link">VIEW MORE →</a>
                 </div>
             </article>
 
         </div>
-
     </div>
 
     <footer>
-        <p>Copyright © 2026 <span>Soedu Garden</span>. All rights reserved.<br>
-        따뜻한 관심과 기록으로 자라는 공간입니다.</p>
+        <p>Copyright © 2026 SOEUD. All rights reserved.</p>
     </footer>
 
 </body>
