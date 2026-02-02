@@ -1,6 +1,7 @@
 ---
 layout: book
 title: 엔트로피 학습법
+permalink: /entropy.html
 date: 2026-02-02
 ---
 
