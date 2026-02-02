@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | Archive S</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
-
     <style>
+        /* (위쪽 변수 설정 부분은 그대로 두세요) */
         :root {
             --bg-main: #fdfcf8;       
-            --text-main: #332b26;     /* 더 진하고 가독성 좋은 색 */
+            --text-main: #332b26;     
             --text-sub: #8c7b75;      
             --accent-point: #d88e88;  
             --line-color: #e6ddd8;
@@ -27,7 +17,7 @@
             color: var(--text-main);
             font-family: var(--font-body);
             margin: 0;
-            line-height: 1.75; /* 줄 간격 최적화 */
+            line-height: 1.75;
         }
 
         header {
@@ -47,13 +37,12 @@
         .book-container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 50px 24px 100px; /* 모바일 좌우 여백 확보 */
+            padding: 40px 24px 80px; /* 위아래 전체 여백도 조금 줄임 */
         }
 
-        /* 책 제목 부분 */
         .chapter-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px; /* 제목 아래 여백 축소 */
         }
         .chapter-label {
             display: block;
@@ -65,7 +54,7 @@
         }
         .chapter-title {
             font-family: var(--font-title);
-            font-size: 2.2rem; /* 모바일 고려 사이즈 축소 */
+            font-size: 2.2rem;
             margin: 0;
             word-break: keep-all;
             line-height: 1.3;
@@ -78,7 +67,6 @@
             font-family: var(--font-body);
         }
 
-        /* 본문 스타일 개선 */
         .content-body {
             font-size: 1.05rem;       
             text-align: left;         
@@ -87,38 +75,36 @@
             letter-spacing: -0.03em;
         }
 
-        /* Part 제목 (큰 구분) */
+        /* [수정 1] Part 제목 간격 대폭 축소 */
         .content-body h1 {
             font-family: var(--font-title);
             font-size: 1.8rem;
             text-align: center;
-            margin-top: 60px;
-            margin-bottom: 30px;
+            margin-top: 40px;    /* 60px -> 40px (위쪽 공간 줄임) */
+            margin-bottom: 20px; /* 30px -> 20px (아래쪽 공간 줄임) */
             color: var(--text-main);
-            border-bottom: 2px solid var(--text-main); /* 안정감을 주는 밑줄 */
-            padding-bottom: 15px;
+            border-bottom: 2px solid var(--text-main);
+            padding-bottom: 10px;
         }
 
-        /* Chapter 제목 (소제목) */
+        /* [수정 2] Chapter 소제목 간격 축소 */
         .content-body h2 {
             font-family: var(--font-title);
-            font-size: 1.4rem; /* 사이즈 줄임 */
-            margin-top: 50px;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-top: 35px;    /* 50px -> 35px (더 가깝게 붙임) */
+            margin-bottom: 12px; /* 15px -> 12px */
             color: var(--text-main);
             font-weight: 700;
-            border-left: 4px solid var(--accent-point); /* 왼쪽 포인트 바 */
+            border-left: 4px solid var(--accent-point);
             padding-left: 12px;
             line-height: 1.3;
         }
 
-        /* 핵심 목표 박스 */
         .content-body blockquote {
             background: #f7f3f0;
-            border: 1px solid var(--line-color); /* 테두리로 안정감 */
-            border-left: none; /* 기존 왼쪽 바 제거 */
+            border: 1px solid var(--line-color);
             border-radius: 8px;
-            margin: 30px 0;
+            margin: 25px 0; /* 박스 위아래 여백 살짝 줄임 */
             padding: 20px;
             font-family: var(--font-body);
             font-size: 0.95rem;
@@ -128,31 +114,30 @@
             color: var(--accent-point);
         }
 
-        /* 리스트 스타일 - 간격 좁히기 */
         .content-body ul {
             padding-left: 20px;
             margin-bottom: 30px;
         }
         .content-body li {
-            margin-bottom: 6px; /* 리스트 간격 좁힘 */
+            margin-bottom: 6px;
             line-height: 1.6;
         }
         .content-body li strong {
             font-weight: 600;
             color: #2a211d;
-            background: linear-gradient(to top, #eee3d8 40%, transparent 40%); /* 형광펜 색상 차분하게 */
+            background: linear-gradient(to top, #eee3d8 40%, transparent 40%);
         }
 
-        /* 구분선 */
+        /* [수정 3] 구분선 여백 대폭 축소 (이게 핵심!) */
         hr {
             border: 0;
             height: 1px;
             background: var(--line-color);
-            margin: 50px 0;
+            margin: 30px 0; /* 50px -> 30px (공백이 확 줄어듦) */
         }
 
         .book-footer {
-            margin-top: 80px;
+            margin-top: 60px; /* 푸터 위 공간도 줄임 */
             text-align: center;
             border-top: 1px solid var(--line-color);
             padding-top: 40px;
@@ -173,32 +158,3 @@
             color: var(--text-main);
         }
     </style>
-</head>
-<body>
-
-    <header>
-        <a href="/" class="brand-mini">Archive S</a>
-    </header>
-
-    <div class="book-container">
-        
-        <div class="chapter-header">
-            <span class="chapter-label">Essay</span>
-            <h1 class="chapter-title">{{ page.title }}</h1>
-            <div class="chapter-meta">
-                Written by Archive S · {{ page.date | date: "%Y. %m. %d" }}
-            </div>
-        </div>
-
-        <div class="content-body">
-            {{ content }}
-        </div>
-
-        <div class="book-footer">
-            <a href="/" class="btn-back">← 서재로 돌아가기</a>
-        </div>
-
-    </div>
-
-</body>
-</html>
