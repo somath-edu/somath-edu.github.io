@@ -1,5 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Archive S</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        /* (위쪽 변수 설정 부분은 그대로 두세요) */
         :root {
             --bg-main: #fdfcf8;       
             --text-main: #332b26;     
@@ -37,7 +47,7 @@
         .book-container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 40px 24px 80px; /* 위아래 전체 여백도 조금 줄임 */
+            padding: 40px 24px 80px; /* 전체 여백 축소 */
         }
 
         .chapter-header {
@@ -75,24 +85,24 @@
             letter-spacing: -0.03em;
         }
 
-        /* [수정 1] Part 제목 간격 대폭 축소 */
+        /* [수정됨] Part 제목 간격 */
         .content-body h1 {
             font-family: var(--font-title);
             font-size: 1.8rem;
             text-align: center;
-            margin-top: 40px;    /* 60px -> 40px (위쪽 공간 줄임) */
-            margin-bottom: 20px; /* 30px -> 20px (아래쪽 공간 줄임) */
+            margin-top: 40px;    /* 위쪽 여백 축소 */
+            margin-bottom: 20px; /* 아래쪽 여백 축소 */
             color: var(--text-main);
             border-bottom: 2px solid var(--text-main);
             padding-bottom: 10px;
         }
 
-        /* [수정 2] Chapter 소제목 간격 축소 */
+        /* [수정됨] Chapter 소제목 간격 */
         .content-body h2 {
             font-family: var(--font-title);
             font-size: 1.4rem;
-            margin-top: 35px;    /* 50px -> 35px (더 가깝게 붙임) */
-            margin-bottom: 12px; /* 15px -> 12px */
+            margin-top: 35px;    /* 위쪽 여백 축소 */
+            margin-bottom: 12px; /* 아래쪽 여백 축소 */
             color: var(--text-main);
             font-weight: 700;
             border-left: 4px solid var(--accent-point);
@@ -104,7 +114,7 @@
             background: #f7f3f0;
             border: 1px solid var(--line-color);
             border-radius: 8px;
-            margin: 25px 0; /* 박스 위아래 여백 살짝 줄임 */
+            margin: 25px 0; /* 박스 여백 축소 */
             padding: 20px;
             font-family: var(--font-body);
             font-size: 0.95rem;
@@ -128,16 +138,16 @@
             background: linear-gradient(to top, #eee3d8 40%, transparent 40%);
         }
 
-        /* [수정 3] 구분선 여백 대폭 축소 (이게 핵심!) */
+        /* [수정됨] 구분선 여백 */
         hr {
             border: 0;
             height: 1px;
             background: var(--line-color);
-            margin: 30px 0; /* 50px -> 30px (공백이 확 줄어듦) */
+            margin: 30px 0; /* 구분선 위아래 여백 대폭 축소 */
         }
 
         .book-footer {
-            margin-top: 60px; /* 푸터 위 공간도 줄임 */
+            margin-top: 60px;
             text-align: center;
             border-top: 1px solid var(--line-color);
             padding-top: 40px;
@@ -158,3 +168,32 @@
             color: var(--text-main);
         }
     </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="brand-mini">Archive S</a>
+    </header>
+
+    <div class="book-container">
+        
+        <div class="chapter-header">
+            <span class="chapter-label">Essay</span>
+            <h1 class="chapter-title">{{ page.title }}</h1>
+            <div class="chapter-meta">
+                Written by Archive S · {{ page.date | date: "%Y. %m. %d" }}
+            </div>
+        </div>
+
+        <div class="content-body">
+            {{ content }}
+        </div>
+
+        <div class="book-footer">
+            <a href="/" class="btn-back">← 서재로 돌아가기</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
