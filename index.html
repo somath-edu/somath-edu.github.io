@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Jua&family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         /* --- 변수 및 기본 설정 (베이지 & 파스텔 톤) --- */
@@ -18,10 +18,13 @@
             --text-muted: #8d7f7b;    /* 부드러운 팥죽색 보조 텍스트 */
             --accent-warm: #e5989b;   /* 따뜻한 핑크/코랄 포인트 */
             --accent-soft: #8eb69b;   /* 부드러운 쑥색 (보조) */
-            --font-script: 'Dancing Script', cursive; /* 요청하신 흘림체 */
+            
+            /* 폰트 변수 변경 */
+            --font-logo: 'Fredoka', 'Jua', sans-serif; /* 로고용 동글이 폰트 */
             --font-serif: 'Noto Serif KR', serif;
             --font-sans: 'Pretendard', sans-serif;
-            --border-radius-soft: 20px; /* 둥글둥글한 모서리 값 */
+            
+            --border-radius-soft: 20px; /* 둥글둥글한 모서리 */
         }
 
         body {
@@ -31,7 +34,7 @@
             margin: 0;
             padding: 0;
             line-height: 1.7;
-            /* 배경에 아주 은은한 종이 질감 패턴 추가 (선택사항) */
+            /* 배경에 아주 은은한 종이 질감 패턴 */
             background-image: radial-gradient(#d7ccc8 0.5px, transparent 0.5px);
             background-size: 20px 20px;
         }
@@ -45,21 +48,22 @@
             padding: 0 25px;
         }
 
-        /* --- 헤더 (흘림체 적용) --- */
+        /* --- 헤더 (폰트 변경됨) --- */
         header {
-            padding: 50px 0;
+            padding: 60px 0; /* 여백을 조금 더 줌 */
             text-align: center;
             margin-bottom: 40px;
         }
 
         .brand-name {
-            font-family: var(--font-script); /* 흘림체 */
-            font-size: 3rem; /* 흘림체는 커야 예쁩니다 */
+            font-family: var(--font-logo); /* 동글동글한 폰트 적용 */
+            font-size: 3.5rem; /* 폰트가 귀여워서 조금 더 크게 */
             color: var(--text-main);
-            /* 약간의 기울기와 부드러운 그림자 */
-            transform: rotate(-2deg); 
-            text-shadow: 2px 2px 0px #ece0dd;
+            letter-spacing: 2px; /* 자간을 살짝 넓혀 시원하게 */
+            /* 텍스트 그림자도 부드럽게 변경 */
+            text-shadow: 3px 3px 0px #ece0dd; 
             display: inline-block;
+            font-weight: 600;
         }
 
         /* --- Hero Section (메인 대표작) --- */
@@ -68,10 +72,10 @@
             align-items: center;
             gap: 60px;
             margin-bottom: 120px;
-            background-color: #fffbf7; /* 히어로 섹션만 살짝 다른 배경 */
+            background-color: #fffbf7; 
             padding: 50px;
             border-radius: var(--border-radius-soft);
-            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.08); /* 부드러운 갈색 그림자 */
+            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.08); 
             flex-wrap: wrap;
         }
 
@@ -82,11 +86,10 @@
             justify-content: center;
         }
 
-        /* 책 표지 디자인 (부드럽게) */
+        /* 책 표지 디자인 */
         .book-cover-soft {
             width: 260px;
             height: 380px;
-            /* 표지 없을 때 기본 파스텔 그라데이션 */
             background: linear-gradient(135deg, #ffdde1, #ee9ca7); 
             border-radius: var(--border-radius-soft);
             box-shadow: 
@@ -97,20 +100,18 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-family: var(--font-script);
+            font-family: var(--font-logo); /* 표지 텍스트도 동글이 폰트로 */
             font-size: 2.5rem;
             overflow: hidden;
             position: relative;
         }
 
-        /* 실제 이미지 들어갈 때 */
         .book-cover-soft img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* 책 위에 귀여운 장식 요소 (선택사항) */
         .book-cover-soft::after {
             content: '♥';
             position: absolute;
@@ -121,7 +122,7 @@
         }
 
         .hero:hover .book-cover-soft {
-            transform: translateY(-8px) rotate(2deg); /* 살짝 들리면서 회전 */
+            transform: translateY(-8px) rotate(2deg); 
         }
 
         .hero-content {
@@ -156,14 +157,14 @@
             margin-bottom: 30px;
         }
 
-        /* 동글동글한 버튼 */
+        /* 버튼 */
         .btn-cute {
             display: inline-block;
             padding: 12px 35px;
             background-color: var(--accent-warm);
             color: white;
             font-weight: 600;
-            border-radius: 30px; /* 알약 모양 */
+            border-radius: 30px;
             box-shadow: 0 4px 10px rgba(229, 152, 155, 0.4);
             transition: all 0.3s ease;
         }
@@ -184,7 +185,6 @@
             position: relative;
         }
         
-        /* 타이틀 밑에 귀여운 밑줄 장식 */
         .section-title::after {
             content: '';
             display: block;
@@ -195,7 +195,7 @@
             border-radius: 5px;
         }
 
-        /* --- 그리드 리스트 (아기자기하게) --- */
+        /* --- 그리드 리스트 --- */
         .book-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -207,26 +207,25 @@
             background-color: var(--bg-card);
             border-radius: var(--border-radius-soft);
             overflow: hidden;
-            border: 2px solid #f0ece3; /* 연한 베이지 테두리 */
+            border: 2px solid #f0ece3; 
             transition: all 0.3s ease;
         }
 
         .book-item:hover {
             transform: translateY(-7px);
-            border-color: var(--accent-warm); /* 호버시 핑크 테두리 */
+            border-color: var(--accent-warm); 
             box-shadow: 0 10px 20px rgba(229, 152, 155, 0.15);
         }
 
         .item-thumb {
             height: 180px;
-            background-color: #f4eeee; /* 연한 핑크 그레이 배경 */
+            background-color: #f4eeee; 
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
         }
         
-        /* 썸네일 이미지용 */
         .item-thumb img {
             width: 100%;
             height: 100%;
@@ -257,7 +256,7 @@
             color: var(--accent-warm);
             font-weight: 700;
             display: inline-block;
-            border-bottom: 2px dotted var(--accent-warm); /* 점선 밑줄 */
+            border-bottom: 2px dotted var(--accent-warm);
         }
         
         .item-link:hover {
@@ -274,7 +273,7 @@
         }
         
         footer span {
-            font-family: var(--font-script);
+            font-family: var(--font-logo); /* 푸터 로고도 동글이 폰트 */
             font-size: 1.2rem;
             color: var(--accent-warm);
         }
