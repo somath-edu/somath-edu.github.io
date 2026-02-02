@@ -3,6 +3,8 @@ layout: book
 title: Chapter 2. 뇌를 공격하는 무질서의 요인들
 permalink: /entropy-ch2.html
 date: 2026-02-02
+prev_link: /entropy-ch1.html
+next_link: /entropy-ch3.html
 ---
 
 우리의 뇌는 외부 자극에 매우 민감하게 반응합니다. 
