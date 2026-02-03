@@ -4,7 +4,7 @@ title: Chapter 3. 과부하 걸린 뇌의 비명
 permalink: /entropy-ch3.html
 date: 2026-02-02
 prev_link: /entropy-ch2.html
-next_link:  # 다음 글이 생기면 그때 추가
+next_link: /entropy-ch4.html
 ---
 
 조용한 방, 깨끗한 책상, 꺼져 있는 스마트폰. 완벽한 환경을 만들어 주었는데도 아이는 멍하니 앉아 있거나, 30분을 못 넘기고 엎드려 잡니다.
