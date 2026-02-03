@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
     <style>
         :root {
             --bg-main: #fdfcf8;       
@@ -32,7 +34,7 @@
 
         header {
             text-align: center;
-            padding: 10px 0 5px;
+            padding: 10px 0 5px; /* 헤더 높이 최소화 */
             border-bottom: 1px solid var(--line-color);
         }
         .brand-mini {
@@ -47,12 +49,12 @@
         .book-container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 10px 20px 80px; /* 하단 여백 충분히 확보 */
+            padding: 10px 20px 80px; /* 본문 위 여백 최소화 */
         }
 
         .chapter-header {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* 제목과 본문 사이 좁게 */
         }
         .chapter-label {
             display: block;
@@ -89,11 +91,12 @@
             margin-bottom: 1.0rem;
         }
 
+        /* Part 제목 여백 최적화 (초밀착) */
         .content-body h1 {
             font-family: var(--font-title);
             font-size: 1.5rem;
             text-align: center;
-            margin-top: 10px;    
+            margin-top: 10px;    /* 구분선 바로 밑으로 당김 */
             margin-bottom: 10px; 
             color: var(--text-main);
             border-bottom: 2px solid var(--text-main);
@@ -101,6 +104,7 @@
             line-height: 1.2;
         }
 
+        /* Chapter 소제목 여백 최적화 */
         .content-body h2 {
             font-family: var(--font-title);
             font-size: 1.3rem;
@@ -161,18 +165,17 @@
             margin: 15px 0;
         }
 
-        /* --- [핵심 수정] 3단 네비게이션 푸터 --- */
+        /* [네비게이션 스타일] */
         .book-navigation {
-            margin-top: 50px;
+            margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid var(--line-color);
-            display: flex; /* 가로 배치 */
-            justify-content: space-between; /* 양 끝 정렬 */
-            align-items: center; /* 수직 중앙 정렬 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-family: var(--font-body);
         }
 
-        /* 공통 버튼 스타일 */
         .nav-btn {
             text-decoration: none;
             color: var(--text-sub);
@@ -186,7 +189,6 @@
             background-color: #f5f0eb;
         }
 
-        /* 가운데 '서재로' 버튼 */
         .nav-center {
             font-weight: 600;
             border: 1px solid var(--line-color);
@@ -197,9 +199,22 @@
             border-color: var(--text-main);
         }
 
-        /* 빈 공간 채우기용 (좌/우 버튼 없을 때 레이아웃 유지) */
         .nav-placeholder {
-            width: 60px; /* 버튼 대략적인 너비 */
+            width: 80px; 
+        }
+
+        /* [방문자 카운터 스타일] */
+        .visitor-count {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #bbb;
+            font-family: var(--font-body);
+            letter-spacing: 0.5px;
+        }
+        .visitor-count span {
+            color: var(--text-sub);
+            font-weight: 600;
         }
 
         @media (max-width: 600px) {
@@ -211,7 +226,6 @@
                 max-height: 250px; 
                 margin: 15px auto;
             }
-            /* 모바일에서 버튼 글씨 조금 작게 */
             .nav-btn {
                 font-size: 0.8rem; 
                 padding: 6px 8px;
@@ -242,17 +256,29 @@
         <div class="book-navigation">
             
             {% if page.prev_link %}
-                <a href="{{ page.prev_link }}" class="nav-btn">← 이전</a>
+                <a href="{{ page.prev_link }}" class="nav-btn">← 뒤로가기</a>
             {% else %}
-                <span class="nav-placeholder"></span> {% endif %}
+                <span class="nav-placeholder"></span>
+            {% endif %}
 
             <a href="/entropy.html" class="nav-btn nav-center">서재로</a>
 
             {% if page.next_link %}
-                <a href="{{ page.next_link }}" class="nav-btn">다음 →</a>
+                <a href="{{ page.next_link }}" class="nav-btn">앞으로가기 →</a>
             {% else %}
-                <span class="nav-placeholder"></span> {% endif %}
+                <span class="nav-placeholder"></span>
+            {% endif %}
 
+        </div>
+
+        <div class="visitor-count">
+            <span id="busuanzi_container_site_pv" style="display:none">
+                Total Views <span id="busuanzi_value_site_pv"></span>
+            </span>
+            &nbsp;&nbsp;·&nbsp;&nbsp;
+            <span id="busuanzi_container_site_uv" style="display:none">
+                Visitors <span id="busuanzi_value_site_uv"></span>
+            </span>
         </div>
 
     </div>
