@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
     <style>
         :root {
             --bg-main: #fdfcf8;       
@@ -34,7 +32,7 @@
 
         header {
             text-align: center;
-            padding: 10px 0 5px; /* 헤더 높이 최소화 */
+            padding: 10px 0 5px; /* 헤더 높이 최소화 유지 */
             border-bottom: 1px solid var(--line-color);
         }
         .brand-mini {
@@ -49,12 +47,12 @@
         .book-container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 10px 20px 80px; /* 본문 위 여백 최소화 */
+            padding: 10px 20px 80px; /* 본문 위 여백 최소화 유지 */
         }
 
         .chapter-header {
             text-align: center;
-            margin-bottom: 15px; /* 제목과 본문 사이 좁게 */
+            margin-bottom: 15px; /* 제목과 본문 사이 좁게 유지 */
         }
         .chapter-label {
             display: block;
@@ -165,7 +163,7 @@
             margin: 15px 0;
         }
 
-        /* [네비게이션 스타일] */
+        /* [네비게이션 스타일 유지] */
         .book-navigation {
             margin-top: 40px;
             padding-top: 20px;
@@ -201,20 +199,6 @@
 
         .nav-placeholder {
             width: 80px; 
-        }
-
-        /* [방문자 카운터 스타일] */
-        .visitor-count {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 0.75rem;
-            color: #bbb;
-            font-family: var(--font-body);
-            letter-spacing: 0.5px;
-        }
-        .visitor-count span {
-            color: var(--text-sub);
-            font-weight: 600;
         }
 
         @media (max-width: 600px) {
@@ -269,16 +253,6 @@
                 <span class="nav-placeholder"></span>
             {% endif %}
 
-        </div>
-
-        <div class="visitor-count">
-            <span id="busuanzi_container_site_pv" style="display:none">
-                Total Views <span id="busuanzi_value_site_pv"></span>
-            </span>
-            &nbsp;&nbsp;·&nbsp;&nbsp;
-            <span id="busuanzi_container_site_uv" style="display:none">
-                Visitors <span id="busuanzi_value_site_uv"></span>
-            </span>
         </div>
 
     </div>
