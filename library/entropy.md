@@ -5,7 +5,7 @@ permalink: /entropy.html
 ---
 
 <style>
-  /* 전체 컨테이너: 책 느낌의 명조체 적용 */
+  /* 전체 컨테이너 */
   .book-style-wrapper {
     font-family: "KoPub Batang", "Merriweather", "Georgia", "Batang", serif;
     color: #2c2c2c;
@@ -15,6 +15,18 @@ permalink: /entropy.html
     line-height: 1.6;
   }
 
+  /* 메인 제목 스타일 (추가됨) */
+  .main-book-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    color: #111;
+    letter-spacing: -1px;
+    line-height: 1.2;
+  }
+
   /* 서문 텍스트 */
   .intro-text {
     text-align: center;
@@ -22,9 +34,10 @@ permalink: /entropy.html
     margin-bottom: 60px;
     font-size: 1.05rem;
     font-weight: 400;
+    word-break: keep-all; /* 단어 단위 줄바꿈 */
   }
 
-  /* Part 제목: 굵고 크게 */
+  /* Part 제목 */
   .part-title {
     font-size: 1.5rem;
     font-weight: 700;
@@ -35,10 +48,10 @@ permalink: /entropy.html
     color: #111;
   }
 
-  /* 챕터 한 줄 (제목 ...... Read) */
+  /* 챕터 한 줄 */
   .chapter-row {
     display: flex;
-    align-items: baseline; /* 글자 밑라인 맞춤 */
+    align-items: baseline;
     margin-bottom: 18px;
     width: 100%;
   }
@@ -48,22 +61,22 @@ permalink: /entropy.html
     font-size: 1.15rem;
     font-weight: 500;
     color: #333;
-    flex-shrink: 0; /* 줄어들지 않음 */
+    flex-shrink: 0;
   }
 
-  /* 가운데 점선 (남는 공간 다 차지) */
+  /* 가운데 점선 */
   .dots {
     flex-grow: 1;
     border-bottom: 1px dotted #999;
     margin: 0 12px;
     position: relative;
-    top: -5px; /* 점선 위치 살짝 위로 */
+    top: -5px;
   }
 
   /* Read 버튼 */
   .read-btn {
     font-size: 0.9rem;
-    color: #d9480f; /* 포인트 컬러 (오렌지 계열) */
+    color: #d9480f;
     text-decoration: none;
     font-weight: bold;
     flex-shrink: 0;
@@ -75,14 +88,16 @@ permalink: /entropy.html
     text-decoration: underline;
   }
 
-  /* 모바일 최적화 */
   @media (max-width: 500px) {
+    .main-book-title { font-size: 1.8rem; }
     .chapter-title { font-size: 1rem; }
     .part-title { font-size: 1.3rem; }
   }
 </style>
 
 <div class="book-style-wrapper">
+
+  <h1 class="main-book-title">엔트로피 학습법</h1>
 
   <p class="intro-text">
     학습할수록 머릿속이 복잡해지나요?<br>
