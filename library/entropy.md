@@ -150,7 +150,7 @@ permalink: /entropy.html
   <div class="chapter-row">
     <span class="chapter-title">07. 루틴: 지속 가능한 시스템</span>
     <span class="dots"></span>
-    <a href="#" class="read-btn">Read →</a>
+    <a href="/entropy-ch7.html" class="read-btn">Read →</a>
   </div>
 
 </div>
