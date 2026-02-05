@@ -6,62 +6,58 @@ date: 2026-02-02
 ---
 
 <br>
+<p style="text-align: center; color: #555; line-height: 1.6; margin-bottom: 30px;">
+학습할수록 머릿속이 복잡해지나요?<br>
+심리적 엔트로피를 낮추고 몰입을 극대화하는<br>
+<strong>가장 과학적인 학습 전략</strong>을 제안합니다.
+</p>
 
-학습할수록 머릿속이 복잡해지나요? 심리적 엔트로피를 낮추고 몰입을 극대화하는 **가장 과학적인 학습 전략**을 제안합니다.
+<div class="book-toc">
 
-<br>
-<hr>
-<br>
-# Part 1. 진단: 무질서해진 머릿속
+  <div class="toc-part-title">Part 1. 진단: 무질서해진 머릿속</div>
 
-> **핵심 목표**<br>
-> 아이들의 학습 상황을 **'높은 엔트로피(무질서)'** 상태로 정의하고, 그 원인을 파악합니다.
+  <div class="toc-chapter">
+    <span class="toc-chapter-title">01. 학습 엔트로피의 정체</span>
+    <span class="toc-dots"></span>
+    <a href="/entropy-ch1.html" class="toc-read-btn">Read →</a>
+  </div>
 
-## [01. 학습 엔트로피의 정체](/entropy-ch1.html)
-- **정의**: 물리학의 엔트로피 개념을 학습에 적용 (무질서도 증가 = 효율 감소)
-- **현주소**: 시간은 많이 쓰는데 성적은 안 나오는 '고비용 저효율' 상태
-- **[진단] 우리 아이 무질서도 체크**
-    - [ ] 책상 위에 일주일 지난 프린트물이 있다.
-    - [ ] 공부 시작 전 딴짓하는 시간이 10분 넘는다.
-    - [ ] "방금 뭐 읽었어?"라고 물으면 대답을 못 한다.
+  <div class="toc-chapter">
+    <span class="toc-chapter-title">02. 외부의 적: 디지털과 환경</span>
+    <span class="toc-dots"></span>
+    <a href="/entropy-ch2.html" class="toc-read-btn">Read →</a>
+  </div>
 
-## [02. 외부의 적: 디지털과 환경](/entropy-ch2.html)
-- **디지털 엔트로피**: 스마트폰 알림과 멀티태스킹이 만드는 주의력 파편화
-- **환경 엔트로피**: 정리되지 않은 책상이 뇌에 주는 시각적 스트레스
-- **정보의 역설**: 자료가 많을수록 오히려 선택을 못 하고 방황하는 현상
+  <div class="toc-chapter">
+    <span class="toc-chapter-title">03. 내부의 적: 인지 과부하</span>
+    <span class="toc-dots"></span>
+    <a href="/entropy-ch3.html" class="toc-read-btn">Read →</a>
+  </div>
 
-## [03. 내부의 적: 인지 과부하](/entropy-ch3.html)
-- **인지 부하 이론**: 우리 뇌가 한 번에 처리할 수 있는 용량은 정해져 있다.
-- **메타인지 오류**: 눈으로 '본 것'을 머리에 '넣은 것'으로 착각하는 상태
-- **증상**: 머리가 멍해지는 '브레인 포그(Brain Fog)'와 학습 무기력
+  <div class="toc-part-title">Part 2. 처방: 질서를 만드는 힘</div>
 
-<br>
-<hr>
-<br>
-# Part 2. 처방: 질서를 만드는 힘
+  <div class="toc-chapter">
+    <span class="toc-chapter-title">04. 단순함이 능력이다</span>
+    <span class="toc-dots"></span>
+    <a href="/entropy-ch4.html" class="toc-read-btn">Read →</a>
+  </div>
 
-> **핵심 목표**<br>
-> 무질서를 통제하여 **엔트로피를 낮추고**, 학습 효율을 극대화하는 구체적 솔루션을 제시합니다.
+  <div class="toc-chapter">
+    <span class="toc-chapter-title">05. 환경 설계: 몰입의 공간</span>
+    <span class="toc-dots"></span>
+    <a href="/entropy-ch5.html" class="toc-read-btn">Read →</a>
+  </div>
 
-## [04. 단순함이 능력이다](/entropy-ch4.html)
-- **뇌의 본능**: 뇌는 무질서를 싫어하고 패턴(질서)을 좋아한다.
-- **미니멀 학습**: 덜어낼수록 핵심이 명확해진다.
-- **[전략] 엔트로피 감소 3단계**
-    1. **인지 (Awareness)**: 혼란스러운 상태 알아차리기
-    2. **제거 (Removal)**: 불필요한 자극 없애기
-    3. **구조화 (Structure)**: 남은 정보를 체계적으로 정리하기
+  <div class="toc-chapter">
+    <span class="toc-chapter-title">06. 지식 압축: 청킹과 구조화</span>
+    <span class="toc-dots"></span>
+    <a href="/entropy-ch6.html" class="toc-read-btn">Read →</a>
+  </div>
+  
+  <div class="toc-chapter">
+    <span class="toc-chapter-title">07. 루틴: 지속 가능한 시스템</span>
+    <span class="toc-dots"></span>
+    <a href="#" class="toc-read-btn">Read →</a>
+  </div>
 
-## [05. 환경 설계: 몰입의 공간](/entropy-ch5.html)
-- **차단**: 스마트폰과 소음을 물리적으로 격리하는 법
-- **세팅**: 앉자마자 공부가 시작되도록 '마찰력' 줄이기
-- **싱글 태스킹**: 한 번에 하나씩, 뇌 에너지 누수 막기
-
-## [06. 지식 압축: 청킹과 구조화](/entropy-ch6.html)
-- **청킹(Chunking)**: 흩어진 정보를 의미 있는 덩어리로 묶기
-- **구조화 필기**: 목차를 통해 뇌 속에 '지식 서랍' 만들기
-- **인출 연습**: 머릿속 정보를 꺼내보며 질서가 잡혔는지 확인하기
-
-## 07. 루틴: 지속 가능한 시스템
-- **골든타임**: 뇌 에너지가 가장 좋은 시간에 어려운 공부 배치하기
-- **뇌 휴식**: 멍때리기와 수면으로 뇌의 열기(엔트로피) 식히기
-- **습관화**: 의지력 없이도 몸이 기억하는 자동화 시스템 만들기
+</div>
