@@ -4,7 +4,7 @@ title: Chapter 4. 단순함이 곧 능력이다
 permalink: /entropy-ch4.html
 date: 2026-02-02
 prev_link: /entropy-ch3.html
-next_link: 
+next_link: /entropy-ch5.html
 ---
 
 ## 1. 뇌는 질서를 갈망한다: 패턴과 구조의 미학
