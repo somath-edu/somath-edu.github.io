@@ -11,16 +11,18 @@ permalink: /entropy.html
     color: #2c2c2c;
     max-width: 680px;
     margin: 0 auto;
-    padding: 20px 10px;
+    /* [수정] 위쪽 여백을 없애서 Home과 더 가까이 붙임 */
+    padding: 0px 10px 20px 10px; 
     line-height: 1.6;
   }
 
-  /* 메인 제목 스타일 (추가됨) */
+  /* 메인 제목 스타일 */
   .main-book-title {
     font-size: 2.2rem;
     font-weight: 800;
     text-align: center;
-    margin-top: 0px;
+    /* [수정] 마이너스 마진으로 강제로 위로 20px 끌어올림 */
+    margin-top: -20px; 
     margin-bottom: 30px;
     color: #111;
     letter-spacing: -1px;
@@ -34,7 +36,7 @@ permalink: /entropy.html
     margin-bottom: 60px;
     font-size: 1.05rem;
     font-weight: 400;
-    word-break: keep-all; /* 단어 단위 줄바꿈 */
+    word-break: keep-all;
   }
 
   /* Part 제목 */
