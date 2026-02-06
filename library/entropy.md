@@ -158,7 +158,7 @@ permalink: /entropy.html
   <div class="chapter-row">
     <span class="chapter-title">Chapter 8. Ai 노트법 활용</span>
     <span class="dots"></span>
-    <a href="/entropy-ch4.html" class="read-btn">Read →</a>
+    <a href="/entropy-ch8.html" class="read-btn">Read →</a>
   </div>
   
 </div>
