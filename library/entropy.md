@@ -160,5 +160,12 @@ permalink: /entropy.html
     <span class="dots"></span>
     <a href="/entropy-ch8.html" class="read-btn">Read →</a>
   </div>
+
+  <div class="chapter-row">
+    <span class="chapter-title">09. 사랑이라는 착각, 욕심이라는 독</span>
+    <span class="dots"></span>
+    <a href="/entropy-ch9.html" class="read-btn">Read →</a>
+  </div>
+
   
 </div>
