@@ -32,7 +32,7 @@ prev_link: /entropy-ch7.html
 <hr>
 <br>
 
-## Phase 1. 입력 및 검증 (Loading & Verifying)
+## 1. 입력 및 검증
 
 > **원칙**<br>
 > "AI에게 맡기되, 원본과 대조하여 첫 단추를 확실히 끼운다."
@@ -58,7 +58,7 @@ prev_link: /entropy-ch7.html
 <hr>
 <br>
 
-## Phase 2. 사고와 익숙함 (Flow & Familiarity)
+## 2. 사고와 익숙함
 
 > **원칙**<br>
 > "기억나지 않으면 즉시 본다. 뇌에 바르듯 익숙해지는 것이 목표."
@@ -82,7 +82,7 @@ prev_link: /entropy-ch7.html
 <hr>
 <br>
 
-## Phase 3. 교류와 완성 (Socializing & Refining)
+## 3. 교류와 완성ㅔ
 
 > **원칙**<br>
 > "나의 부족함을 친구와의 대화 소재로 삼아 완성한다."
