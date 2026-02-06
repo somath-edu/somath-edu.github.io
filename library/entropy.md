@@ -153,7 +153,7 @@ permalink: /entropy.html
     <a href="/entropy-ch7.html" class="read-btn">Read →</a>
   </div>
 
-  <div class="part-title">Part 3. 실천 (실생활 활용)</div>
+  <div class="part-title">Part 3. 실천: 실생활 활용</div>
 
   <div class="chapter-row">
     <span class="chapter-title">08. Ai 노트법 활용</span>
