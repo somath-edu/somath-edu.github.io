@@ -4,6 +4,7 @@ title: Chapter 7. 지속 가능한 질서 (엔트로피를 관리하는 루틴)
 permalink: /entropy-ch7.html
 date: 2026-02-06
 prev_link: /entropy-ch6.html
+next_link: /entropy-ch8.html
 ---
 
 > **핵심 원칙**<br>
