@@ -1,6 +1,6 @@
 ---
 layout: book
-title: Chapter 4. 단순함이 곧 능력이다
+title: Chapter 4. 단순함의 힘
 permalink: /entropy-ch4.html
 date: 2026-02-02
 prev_link: /entropy-ch3.html
