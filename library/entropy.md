@@ -130,7 +130,7 @@ permalink: /entropy.html
   <div class="part-title">Part 2. 처방: 질서를 만드는 힘</div>
 
   <div class="chapter-row">
-    <span class="chapter-title">04. 단순함이 능력이다</span>
+    <span class="chapter-title">04. 단순함의 힘</span>
     <span class="dots"></span>
     <a href="/entropy-ch4.html" class="read-btn">Read →</a>
   </div>
