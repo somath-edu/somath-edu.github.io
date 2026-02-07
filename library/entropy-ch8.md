@@ -1,6 +1,6 @@
 ---
 layout: book
-title: Chapter 8. AI 노트법 활용 (노트의 한계를 넘는 사고학습)
+title: Chapter 8. AI 노트법 활용
 permalink: /entropy-ch8.html
 date: 2026-02-06
 prev_link: /entropy-ch7.html
