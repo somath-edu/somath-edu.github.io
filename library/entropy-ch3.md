@@ -1,6 +1,6 @@
 ---
 layout: book
-title: Chapter 3. 과부하 걸린 뇌의 비명
+title: Chapter 3. 내부의 적, 인지 과부하
 permalink: /entropy-ch3.html
 date: 2026-02-02
 prev_link: /entropy-ch2.html
