@@ -1,6 +1,6 @@
 ---
 layout: book
-title: Chapter 7. 루틴: 지속 가능한 시스템
+title: Chapter 7. 루틴, 지속 가능한 시스템
 permalink: /entropy-ch7.html
 date: 2026-02-06
 prev_link: /entropy-ch6.html
