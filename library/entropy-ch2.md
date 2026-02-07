@@ -1,6 +1,6 @@
 ---
 layout: book
-title: Chapter 2. 뇌를 공격하는 무질서의 요인들
+title: Chapter 2. 외부의 적, 디지털과 환경
 permalink: /entropy-ch2.html
 date: 2026-02-02
 prev_link: /entropy-ch1.html
