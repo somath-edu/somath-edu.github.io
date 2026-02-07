@@ -43,7 +43,7 @@ next_link: /entropy.html
 <hr>
 <br>
 
-## 2. 체(體): 무질서를 이기는 에너지
+## 2. 체(體): 에너지
 
 <div style="background-color: #fff5f5; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
   <strong style="color: #c53030;">⚠️ 뇌과학의 진실</strong><br><br>
@@ -72,7 +72,7 @@ next_link: /entropy.html
 <hr>
 <br>
 
-## 3. 덕(德): 고립을 막는 관계의 힘
+## 3. 덕(德): 관계의 힘
 
 여기서 '덕'은 착한 아이가 되라는 뜻이 아닙니다.<br>
 공부에서 덕은 **'다른 사람과 건강하게 연결되는 능력'**을 의미합니다.
@@ -118,7 +118,7 @@ next_link: /entropy.html
 <hr>
 <br>
 
-## 4. 지(智): 무질서 없는 지혜의 결정
+## 4. 지(智): 지혜의 결정
 
 체(몸)로 에너지를 확보하고, 덕(관계)으로 오류를 걸러냈다면, 그제야 비로소 **진짜 지혜**가 완성됩니다.
 
