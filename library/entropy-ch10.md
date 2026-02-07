@@ -43,7 +43,7 @@ next_link: /entropy.html
 <hr>
 <br>
 
-## 2. 체(體): 에너지
+## 2. 체(體): 학습의 힘
 
 <div style="background-color: #fff5f5; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
   <strong style="color: #c53030;">⚠️ 뇌과학의 진실</strong><br><br>
@@ -118,7 +118,7 @@ next_link: /entropy.html
 <hr>
 <br>
 
-## 4. 지(智): 지혜의 결정
+## 4. 지(智): 이해의 힘
 
 체(몸)로 에너지를 확보하고, 덕(관계)으로 오류를 걸러냈다면, 그제야 비로소 **진짜 지혜**가 완성됩니다.
 
@@ -188,6 +188,4 @@ next_link: /entropy.html
 이 책을 덮는 순간, 아이에게 "공부해라"라는 말 대신 **따뜻한 밥 한 끼와 눈 맞춤**을 건네주세요.<br>
 그것이 무질서를 낮추는 가장 빠른 길입니다.
 
-<br>
-<hr>
 <br>
