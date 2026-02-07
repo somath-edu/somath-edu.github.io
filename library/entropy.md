@@ -167,5 +167,11 @@ permalink: /entropy.html
     <a href="/entropy-ch9.html" class="read-btn">Read →</a>
   </div>
 
+ <div class="chapter-row">
+    <span class="chapter-title">10. 몸이라는 그릇, 관계라는 통로</span>
+    <span class="dots"></span>
+    <a href="/entropy-ch10.html" class="read-btn">Read →</a>
+  </div>
+
   
 </div>
