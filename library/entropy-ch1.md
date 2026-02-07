@@ -1,6 +1,6 @@
 ---
 layout: book
-title: Chapter 1. 학습 엔트로피란 무엇인가?
+title: Chapter 1. 학습 엔트로피의 정체
 permalink: /entropy-ch1.html
 date: 2026-02-02
 prev_link: 
