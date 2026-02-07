@@ -1,6 +1,6 @@
 ---
 layout: book
-title: Chapter 5. 환경 설계: 몰입의 공간
+title: Chapter 5. 환경 설계, 몰입의 공간
 permalink: /entropy-ch5.html
 date: 2026-02-04
 prev_link: /entropy-ch4.html
