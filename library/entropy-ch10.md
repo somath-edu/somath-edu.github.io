@@ -1,6 +1,6 @@
 ---
 layout: book
-title: Chapter 10. 무질서를 이기는 힘 (체·덕·지의 재발견)
+title: Chapter 10. 몸이라는 그릇, 관계라는 통로
 permalink: /entropy-ch10.html
 date: 2026-02-08
 prev_link: /entropy-ch9.html
