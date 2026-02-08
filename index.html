@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archive S - 지식의 정원</title>
     
-    <link rel="preload" as="image" href="/assets/IMG_1754.webp">
+    <link rel="preload" as="image" href="assets/IMG_1754.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -239,7 +239,7 @@
             color: var(--text-sub);
         }
         
-        /* 작가 배너 스타일 */
+        /* --- [수정된 부분] 작가 아이콘 (우측 상단 고정) --- */
         .author-badge {
             position: fixed;
             top: 20px;
@@ -252,13 +252,17 @@
             cursor: pointer;
             transition: transform 0.2s ease;
         }
+        
         .author-badge img {
+            width: 60px;  /* 크기 명시 */
+            height: 60px; /* 크기 명시 */
             border-radius: 50%;
             border: 3px solid white;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             background-color: #fff;
             object-fit: cover;
         }
+        
         .badge-text {
             background-color: #333;
             color: #fff;
@@ -270,22 +274,30 @@
             z-index: 10000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
+        
         .author-badge:hover {
             transform: scale(1.1) rotate(-10deg);
         }
+
+        /* 모바일 대응 */
         @media (max-width: 768px) {
-            .author-badge { top: 10px; right: 10px; }
-            .author-badge img { width: 45px !important; height: 45px !important; }
+            .author-badge { top: 15px; right: 15px; }
+            .author-badge img { width: 50px; height: 50px; }
+            .badge-text { font-size: 9px; padding: 2px 6px; }
+            
+            .hero { padding: 30px 20px; gap: 30px; text-align: center; }
+            .hero-img-box { min-width: 100%; }
+            .hero-text-box { min-width: 100%; }
+            .brand-name { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <a href="/about/" class="author-badge" title="작가 방으로 이동">
-      <img src="/assets/IMG_1754.webp" 
+    <a href="/Archive-S/about/" class="author-badge" title="작가 방으로 이동">
+      <img src="assets/IMG_1754.webp" 
            alt="작가 프로필" 
-           width="60" 
-           height="60" 
+           onerror="this.src='IMG_1754.webp'" 
            loading="eager">
       <span class="badge-text">Writer</span>
     </a>
@@ -311,7 +323,7 @@
                     심리적 엔트로피를 낮추고 몰입을 극대화하는<br>
                     가장 과학적인 학습 전략을 소개합니다.
                 </p>
-                <a href="entropy.html" class="btn-main">책 읽으러 가기</a>
+                <a href="#" class="btn-main">책 읽으러 가기</a>
             </div>
         </section>
 
@@ -329,7 +341,7 @@
                         이미지로 기억하는 영어 독해.<br>
                         하루 한 장, 쓰면서 익히는 워크북.
                     </p>
-                    <a href="누적 직독직해" class="card-link">VIEW MORE →</a>
+                    <a href="#" class="card-link">VIEW MORE →</a>
                 </div>
             </article>
 
