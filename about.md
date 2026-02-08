@@ -18,7 +18,7 @@ permalink: /about/
     .profile-job { color: #D4A373; font-weight: 700; letter-spacing: 1.5px; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 15px; }
     .profile-desc { font-size: 0.95rem; color: #666; line-height: 1.6; }
 
-    /* 3. 3S 카드 (기록/연결/성장) */
+    /* 3. 3S 카드 (Storage / Share / Step-up) */
     .s-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 60px; }
     .s-card { background: #fff; padding: 25px 15px; border-radius: 15px; text-align: center; border: 1px solid #f0f0f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s ease; }
     .s-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
@@ -33,12 +33,11 @@ permalink: /about/
     .guestbook-notice { 
         background-color: #fcfbf9; 
         border-radius: 20px; 
-        padding: 30px; 
+        padding: 35px 25px; /* 따옴표가 빠진 자리에 맞춰 여백 조정 */
         margin-bottom: 40px; 
         border: 1px dashed #D4A373;
-        position: relative;
+        text-align: center;
     }
-    .guestbook-notice::before { content: '“'; position: absolute; top: 10px; left: 20px; font-size: 3rem; color: #D4A373; opacity: 0.3; font-family: serif; }
 
     /* Utterances 댓글창 최적화 */
     .utterances { max-width: 100% !important; margin: 0 auto; }
