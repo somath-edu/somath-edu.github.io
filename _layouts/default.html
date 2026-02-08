@@ -2,68 +2,6 @@
 <html lang="en">
   {% include head.html %}
   <body>
-    
-    <a href="/about/" class="author-badge" title="작가 방으로 이동">
-      <img src="https://github.com/user-attachments/assets/378210cf-e15b-4265-9fb4-fa758547f7e5" alt="작가 프로필">
-      <span class="badge-text">Writer</span>
-    </a>
-
-    <style>
-      /* 배너 위치 및 스타일 */
-      .author-badge {
-        position: fixed; /* 스크롤을 내려도 화면 우측 상단에 고정됨 */
-        top: 20px;       /* 위에서 20px 떨어짐 */
-        right: 20px;     /* 오른쪽에서 20px 떨어짐 */
-        z-index: 9999;   /* 모든 요소보다 위에 표시 */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-      }
-
-      /* 둥근 이미지 스타일 */
-      .author-badge img {
-        width: 60px;     /* 이미지 크기 */
-        height: 60px;
-        border-radius: 50%; /* 동그랗게 */
-        border: 3px solid white; /* 흰색 테두리 */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 그림자 */
-        background-color: #fff;
-        object-fit: cover; /* 이미지가 찌그러지지 않게 */
-      }
-
-      /* Writer 텍스트 배지 */
-      .badge-text {
-        background-color: #333; /* 검은색 배경 */
-        color: #fff; /* 흰색 글씨 */
-        font-size: 10px;
-        font-weight: bold;
-        padding: 2px 8px;
-        border-radius: 10px;
-        margin-top: -10px; /* 이미지 위로 살짝 겹치게 */
-        z-index: 10000;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      }
-
-      /* 마우스 올렸을 때 귀여운 효과 */
-      .author-badge:hover {
-        transform: scale(1.1) rotate(-10deg); /* 살짝 커지며 기우뚱 */
-      }
-
-      /* 모바일 화면에서는 조금 작게 표시 */
-      @media (max-width: 768px) {
-        .author-badge {
-          top: 10px;
-          right: 10px;
-        }
-        .author-badge img {
-          width: 45px;
-          height: 45px;
-        }
-      }
-    </style>
     <nav>{% include nav.html %}</nav>
     <div class="wrapper">
       <main>{{ content }}</main>
@@ -73,3 +11,4 @@
     {% include link-previews.html wrapperQuerySelector="content" %}
   </body>
 </html>
+
