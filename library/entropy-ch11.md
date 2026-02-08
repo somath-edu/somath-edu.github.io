@@ -1,6 +1,6 @@
 ---
 layout: book
-title: Chapter 11. 오해와 진실 (학부모님이 가장 많이 하는 질문 Top 8)
+title: Chapter 11. 오해와 진실
 permalink: /entropy-ch11.html
 date: 2026-02-09
 prev_link: /entropy-ch10.html
