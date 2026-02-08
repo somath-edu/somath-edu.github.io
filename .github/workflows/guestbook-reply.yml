@@ -3,12 +3,17 @@ name: Archive S Guestbook Reply
 on:
   issues:
     types: [opened]
+  issue_comment:
+    types: [created]
 
 permissions:
   issues: write
+  pull-requests: write
 
 jobs:
   reply:
+    # 봇 자신이 쓴 댓글에는 반응하지 않도록 방지 (무한 루프 방지)
+    if: github.event.comment.user.type != 'Bot' && github.event.issue.user.type != 'Bot'
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -27,27 +32,37 @@ jobs:
       - name: Archive S Thinking...
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          ISSUE_TITLE: ${{ github.event.issue.title }}
-          ISSUE_BODY: ${{ github.event.issue.body }}
           REPO_OWNER: ${{ github.repository_owner }}
           REPO_NAME: ${{ github.event.repository.name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 이벤트 타입에 따라 내용 가져오기 (이슈 본문 vs 댓글 본문)
+          EVENT_NAME: ${{ github.event_name }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
         run: |
           python -c "
           import os
           import requests
           from groq import Groq
 
-          # 1. 뇌(Groq) 준비
+          # 1. 상황 파악 (글인지 댓글인지)
+          event_name = os.environ.get('EVENT_NAME')
+          if event_name == 'issue_comment':
+              user_input = os.environ.get('COMMENT_BODY')
+          else:
+              user_input = os.environ.get('ISSUE_BODY')
+
+          # 봇이 쓴 글은 무시 (이중 안전장치)
+          if not user_input:
+              exit(0)
+
+          # 2. 뇌(Groq) 준비
           try:
               client = Groq(api_key=os.environ.get('GROQ_API_KEY'))
           except Exception as e:
               print(f'Groq Client Error: {e}')
               exit(1)
-
-          # 2. 방문자 글 읽기
-          user_input = f\"제목: {os.environ.get('ISSUE_TITLE')}\n내용: {os.environ.get('ISSUE_BODY')}\"
 
           # 3. Archive S의 철학
           system_prompt = '''
@@ -60,8 +75,8 @@ jobs:
           4. **공감**: 정답을 주기보다 따뜻하게 공감해주고, 내 탓(내면의 원인)을 돌아보게 하십시오.
 
           ## [매우 중요: 절대 규칙]
-          1. **길이 압축**: 방문자의 글이 짧으면(1~2문장), 당신도 **무조건 1~2문장**으로 짧게 답하십시오. 절대 길게 설명하지 마세요. (예: '눈이 많이 오네요' -> '그러게요, 온 세상이 하얗네요. 미끄러지지 않게 조심해요!')
-          2. **언어 통제**: **오직 한국어(Hangul)만 사용하십시오.** 영어, 한자, 러시아어 등 외국어가 1글자라도 섞이면 시스템 오류가 발생하니 절대 금지합니다.
+          1. **길이 압축**: 방문자의 글이 짧으면(1~2문장), 당신도 **무조건 1~2문장**으로 짧게 답하십시오. 절대 길게 설명하지 마세요.
+          2. **언어 통제**: **오직 한국어(Hangul)만 사용하십시오.** 영어, 한자 등 외국어 금지.
           3. **말투**: 친구나 후배에게 말하듯 편안하고 부드러운 구어체(~해요, ~네요)를 쓰세요.
           '''
 
@@ -70,18 +85,18 @@ jobs:
               chat_completion = client.chat.completions.create(
                   messages=[
                       {'role': 'system', 'content': system_prompt},
-                      {'role': 'user', 'content': user_input}
+                      {'role': 'user', 'content': f'내용: {user_input}'}
                   ],
                   model='llama-3.3-70b-versatile',
-                  temperature=0.1, # 창의성을 극도로 낮춰(0.1) 외국어/헛소리 차단
-                  max_tokens=300,  # 답변 길이 제한 더 줄임
+                  temperature=0.1,
+                  max_tokens=300,
               )
               ai_reply = chat_completion.choices[0].message.content
           except Exception as e:
               ai_reply = f'죄송해요. 잠시 생각이 꼬였네요. (오류 내용: {e})'
               print(f'Error: {e}')
 
-          # 5. 답글 달기 (GitHub 댓글)
+          # 5. 답글 달기
           repo_owner = os.environ.get('REPO_OWNER')
           repo_name = os.environ.get('REPO_NAME')
           issue_number = os.environ.get('ISSUE_NUMBER')
@@ -94,6 +109,7 @@ jobs:
           }
           data = {'body': ai_reply}
           
+          # 봇이 스스로 쓴 글에 또 댓글 달지 않도록 체크하는 로직은 위 if문에서 처리함
           response = requests.post(url, headers=headers, json=data)
           print(response.status_code)
           "
