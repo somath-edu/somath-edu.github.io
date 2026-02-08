@@ -33,14 +33,14 @@ permalink: /about/
     .guestbook-notice { 
         background-color: #fcfbf9; 
         border-radius: 20px; 
-        padding: 35px 25px; /* 따옴표가 빠진 자리에 맞춰 여백 조정 */
+        padding: 35px 25px; 
         margin-bottom: 40px; 
         border: 1px dashed #D4A373;
         text-align: center;
     }
 
-    /* Utterances 댓글창 최적화 */
-    .utterances { max-width: 100% !important; margin: 0 auto; }
+    /* Giscus 영역 여백 */
+    .giscus { margin-top: 20px; }
 </style>
 
 <div class="author-page">
@@ -82,12 +82,20 @@ permalink: /about/
             </p>
         </div>
 
-        <script src="https://utteranc.es/client.js"
-            repo="somath-edu/somath-edu.github.io"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
+        <script src="https://giscus.app/client.js"
+                data-repo="somath-edu/somath-edu.github.io"
+                data-repo-id="R_kgDORFSD4g"
+                data-category="General"
+                data-category-id="DIC_kwDORFSD4s4C2DWI"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="light"
+                data-lang="ko"
+                crossorigin="anonymous"
+                async>
         </script>
 
         <p style="text-align: center; font-size: 0.75rem; color: #aaa; margin-top: 30px;">
