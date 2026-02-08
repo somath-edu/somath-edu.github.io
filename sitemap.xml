@@ -9,4 +9,9 @@ layout: null
       <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
     </url>
   {% endfor %}
+  {% for page in site.pages %}
+    <url>
+      <loc>{{ site.url }}{{ page.url }}</loc>
+    </url>
+  {% endfor %}
 </urlset>
