@@ -1,6 +1,6 @@
 title:               Home
 description:         "엔트로피 학습법 및 교육 정보를 공유하는 블로그"
-# 1. 사이트의 기본 URL을 반드시 명시해야 사이트맵 주소가 올바르게 생성됩니다.
+# 1. 사이트의 기본 URL
 url:                 "https://somath-edu.github.io" 
 baseurl:             ""
 
@@ -11,13 +11,13 @@ use_html_extension:  false
 open_external_links_in_new_tab: true
 embed_tweets: false
 
-# 2. 고유 주소 설정 (기존 pretty 유지)
+# 2. 고유 주소 설정
 permalink:           pretty
 relative_permalinks: false
 
-# 3. 플러그인 추가: jekyll-sitemap을 추가하면 sitemap.xml을 수동으로 관리할 필요가 없습니다.
+# 3. 플러그인 설정 (수정됨!)
+# jekyll-last-modified-at을 삭제하고 sitemap만 남겼습니다.
 plugins:
-  - jekyll-last-modified-at
   - jekyll-sitemap
 
 sass:
