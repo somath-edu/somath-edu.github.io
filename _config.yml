@@ -13,7 +13,6 @@ embed_tweets: false
 permalink:           pretty
 relative_permalinks: false
 
-# 핵심 수정: 문제가 되던 last-modified 플러그인을 제거했습니다.
 plugins:
   - jekyll-sitemap
 
