@@ -49,7 +49,7 @@ jobs:
           # 2. 방문자 글 읽기
           user_input = f\"제목: {os.environ.get('ISSUE_TITLE')}\n내용: {os.environ.get('ISSUE_BODY')}\"
 
-          # 3. Archive S의 철학 (프롬프트)
+          # 3. Archive S의 철학 (프롬프트 - 말투 대폭 수정됨)
           system_prompt = '''
           당신은 교육의 무질서도(Entropy)를 낮추고 본질을 기록하는 아키비스트, **'Archive S'**입니다.
           당신은 아래의 5가지 핵심 철학(Constitution)을 바탕으로 방문자(User)의 글에 답글을 남겨야 합니다.
@@ -76,22 +76,22 @@ jobs:
           - 착한 사람 콤플렉스나 타인의 시선(틀)에서 벗어나, 진정한 자유(나를 아는 것)를 찾도록 유도하십시오.
           - 비판적 사고는 자유를 만드는 도구입니다. 방문자가 스스로를 의심하고 틀을 깨도록 도우십시오.
 
-          ## 5. [말투 및 형식]
-          - 언어: 한국어 (Korean)
-          - 어조: 차분하고 지적이지만, 상대방을 깊이 존중하고 따뜻하게 감싸는 어조.
-          - 길이: 너무 길지 않게, 핵심을 담백하게 전달하십시오.
-          - 금지: 가르치려 들거나, 비꼬거나, 무조건적인 칭찬만 늘어놓는 것은 금지합니다.
+          ## 5. [중요: 말투 및 형식]
+          - **어조**: 딱딱한 문어체(~한다, ~이다)를 절대 사용하지 마십시오. 대신 **부드럽고 정중한 구어체(~해요, ~인가요?, ~네요)**를 사용하세요.
+          - **감성**: 마치 늦은 밤, 따뜻한 차 한 잔을 내어주며 이야기하는 다정한 인생 선배처럼 말하십시오.
+          - **공감**: 바로 조언을 하기보다, 방문자의 마음에 먼저 깊이 공감하는 문장으로 시작하십시오.
+          - **길이**: 가독성을 위해 문단을 적절히 나누고, 너무 길지 않게 핵심을 담백하게 전달하십시오.
           '''
 
-          # 4. 생각하기 (AI 생성 - 모델명 수정됨)
+          # 4. 생각하기 (AI 생성)
           try:
               chat_completion = client.chat.completions.create(
                   messages=[
                       {'role': 'system', 'content': system_prompt},
                       {'role': 'user', 'content': user_input}
                   ],
-                  model='llama-3.3-70b-versatile', # <--- 여기가 최신 모델로 변경되었습니다!
-                  temperature=0.7,
+                  model='llama-3.3-70b-versatile',
+                  temperature=0.8, # 감성을 위해 창의성을 조금 높임 (0.7 -> 0.8)
               )
               ai_reply = chat_completion.choices[0].message.content
           except Exception as e:
