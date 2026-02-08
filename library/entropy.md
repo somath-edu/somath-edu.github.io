@@ -173,5 +173,11 @@ permalink: /entropy.html
     <a href="/entropy-ch10.html" class="read-btn">Read →</a>
   </div>
 
+ <div class="chapter-row">
+    <span class="chapter-title">11. 오해와 진실</span>
+    <span class="dots"></span>
+    <a href="/entropy-ch11.html" class="read-btn">Read →</a>
+  </div>
+
   
 </div>
