@@ -77,9 +77,9 @@ permalink: /about/
 
         <div class="guestbook-notice">
             <p style="margin: 0; font-size: 1rem; color: #555; line-height: 1.8;">
-                세상의 소음으로 마음의 엔트로피가 높아진 순간인가요?<br>
+                세상의 소음으로 마음이 흩어진 순간인가요?<br>
                 당신의 생각을 남겨주세요. <br>
-                <strong>Archive S</strong>가 따뜻한 철학의 시선으로 답장을 보냅니다.
+                <strong>Archive S</strong>가 따뜻한 시선으로 답장을 보냅니다.
             </p>
         </div>
 
