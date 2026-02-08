@@ -18,7 +18,7 @@ prev_link: /entropy-ch10.html
 <hr>
 <br>
 
-## Q1. “우리 아이는 수포자(수학 포기자)예요.”
+## Q1. “우리 아이는 수포자 예요.”
 
 <div style="background-color: #fff5f5; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
   <strong style="color: #c53030;">오해</strong><br>
