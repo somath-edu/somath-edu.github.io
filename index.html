@@ -241,6 +241,52 @@
 </head>
 <body>
 
+    <a href="/about/" class="author-badge" title="작가 방으로 이동">
+      <img src="https://github.com/user-attachments/assets/378210cf-e15b-4265-9fb4-fa758547f7e5" alt="작가 프로필">
+      <span class="badge-text">Writer</span>
+    </a>
+
+    <style>
+      .author-badge {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+      .author-badge img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        background-color: #fff;
+        object-fit: cover;
+      }
+      .badge-text {
+        background-color: #333;
+        color: #fff;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-top: -10px;
+        z-index: 10000;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+      .author-badge:hover {
+        transform: scale(1.1) rotate(-10deg);
+      }
+      @media (max-width: 768px) {
+        .author-badge { top: 10px; right: 10px; }
+        .author-badge img { width: 45px; height: 45px; }
+      }
+    </style>
     <header>
         <div class="brand-name">Archive S</div>
         <span class="brand-sub">기록하고, 연결하고, 성장하는 공간</span>
