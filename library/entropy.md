@@ -126,9 +126,8 @@ permalink: /entropy.html
   }
 
   /* 테마에서 강제로 붙이는 외부 링크 아이콘 제거 */
-  .chapter-item:after {
+  .chapter-item::after {
     content: none !important;
-    display: none !important;
   }
   
   /* 혹시 아이콘이 이미지나 svg로 들어간 경우 대비 */
