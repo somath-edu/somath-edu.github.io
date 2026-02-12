@@ -94,7 +94,6 @@ permalink: /entropy.html
   .chapter-text {
     font-size: 1.05rem;
     font-weight: 500;
-    white-space: nowrap; 
   }
 
   /* 점선 (Leader dots) */
@@ -111,11 +110,16 @@ permalink: /entropy.html
     color: #aaa;
   }
   
+  /* 데스크톱 - 텍스트 줄바꿈 방지 */
+  @media (min-width: 641px) {
+    .chapter-text { white-space: nowrap; }
+  }
+  
   /* 모바일 대응 */
-  @media (max-width: 500px) {
+  @media (max-width: 640px) {
     .book-toc-wrapper { padding: 30px 20px; }
     .main-title { font-size: 1.8rem; }
-    .chapter-text { font-size: 0.95rem; white-space: normal; } /* 모바일 줄바꿈 허용 */
+    .chapter-text { font-size: 0.95rem; }
     .chapter-item { align-items: baseline; }
     .dots { display: none; } /* 모바일에서는 점선 숨김 */
     .page-mark { display: none; } /* 모바일에서는 페이지 번호 숨김 */
