@@ -124,13 +124,23 @@ permalink: /entropy.html
     .dots { display: none; } /* 모바일에서는 점선 숨김 */
     .page-mark { display: none; } /* 모바일에서는 페이지 번호 숨김 */
   }
+
+  /* ▼▼▼ [수정] 테마 강제 화살표 아이콘 제거 코드 ▼▼▼ */
+  .chapter-item:after {
+    content: none !important;
+    display: none !important;
+  }
+  
+  .chapter-item {
+    background: none !important;
+    padding-right: 0 !important;
+  }
 </style>
 
 <div class="book-toc-wrapper">
   <h1 class="main-title">Entropy Study</h1>
   <p class="sub-title">"무질서를 질서로 바꾸는 학습의 기술"</p>
 
-  <!-- Part 1 -->
   <div class="part-header">
     <span class="part-label">Part I</span>
     <div class="part-name">진단: 무질서해진 머릿속</div>
@@ -157,7 +167,6 @@ permalink: /entropy.html
     <span class="page-mark">p.45</span>
   </a>
 
-  <!-- Part 2 -->
   <div class="part-header">
     <span class="part-label">Part II</span>
     <div class="part-name">처방: 질서를 만드는 힘</div>
@@ -191,7 +200,6 @@ permalink: /entropy.html
     <span class="page-mark">p.112</span>
   </a>
 
-  <!-- Part 3 -->
   <div class="part-header">
     <span class="part-label">Part III</span>
     <div class="part-name">실천: 실생활 활용</div>
