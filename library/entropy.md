@@ -124,6 +124,24 @@ permalink: /entropy.html
     .dots { display: none; } /* 모바일에서는 점선 숨김 */
     .page-mark { display: none; } /* 모바일에서는 페이지 번호 숨김 */
   }
+
+  /* 테마에서 강제로 붙이는 외부 링크 아이콘 제거 */
+  .chapter-item:after {
+    content: none !important;
+    display: none !important;
+  }
+  
+  /* 혹시 아이콘이 이미지나 svg로 들어간 경우 대비 */
+  .chapter-item svg, 
+  .chapter-item img {
+    display: none;
+  }
+  
+  /* 배경 이미지 아이콘 제거 및 패딩 조정 */
+  .chapter-item {
+    background: none !important;
+    padding-right: 0 !important;
+  }
 </style>
 
 <div class="book-toc-wrapper">
