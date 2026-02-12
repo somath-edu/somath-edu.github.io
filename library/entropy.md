@@ -5,179 +5,224 @@ permalink: /entropy.html
 ---
 
 <style>
-  /* 전체 컨테이너 */
-  .book-style-wrapper {
-    font-family: "KoPub Batang", "Merriweather", "Georgia", "Batang", serif;
-    color: #2c2c2c;
-    max-width: 680px;
-    margin: 0 auto;
-    /* [수정] 위쪽 여백을 없애서 Home과 더 가까이 붙임 */
-    padding: 0px 10px 20px 10px; 
-    line-height: 1.6;
+  /* --- 고전 서적 스타일 (Classic Serif) --- */
+  .book-toc-wrapper {
+    font-family: "KoPub Batang", "Noto Serif KR", serif;
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 50px 40px;
+    background-color: #fffcf8; /* 아주 연한 미색 배경 */
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.05); /* 은은한 그림자 */
+    border: 1px solid #e8e0d5;
+    border-radius: 4px;
   }
 
-  /* 메인 제목 스타일 */
-  .main-book-title {
+  .main-title {
+    font-family: "Playfair Display", serif;
     font-size: 2.2rem;
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
-    /* [수정] 마이너스 마진으로 강제로 위로 20px 끌어올림 */
-    margin-top: -20px; 
-    margin-bottom: 30px;
-    color: #111;
-    letter-spacing: -1px;
-    line-height: 1.2;
+    margin-bottom: 10px;
+    color: #2c2c2c;
+    letter-spacing: -0.5px;
+  }
+  
+  .sub-title {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #8c7b75;
+    margin-bottom: 60px;
+    font-family: "Pretendard", sans-serif;
+    font-weight: 300;
   }
 
-  /* 서문 텍스트 */
-  .intro-text {
+  /* 파트 구분선 */
+  .part-header {
+    margin-top: 60px;
+    margin-bottom: 25px;
     text-align: center;
-    color: #555;
-    margin-bottom: 60px;
-    font-size: 1.05rem;
-    font-weight: 400;
+    position: relative;
+  }
+  
+  .part-label {
+    display: inline-block;
+    font-family: "Playfair Display", serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #d88e88; /* 포인트 컬러 */
+    border-bottom: 1px solid #d88e88;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .part-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
     word-break: keep-all;
   }
 
-  /* Part 제목 */
-  .part-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 50px;
-    margin-bottom: 25px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #333;
-    color: #111;
-  }
-
-  /* 챕터 한 줄 */
-  .chapter-row {
+  /* 챕터 리스트 아이템 */
+  .chapter-item {
     display: flex;
-    align-items: baseline;
-    margin-bottom: 18px;
-    width: 100%;
+    align-items: flex-end; /* 점선과 텍스트 하단 정렬 */
+    margin-bottom: 14px;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #4a4a4a;
+    border-bottom: 1px solid transparent; /* 호버 시 흔들림 방지용 */
   }
 
-  /* 챕터 제목 */
-  .chapter-title {
-    font-size: 1.15rem;
+  .chapter-item:hover {
+    transform: translateX(5px);
+    color: #d88e88;
+  }
+
+  .chapter-num {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #bbb;
+    margin-right: 12px;
+    min-width: 25px;
+    text-align: right;
+  }
+
+  .chapter-text {
+    font-size: 1.05rem;
     font-weight: 500;
-    color: #333;
-    flex-shrink: 0;
   }
 
-  /* 가운데 점선 */
+  /* 점선 (Leader dots) */
   .dots {
     flex-grow: 1;
-    border-bottom: 1px dotted #999;
-    margin: 0 12px;
-    position: relative;
-    top: -5px;
+    border-bottom: 1px dotted #ccc;
+    margin: 0 10px 6px 10px; /* 점선 위치 조정 */
   }
 
-  /* Read 버튼 */
-  .read-btn {
-    font-size: 0.9rem;
-    color: #d9480f;
-    text-decoration: none;
-    font-weight: bold;
-    flex-shrink: 0;
-    transition: all 0.2s;
+  .page-mark {
+    font-family: "Playfair Display", serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #aaa;
   }
-
-  .read-btn:hover {
-    color: #ff6b6b;
-    text-decoration: underline;
+  
+  /* 데스크톱 - 텍스트 줄바꿈 방지 */
+  @media (min-width: 641px) {
+    .chapter-text { white-space: nowrap; }
   }
-
-  @media (max-width: 500px) {
-    .main-book-title { font-size: 1.8rem; }
-    .chapter-title { font-size: 1rem; }
-    .part-title { font-size: 1.3rem; }
+  
+  /* 모바일 대응 */
+  @media (max-width: 640px) {
+    .book-toc-wrapper { padding: 30px 20px; }
+    .main-title { font-size: 1.8rem; }
+    .chapter-text { font-size: 0.95rem; }
+    .chapter-item { align-items: baseline; }
+    .dots { display: none; } /* 모바일에서는 점선 숨김 */
+    .page-mark { display: none; } /* 모바일에서는 페이지 번호 숨김 */
   }
 </style>
 
-<div class="book-style-wrapper">
+<div class="book-toc-wrapper">
+  <h1 class="main-title">Entropy Study</h1>
+  <p class="sub-title">"무질서를 질서로 바꾸는 학습의 기술"</p>
 
-  <h1 class="main-book-title">엔트로피 학습법</h1>
-
-  <p class="intro-text">
-    학습할수록 머릿속이 복잡해지나요?<br>
-    심리적 엔트로피를 낮추고 몰입을 극대화하는<br>
-    <strong>가장 과학적인 학습 전략</strong>을 제안합니다.
-  </p>
-
-  <div class="part-title">Part 1. 진단: 무질서해진 머릿속</div>
-
-  <div class="chapter-row">
-    <span class="chapter-title">01. 학습 엔트로피의 정체</span>
-    <span class="dots"></span>
-    <a href="/entropy-ch1.html" class="read-btn">Read →</a>
+  <!-- Part 1 -->
+  <div class="part-header">
+    <span class="part-label">Part I</span>
+    <div class="part-name">진단: 무질서해진 머릿속</div>
   </div>
 
-  <div class="chapter-row">
-    <span class="chapter-title">02. 외부의 적: 디지털과 환경</span>
+  <a href="/entropy-ch1.html" class="chapter-item">
+    <span class="chapter-num">01</span>
+    <span class="chapter-text">학습 엔트로피의 정체</span>
     <span class="dots"></span>
-    <a href="/entropy-ch2.html" class="read-btn">Read →</a>
-  </div>
-
-  <div class="chapter-row">
-    <span class="chapter-title">03. 내부의 적: 인지 과부하</span>
-    <span class="dots"></span>
-    <a href="/entropy-ch3.html" class="read-btn">Read →</a>
-  </div>
-
-  <div class="part-title">Part 2. 처방: 질서를 만드는 힘</div>
-
-  <div class="chapter-row">
-    <span class="chapter-title">04. 단순함의 힘</span>
-    <span class="dots"></span>
-    <a href="/entropy-ch4.html" class="read-btn">Read →</a>
-  </div>
-
-  <div class="chapter-row">
-    <span class="chapter-title">05. 환경 설계: 몰입의 공간</span>
-    <span class="dots"></span>
-    <a href="/entropy-ch5.html" class="read-btn">Read →</a>
-  </div>
-
-  <div class="chapter-row">
-    <span class="chapter-title">06. 지식 압축: 청킹과 구조화</span>
-    <span class="dots"></span>
-    <a href="/entropy-ch6.html" class="read-btn">Read →</a>
-  </div>
+    <span class="page-mark">p.12</span>
+  </a>
   
-  <div class="chapter-row">
-    <span class="chapter-title">07. 루틴: 지속 가능한 시스템</span>
+  <a href="/entropy-ch2.html" class="chapter-item">
+    <span class="chapter-num">02</span>
+    <span class="chapter-text">외부의 적: 디지털과 환경</span>
     <span class="dots"></span>
-    <a href="/entropy-ch7.html" class="read-btn">Read →</a>
+    <span class="page-mark">p.28</span>
+  </a>
+
+  <a href="/entropy-ch3.html" class="chapter-item">
+    <span class="chapter-num">03</span>
+    <span class="chapter-text">내부의 적: 인지 과부하</span>
+    <span class="dots"></span>
+    <span class="page-mark">p.45</span>
+  </a>
+
+  <!-- Part 2 -->
+  <div class="part-header">
+    <span class="part-label">Part II</span>
+    <div class="part-name">처방: 질서를 만드는 힘</div>
   </div>
 
-  <div class="part-title">Part 3. 실천: 실생활 활용</div>
-
-  <div class="chapter-row">
-    <span class="chapter-title">08. Ai 노트법 활용</span>
+  <a href="/entropy-ch4.html" class="chapter-item">
+    <span class="chapter-num">04</span>
+    <span class="chapter-text">단순함의 힘</span>
     <span class="dots"></span>
-    <a href="/entropy-ch8.html" class="read-btn">Read →</a>
+    <span class="page-mark">p.62</span>
+  </a>
+
+  <a href="/entropy-ch5.html" class="chapter-item">
+    <span class="chapter-num">05</span>
+    <span class="chapter-text">환경 설계: 몰입의 공간</span>
+    <span class="dots"></span>
+    <span class="page-mark">p.78</span>
+  </a>
+
+  <a href="/entropy-ch6.html" class="chapter-item">
+    <span class="chapter-num">06</span>
+    <span class="chapter-text">지식 압축: 청킹과 구조화</span>
+    <span class="dots"></span>
+    <span class="page-mark">p.94</span>
+  </a>
+
+  <a href="/entropy-ch7.html" class="chapter-item">
+    <span class="chapter-num">07</span>
+    <span class="chapter-text">루틴: 지속 가능한 시스템</span>
+    <span class="dots"></span>
+    <span class="page-mark">p.112</span>
+  </a>
+
+  <!-- Part 3 -->
+  <div class="part-header">
+    <span class="part-label">Part III</span>
+    <div class="part-name">실천: 실생활 활용</div>
   </div>
 
-  <div class="chapter-row">
-    <span class="chapter-title">09. 사랑이라는 착각, 욕심이라는 독</span>
+  <a href="/entropy-ch8.html" class="chapter-item">
+    <span class="chapter-num">08</span>
+    <span class="chapter-text">Ai 노트법 활용</span>
     <span class="dots"></span>
-    <a href="/entropy-ch9.html" class="read-btn">Read →</a>
-  </div>
+    <span class="page-mark">p.130</span>
+  </a>
 
- <div class="chapter-row">
-    <span class="chapter-title">10. 몸이라는 그릇, 관계라는 통로</span>
+  <a href="/entropy-ch9.html" class="chapter-item">
+    <span class="chapter-num">09</span>
+    <span class="chapter-text">사랑이라는 착각, 욕심이라는 독</span>
     <span class="dots"></span>
-    <a href="/entropy-ch10.html" class="read-btn">Read →</a>
-  </div>
+    <span class="page-mark">p.145</span>
+  </a>
 
- <div class="chapter-row">
-    <span class="chapter-title">11. 오해와 진실</span>
+  <a href="/entropy-ch10.html" class="chapter-item">
+    <span class="chapter-num">10</span>
+    <span class="chapter-text">몸이라는 그릇, 관계라는 통로</span>
     <span class="dots"></span>
-    <a href="/entropy-ch11.html" class="read-btn">Read →</a>
-  </div>
-
+    <span class="page-mark">p.158</span>
+  </a>
   
+  <a href="/entropy-ch11.html" class="chapter-item">
+    <span class="chapter-num">11</span>
+    <span class="chapter-text">오해와 진실</span>
+    <span class="dots"></span>
+    <span class="page-mark">p.172</span>
+  </a>
+
 </div>
