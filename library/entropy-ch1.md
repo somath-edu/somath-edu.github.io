@@ -100,13 +100,12 @@ next_link: /entropy-ch2.html
 <hr>
 
 <div style="width: 100%; max-width: 600px; margin: 40px auto; text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 15px; background-color: #f9f9f9;">
-  <h3 style="margin-top: 0; margin-bottom: 10px;">🎧 바로 듣기</h3>
-  <p style="color: #666; font-size: 0.9em; margin-bottom: 20px;">AI가 정리한 핵심 내용을 지금 바로 들어보세요.</p>
+  <h3 style="margin-top: 0; margin-bottom: 10px;">📺 영상으로 보기</h3>
+  <p style="color: #666; font-size: 0.9em; margin-bottom: 20px;">AI 팟캐스트 영상을 시청해보세요.</p>
   
-  <audio controls style="width: 100%; outline: none;">
-    <source src="https://github.com/user-attachments/assets/f58b41a7-7c84-4ba0-95f2-c6a1814b95b5" type="audio/wav">
-    브라우저가 오디오 태그를 지원하지 않습니다.
-  </audio>
+  <video controls playsinline style="width: 100%; border-radius: 10px; outline: none;">
+    <source src="https://github.com/user-attachments/assets/..." type="video/mp4">
+    브라우저가 비디오 태그를 지원하지 않습니다.
+  </video>
 </div>
 <br>
-
