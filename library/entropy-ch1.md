@@ -95,18 +95,18 @@ next_link: /entropy-ch2.html
 > **7개 이상 (위험: 고엔트로피)**<br>
 > 비상사태입니다. 뇌는 이미 혼란 상태입니다. 시간을 더 쏟는 건 '밑 빠진 독에 물 붓기'입니다. 먼저 '비우고 정리하는' 작업부터 시작하세요.
 
+
 <br>
 <hr>
 
-<div style="width: 100%; text-align: center; margin-top: 40px; margin-bottom: 40px;">
-  <h3 style="margin-bottom: 15px;">🎧 이 챕터, 귀로 복습하기</h3>
-  <p style="color: #666; margin-bottom: 25px;">글을 읽기 힘들다면 AI가 정리한 팟캐스트로 핵심을 들어보세요.</p>
+<div style="width: 100%; max-width: 600px; margin: 40px auto; text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 15px; background-color: #f9f9f9;">
+  <h3 style="margin-top: 0; margin-bottom: 10px;">🎧 바로 듣기</h3>
+  <p style="color: #666; font-size: 0.9em; margin-bottom: 20px;">AI가 정리한 핵심 내용을 지금 바로 들어보세요.</p>
   
-  <a href="https://notebooklm.google.com/notebook/fa34e94d-3e0b-42f0-b0be-d24bf27dfe2a?artifactId=86ad2c07-f5ad-4bb3-a19e-aeb8a89b0376" 
-     target="_blank" 
-     style="background-color: #4CAF50; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-weight: bold; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-    ▶️ 1장: 학습 엔트로피 팟캐스트 재생
-  </a>
+  <audio controls style="width: 100%; outline: none;">
+    <source src="https://github.com/user-attachments/assets/f58b41a7-7c84-4ba0-95f2-c6a1814b95b5" type="audio/wav">
+    브라우저가 오디오 태그를 지원하지 않습니다.
+  </audio>
 </div>
 <br>
 
