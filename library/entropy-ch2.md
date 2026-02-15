@@ -89,7 +89,7 @@ next_link: /entropy-ch3.html
 <div style="width: 100%; max-width: 600px; margin: 40px auto; text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 15px; background-color: #f9f9f9;">
   
   <video controls playsinline style="width: 100%; border-radius: 10px; outline: none;">
-    <source src="https://github.com/user-attachments/assets/f8231352-fc79-46e0-be98-f7334a4016a5" type="video/mp4">
+    <source src="https://github.com/user-attachments/assets/490ce443-ee03-48f9-bef5-db3c666d6be6" type="video/mp4">
     브라우저가 비디오 태그를 지원하지 않습니다.
   </video>
 </div>
