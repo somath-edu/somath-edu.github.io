@@ -85,20 +85,14 @@ next_link: /entropy-ch3.html
 
 <br>
 <hr>
-<br>
-
-
-<br>
 
 <div style="width: 100%; max-width: 600px; margin: 40px auto; text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 15px; background-color: #f9f9f9;">
-  <h3 style="margin-top: 0; margin-bottom: 10px;">📺 영상으로 보기</h3>
   
   <video controls playsinline style="width: 100%; border-radius: 10px; outline: none;">
-    <source src="https://github.com/user-attachments/assets/9bfd6fcd-a016-4c73-a871-bd5e4bdf4850" type="video/mp4">
+    <source src="https://github.com/user-attachments/assets/e62dd811-1227-4ad3-af5b-24d07850566e" type="video/mp4">
     브라우저가 비디오 태그를 지원하지 않습니다.
   </video>
 </div>
-<br>
 <hr>
 <br>
 
