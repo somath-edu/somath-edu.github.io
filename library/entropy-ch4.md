@@ -188,7 +188,6 @@ next_link: /entropy-ch5.html
 
 <br>
 <hr>
-<br>
 
 <div style="width: 100%; max-width: 600px; margin: 40px auto; text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 15px; background-color: #f9f9f9;">
   
