@@ -101,7 +101,6 @@ next_link: /entropy-ch2.html
 
 <div style="width: 100%; max-width: 600px; margin: 40px auto; text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 15px; background-color: #f9f9f9;">
   <h3 style="margin-top: 0; margin-bottom: 10px;">📺 영상으로 보기</h3>
-  <p style="color: #666; font-size: 0.9em; margin-bottom: 20px;">AI 팟캐스트 영상을 시청해보세요.</p>
   
   <video controls playsinline style="width: 100%; border-radius: 10px; outline: none;">
     <source src="https://github.com/user-attachments/assets/f58b41a7-7c84-4ba0-95f2-c6a1814b95b5" type="video/mp4">
