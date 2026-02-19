@@ -2,48 +2,38 @@
 layout: default
 ---
 
-<!-- 1) MathJax 설정: $...$, $$...$$ 완전 지원 + 처리 안정성 강화 -->
 <script>
+  // MathJax v3 설정 ($...$, $$...$$ 지원)
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
-
-      // (중요) 컬럼/줄바꿈 환경에서 수식이 "예상치 못한 위치"에서 처리 실패하는 케이스 완화
-      processEscapes: true,     // \$ 를 일반 $ 로 escape 가능
-      processEnvironments: true,
-      // 일부 문서에서 $...$ 인식이 흔들릴 때 도움이 되는 옵션들
-      // (필요시) strict: false,
-
-      // 긴 수식의 자동 줄바꿈(가능한 범위에서)
-      // v3에서 linebreaks는 output 쪽 옵션으로 주로 다룸(아래 chtml에서 추가)
+      processEscapes: true,
+      processEnvironments: true
     },
-
     options: {
-      // MathJax가 렌더링할 대상 범위를 제한(불필요한 영역 스캔 방지)
-      // newspaper 레이아웃 내부만 스캔하게 해서 안정성/성능 향상
-      renderActions: {
-        addMenu: []
-      },
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'newspaper-content'
+      processHtmlClass: 'newspaper-content',
+      ignoreHtmlClass: 'tex2jax_ignore'
     },
-
     chtml: {
-      // CHTML 출력에서 긴 수식 줄바꿈 시도
       linebreaks: { automatic: true, width: 'container' }
     },
-
-    svg: { fontCache: 'global' },
-
     startup: {
-      // 로딩 후 바로 typeset을 강제해서 "async 로드로 인해 그냥 텍스트로 남는" 상황을 줄임
-      typeset: true
+      ready: () => {
+        // MathJax 기본 초기화
+        MathJax.startup.defaultReady();
+
+        // typeset(렌더링) 완료 후에만 2단(column-count:2) 활성화
+        MathJax.startup.promise.then(() => {
+          const el = document.querySelector('.newspaper-content');
+          if (el) el.classList.add('is-typeset');
+        });
+      }
     }
   };
 </script>
 
-<!-- (중요) async 제거: columns + 초기 렌더 타이밍 꼬임을 줄이기 위해 defer 권장 -->
+<!-- async 대신 defer: iOS Safari/columns 환경에서 깨짐(찢김) 완화 -->
 <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <style>
@@ -82,70 +72,36 @@ layout: default
     margin-top: 10px;
   }
 
+  /*
+    핵심: 처음에는 1단(column-count:1)으로 보여주고
+    MathJax 렌더링이 끝나면 .is-typeset 클래스를 붙여 2단으로 전환.
+    => $...$ 텍스트가 컬럼 경계에서 찢어지며 깨지는 현상을 크게 줄임
+  */
   .newspaper-content {
-    /* 텍스트를 다단(2단)으로 나누어 배치 */
-    column-count: 2;
+    column-count: 1;
     column-gap: 40px;
     column-rule: 1px solid #d3c7ad;
     text-align: justify;
     hyphens: auto;
   }
 
-  /* 2) 컬럼 분리 방지: p뿐 아니라 수식 컨테이너가 포함된 블록도 같이 보호 */
+  .newspaper-content.is-typeset {
+    column-count: 2;
+  }
+
+  /* 문단이 컬럼 사이에서 잘리지 않게 */
   .newspaper-content p,
   .newspaper-content li,
-  .newspaper-content blockquote,
-  .newspaper-content .math-block {
+  .newspaper-content blockquote {
     margin-bottom: 1.5em;
     break-inside: avoid;
     page-break-inside: avoid;
     -webkit-column-break-inside: avoid;
   }
 
-  /* 4) 수식 주변 여백: 인라인/디스플레이 모두에 "숨 쉴 공간" 제공 */
-  /* MathJax v3 공통 컨테이너 */
-  .newspaper-content mjx-container {
-    /* 기본적으로 mjx-container는 inline(인라인 수식) / block(디스플레이 수식) 모두 사용됨 */
-    padding-top: 0.08em;
-    padding-bottom: 0.08em;
-  }
-
-  /* 디스플레이 수식(= block) 여백 강화 */
-  .newspaper-content mjx-container[display="true"] {
-    margin: 0.6em 0;
-    padding: 0.25em 0.35em;
-
-    /* 배경/라운딩은 선택: 겹침 방지에 체감이 좋아서 옵션으로 추천 */
-    /* background: rgba(0,0,0,0.03); */
-    border-radius: 6px;
-
-    /* 컬럼 경계에서 디스플레이 수식이 찢어지는 것 방지 */
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
-  }
-
-  /* 3) 폭 초과 대응: "레이아웃 붕괴" 방지용 수평 스크롤 */
-  /* - 핵심: mjx-container 자체를 스크롤 컨테이너로 만들면 inline 수식에 부작용이 있어
-     디스플레이 수식에만 강하게 적용 */
-  .newspaper-content mjx-container[display="true"] {
-    max-width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-
-  /* 인라인 수식은 스크롤 대신 "줄바꿈/겹침 방지" 위주 */
-  .newspaper-content mjx-container:not([display="true"]) {
-    max-width: 100%;
-  }
-
-  /* MathJax 내부가 너무 길어 컬럼 폭을 뚫고 나갈 때의 최후의 안전장치 */
-  .newspaper-content mjx-container *,
-  .newspaper-content mjx-container svg {
-    max-width: 100%;
-  }
-
   /* 제목은 컬럼 전체 폭 */
-  .newspaper-content h2, .newspaper-content h3 {
+  .newspaper-content h2,
+  .newspaper-content h3 {
     column-span: all;
     border-bottom: 1px solid #2b2b2b;
     padding-bottom: 5px;
@@ -153,12 +109,48 @@ layout: default
     font-weight: 900;
   }
 
-  /* 모바일 화면 대응 (1단으로 변경) */
+  /*
+    수식 렌더 결과(mjx-container)가 컬럼 경계에서 쪼개지지 않게 + 여백 확보
+    - 인라인 수식: inline-block으로 "덩어리" 취급
+    - 디스플레이 수식: block + 가로 스크롤 허용
+  */
+  .newspaper-content mjx-container {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+
+    display: inline-block;
+    max-width: 100%;
+
+    padding: 0 0.08em; /* 수식 주변 여백 */
+    vertical-align: baseline;
+  }
+
+  /* 디스플레이 수식(줄단위) */
+  .newspaper-content mjx-container[display="true"] {
+    display: block;
+    margin: 0.7em 0;
+    padding: 0.35em 0.45em;
+
+    max-width: 100%;
+    overflow-x: auto;   /* 단 너비 초과 시 가로 스크롤 */
+    overflow-y: hidden;
+
+    border-radius: 6px;
+  }
+
+  /* 내부가 너무 길어 레이아웃 붕괴 방지(최후 안전장치) */
+  .newspaper-content mjx-container svg,
+  .newspaper-content mjx-container * {
+    max-width: 100%;
+  }
+
+  /* 모바일 화면 대응 (1단 유지) */
   @media (max-width: 768px) {
     .newspaper-container {
       padding: 20px;
     }
-    .newspaper-content {
+    .newspaper-content,
+    .newspaper-content.is-typeset {
       column-count: 1;
     }
     .newspaper-header h1 {
