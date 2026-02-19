@@ -6,7 +6,7 @@ import google.generativeai as genai
 
 # 1. API 설정 (가장 빠르고 확실한 경로인 1.5-flash 모델 사용)
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-pro')
 
 TARGET_DIR = "library"
 os.makedirs(TARGET_DIR, exist_ok=True) 
