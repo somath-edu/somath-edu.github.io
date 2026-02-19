@@ -1,4 +1,4 @@
-import os  # 맨 앞글자를 소문자 'i'로 바로잡아 치명적인 문법 충돌을 해소했습니다.
+import os  # 대문자 I를 소문자 i로 확실하게 수정했습니다.
 import time
 import datetime
 import re
@@ -16,18 +16,21 @@ today = datetime.datetime.now().strftime("%Y-%m-%d")
 base_name = f"{today}-suneung"
 
 # --- [단계 1] 국어 지문 생성 및 주제 추출 ---
-print("1. 수능 국어 지문 인쇄 중...")
+print("1. 수능 국어 지문(핫뉴스) 인쇄 중...")
 prompt_ko = f"""
-당신은 수능 국어 일타 강사입니다. 수능 비문학(독서) 영역에 출제될 법한 철학, 과학, 경제 분야의 핵심 개념 하나를 선정하여 논리적인 지문을 작성해 주세요.
+당신은 날카로운 통찰력을 가진 수석 기자이자 수능 국어 일타 강사입니다. 
+오늘 한국 또는 세계에서 가장 화제가 되고 있는 '최신 핫이슈(IT, 경제, 사회, 문화 등)' 하나를 선정하여, 학생들의 독해력 향상을 위한 비문학 지문 스타일의 기사를 작성해 주세요.
+
 [엄격한 규칙]
 1. 최상단에 마크다운 Front Matter를 반드시 넣으세요. 이때 `layout: newspaper`를 지정하세요.
    예시:
    ---
    layout: newspaper
-   title: "오늘의 수능 비문학: [여기에 생성된 주제 입력]"
+   title: "오늘의 핫뉴스: [여기에 생성된 주제 입력]"
    permalink: /suneung-ko
    ---
-2. 분량은 실제 수능 지문 1개 분량으로 체계적으로 작성하세요.
+2. 웹사이트 화면을 깨뜨리는 복잡한 수학 공식이나 특수 기호(LaTeX 등)는 절대 사용하지 마세요. 오직 깔끔한 텍스트로만 논리를 전개하세요.
+3. 분량은 실제 신문 사설 1개 분량으로 체계적으로 작성하세요.
 """
 ko_content = model.generate_content(prompt_ko).text
 with open(os.path.join(TARGET_DIR, f"{base_name}-ko.md"), 'w', encoding='utf-8') as f:
@@ -35,7 +38,7 @@ with open(os.path.join(TARGET_DIR, f"{base_name}-ko.md"), 'w', encoding='utf-8')
 
 # 생성된 글에서 제목(주제)만 쏙 뽑아냅니다.
 match = re.search(r'title:\s*"(.*?)"', ko_content)
-today_topic = match.group(1) if match else "새로운 수능 지식"
+today_topic = match.group(1) if match else "오늘의 핫뉴스"
 print(f"-> 추출된 오늘의 주제: {today_topic}")
 
 # 과부하를 막기 위해 휴식 시간을 15초로 늘려 안정감을 더했습니다.
