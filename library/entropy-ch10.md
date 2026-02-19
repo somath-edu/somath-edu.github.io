@@ -4,7 +4,7 @@ title: Chapter 10. 몸이라는 그릇, 관계라는 통로
 permalink: /entropy-ch10.html
 date: 2026-02-08
 prev_link: /entropy-ch9.html
-next_link: /entropy.html
+next_link: /entropy-ch11.html
 ---
 
 <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
