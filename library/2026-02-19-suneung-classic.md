@@ -1,7 +1,7 @@
 ---
 layout: newspaper
 title: "격물치지(格物致知)의 신도(新道): 베이즈 主義와 科學的 證驗의 이치"
-permalink: /2026-02-19-suneung-ko-classic
+permalink: /suneung-ko-classic
 ---
 
 오호라, 학도(學徒)들이여! 문자로 세상을 통찰하고 붓끝으로 이치(理致)를 세우는 공부가 실로 엄중하도다.
