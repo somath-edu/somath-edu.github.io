@@ -1,7 +1,7 @@
 ---
 layout: newspaper
 title: "오늘의 수능 비문학: 베이즈주의와 과학적 입증의 논리"
-permalink: /2026-02-19-suneung-ko
+permalink: /suneung-ko
 ---
 
 반갑습니다, 수험생 여러분! 국어 일타 강사입니다.
