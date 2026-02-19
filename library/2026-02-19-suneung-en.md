@@ -1,7 +1,7 @@
 ---
 layout: newspaper
 title: "Today's CSAT Non-Fiction: Bayesianism and the Logic of Scientific Confirmation"
-permalink: /2026-02-19-suneung-en
+permalink: /suneung-en
 ---
 
 Greetings, students! This is your lead instructor for English.
