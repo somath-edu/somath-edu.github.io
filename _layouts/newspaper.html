@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<style>
+  /* 신문 특유의 시각적 질서를 잡아주는 CSS 디자인 */
+  .newspaper-container {
+    background-color: #f4ecd8; /* 빛바랜 누런 종이 색상 */
+    color: #2b2b2b; /* 진한 먹물 색상 */
+    font-family: 'Noto Serif KR', 'Batang', 'Nanum Myeongjo', serif; /* 궁서/명조체 계열 */
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .newspaper-header {
+    text-align: center;
+    border-bottom: 4px double #2b2b2b;
+    border-top: 4px double #2b2b2b;
+    padding: 20px 0;
+    margin-bottom: 30px;
+  }
+  .newspaper-header h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -1px;
+  }
+  .newspaper-meta {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #555;
+    margin-top: 10px;
+  }
+  .newspaper-content {
+    /* 텍스트를 다단(2단)으로 나누어 신문처럼 배치 */
+    column-count: 2;
+    column-gap: 40px;
+    column-rule: 1px solid #ccc;
+    line-height: 1.8;
+    text-align: justify;
+  }
+  .newspaper-content h2, .newspaper-content h3 {
+    column-span: all; /* 소제목은 단을 합쳐서 크게 표시 */
+    border-bottom: 1px solid #2b2b2b;
+    padding-bottom: 5px;
+    margin-top: 30px;
+  }
+  
+  /* 모바일 화면에서는 1단으로 깔끔하게 정리 */
+  @media (max-width: 768px) {
+    .newspaper-content {
+      column-count: 1;
+    }
+  }
+</style>
+
+<article class="newspaper-container">
+  <div class="newspaper-header">
+    <h1>{{ page.title }}</h1>
+    <div class="newspaper-meta">
+      발행일: {{ page.date | date: "%Y년 %m월 %d일" }} | 편집: 인공지능 주필
+    </div>
+  </div>
+
+  <div class="newspaper-content">
+    {{ content }}
+  </div>
+</article>
