@@ -1,0 +1,26 @@
+name: Daily Suneung Newspaper
+on:
+  schedule:
+    - cron: '0 21 * * *' # 한국 시간 매일 오전 6시 작동
+  workflow_dispatch: # 내가 원할 때 당장 실행하는 버튼
+
+jobs:
+  publish_news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install google-generativeai
+      - name: AI 신문 발행 스크립 실행
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python .github/scripts/daily_news.py
+      - name: 깃허브에 완성된 신문 저장
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add library/*
+          git commit -m "docs: 📰 오늘의 3개국어 수능 신문 정기 발행" || echo "No changes to commit"
+          git push
