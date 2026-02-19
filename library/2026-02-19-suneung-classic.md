@@ -1,7 +1,7 @@
 ---
 layout: newspaper
 title: "講學新報: 數字 領土의 守護인가, 技術의 奴隸인가? '主權 人工知能'의 大義"
-permalink: /suneung-classic
+permalink: /suneung-ko-classic
 ---
 
 **[論說] 밖으로는 國境을 지키고 안으로는 智慧의 뿌리를 내림이 마땅하도다**
