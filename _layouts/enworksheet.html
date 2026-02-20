@@ -1,0 +1,83 @@
+---
+layout: default
+---
+<style>
+  /* A4 학습지 배경 및 구조 디자인 */
+  .worksheet-container {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 60px 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+  }
+  
+  /* 상단 제목 영역 */
+  .ws-title {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  .ws-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .ws-desc {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+
+  /* 단계별 회색 박스 */
+  .ws-step {
+    background-color: #e0e0e0;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+  }
+
+  /* 본문 및 밑줄 영역 */
+  .ws-content {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  .ws-line {
+    border-bottom: 1px solid #000;
+    height: 30px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  /* 하단 푸터 */
+  .ws-footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .worksheet-container { padding: 30px 20px; }
+    .ws-title { font-size: 20px; }
+  }
+</style>
+
+<div class="worksheet-container">
+  <div class="ws-title">누적 직독직해 연습장 (Cumulative Direct Reading Practice)</div>
+  <div class="ws-info">
+    <span>Date: {{ page.date | date: "%Y-%m-%d" }}</span>
+    <span>Name: ________________________</span>
+  </div>
+  <div class="ws-desc">아래 문장을 단계별로 따라 쓰고, 한국어 해석을 누적해서 적어보세요.</div>
+
+  {{ content }}
+
+  <div class="ws-footer">A4 학습지용 - 영어 직독직해 마스터</div>
+</div>
