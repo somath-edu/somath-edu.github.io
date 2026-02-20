@@ -14,7 +14,7 @@
     <style>
         /* --- 변수 및 색상 설정 --- */
         :root {
-            --bg-main: #fdfcf8;       
+            --bg-main: #fdfcf8;
             --bg-card: #ffffff;       
             --text-main: #4a3b32;     
             --text-sub: #8c7b75;      
@@ -22,7 +22,7 @@
             --accent-line: #e6ddd8;   
             
             --font-logo: 'Playfair Display', serif; 
-            --font-title: 'Noto Serif KR', serif;   
+            --font-title: 'Noto Serif KR', serif;
             --font-body: 'Pretendard', sans-serif;  
             
             --radius: 16px;
@@ -106,7 +106,8 @@
         }
         
         .book-cover img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%;
+            height: 100%; object-fit: cover;
         }
 
         .hero-text-box {
@@ -202,7 +203,8 @@
             font-size: 2.5rem;
         }
         
-        .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .card-thumb img { width: 100%;
+            height: 100%; object-fit: cover; }
 
         .card-body {
             padding: 25px;
@@ -345,6 +347,7 @@
                     <img src="/assets/images/daily_news.png" alt="오늘의 신문 삽화" style="filter: grayscale(100%) contrast(1.2);">
                 </div>
                 <div class="card-body" style="font-family: var(--font-title);">
+        
                     <h3 class="card-title" style="border-bottom: 2px solid var(--text-main); padding-bottom: 8px; font-weight: 900; margin-bottom: 15px;">📰 오늘의 핫이슈</h3>
                     
                     <p class="card-desc" style="color: var(--text-main); font-size: 0.95rem; margin-bottom: 10px;"><strong>[오늘의 주제]</strong> 새로운 지식이 배달 중입니다.</p>
@@ -354,19 +357,26 @@
                     <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: bold; border-top: 1px dashed var(--text-main); padding-top: 15px; margin-top: auto;">
                         <a href="/suneung-ko" style="color: var(--text-main);">[한글판]</a>
                         <a href="/suneung-en" style="color: var(--text-main);">[English]</a>
-                        <a href="/suneung-ko-classic" style="color: var(--text-main);">[國漢文]</a>
+                        <a href="/suneung-classic" style="color: var(--text-main);">[國漢文]</a>
                     </div>
                 </div>
             </article>
-            <article class="card">
-                <div class="card-thumb" style="color: #6a9c78;">🌱</div>
-                <div class="card-body">
-                    <h3 class="card-title">말랑말랑 과학</h3>
-                    <p class="card-desc">
-                        중학 과학이 이렇게 재밌었나?<br>
-                        이야기로 풀어낸 과학의 원리.
-                    </p>
-                    <a href="#" class="card-link" style="color:#aaa; margin-top: auto;">COMING SOON</a>
+
+            <article class="card" style="border: 2px solid var(--text-main); background-color: #f4ecd8;">
+                <div class="card-thumb" style="padding: 0; background-color: #e6ddd8; color: var(--text-main); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                    ✒️
+                </div>
+                <div class="card-body" style="font-family: var(--font-title);">
+                    
+                    <h3 class="card-title" style="border-bottom: 2px solid var(--text-main); padding-bottom: 8px; font-weight: 900; margin-bottom: 15px;">📝 직독직해 연습장</h3>
+                    
+                    <p class="card-desc" style="color: var(--text-main); font-size: 0.95rem; margin-bottom: 10px;"><strong>[오늘의 문장]</strong> 오늘의 문장이 준비 중입니다.</p>
+                    
+                    <p style="font-size: 0.8rem; color: var(--text-sub); margin-top: 0;">매일 아침 6시 최신화</p>
+                    
+                    <div style="display: flex; justify-content: center; font-size: 0.95rem; font-weight: bold; border-top: 1px dashed var(--text-main); padding-top: 15px; margin-top: auto;">
+                        <a href="/daily-english" style="color: var(--text-main);">[연습장 펴기]</a>
+                    </div>
                 </div>
             </article>
 
