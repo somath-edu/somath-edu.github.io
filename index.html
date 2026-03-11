@@ -3,611 +3,643 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archive S — 지식의 서재</title>
-    <meta name="description" content="Archive S — 엔트로피 학습법, 매일 핫이슈, 직독직해를 담은 디지털 서재입니다.">
+    <title>Archive S — 지식의 정원</title>
+    <meta name="description" content="Archive S는 배움을 책처럼 기록하고 나누는 디지털 서점입니다. 엔트로피 학습법, 매일 핫이슈, 직독직해 연습장을 만나보세요.">
 
+    <link rel="preload" as="image" href="assets/IMG_1754.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+KR:wght@300;400;700&family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,600&family=Noto+Serif+KR:wght@400;600;900&family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
+        /* ===== 변수 ===== */
         :root {
-            --wood-dark:   #2c1f14;
-            --wood-mid:    #3d2b1a;
-            --wood-light:  #6b4c30;
-            --wood-shelf:  #8b6340;
-            --bg:          #f5f0e8;
-            --cream:       #fdfaf4;
-            --text:        #2a1f14;
-            --text-sub:    #8a7060;
-            --accent:      #c97d6e;
-            --font-serif:  'Playfair Display', serif;
-            --font-kr:     'Noto Serif KR', serif;
-            --font-body:   'Pretendard', sans-serif;
+            --bg-main: #fdfcf8;
+            --bg-card: #ffffff;
+            --bg-nav: rgba(253, 252, 248, 0.92);
+            --text-main: #3a2e27;
+            --text-sub: #8c7b75;
+            --accent: #c97d6e;
+            --accent-soft: #f0ddd9;
+            --accent-line: #e8ddd8;
+            --font-logo: 'Playfair Display', serif;
+            --font-title: 'Noto Serif KR', serif;
+            --font-body: 'Pretendard', sans-serif;
+            --radius: 16px;
+            --shadow: 0 8px 30px rgba(58, 46, 39, 0.08);
         }
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *, *::before, *::after { box-sizing: border-box; }
 
         body {
-            background: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             font-family: var(--font-body);
-            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
         }
 
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; transition: 0.25s; }
 
-        /* ── 네비게이션 ── */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 네비게이션 ===== */
         nav {
-            background: var(--wood-dark);
-            padding: 0 40px;
             position: sticky;
             top: 0;
-            z-index: 200;
-            border-bottom: 3px solid var(--wood-shelf);
+            z-index: 100;
+            background: var(--bg-nav);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--accent-line);
+            padding: 0 24px;
         }
 
         .nav-inner {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 62px;
+            height: 60px;
         }
 
         .nav-logo {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
+            font-family: var(--font-logo);
+            font-size: 1.4rem;
             font-style: italic;
-            color: #f0e6d3;
-            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            align-items: center;
+            gap: 28px;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links a {
-            color: #c8b49a;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             font-weight: 500;
+            color: var(--text-sub);
             letter-spacing: 0.3px;
-            transition: color 0.2s;
         }
 
-        .nav-links a:hover { color: #f0e6d3; }
+        .nav-links a:hover { color: var(--accent); }
 
         .nav-author {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #c8b49a;
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            transition: color 0.2s;
+            color: var(--text-main);
         }
-
-        .nav-author:hover { color: #f0e6d3; }
 
         .nav-author img {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            border: 2px solid var(--wood-shelf);
+            border: 2px solid var(--accent-line);
             object-fit: cover;
         }
 
-        /* ── 헤더 ── */
-        .library-header {
-            background: linear-gradient(160deg, var(--wood-dark) 0%, var(--wood-mid) 100%);
-            padding: 70px 40px 60px;
+        .nav-author:hover { color: var(--accent); }
+
+        /* ===== 히어로 ===== */
+        .hero-section {
+            padding: 80px 0 70px;
             text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-family: var(--font-logo);
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 1px;
+            margin: 0 0 14px;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .hero-sub {
+            font-family: var(--font-title);
+            font-size: 1rem;
+            color: var(--text-sub);
+            margin: 0;
+        }
+
+        .hero-divider {
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+            margin: 30px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ===== 추천 도서 배너 ===== */
+        .featured-book {
+            background: white;
+            border: 1px solid var(--accent-line);
+            border-radius: var(--radius);
+            padding: 48px 52px;
+            display: flex;
+            align-items: center;
+            gap: 56px;
+            margin-bottom: 90px;
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
         }
 
-        .library-header::before {
+        .featured-book::before {
             content: '';
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 6px;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--wood-shelf) 0px,
-                var(--wood-shelf) 60px,
-                var(--wood-light) 60px,
-                var(--wood-light) 62px
-            );
-        }
-
-        .header-eyebrow {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 18px;
-        }
-
-        .header-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2.8rem, 5vw, 4.2rem);
-            font-style: italic;
-            color: #f5ece0;
-            letter-spacing: 2px;
-            margin-bottom: 14px;
-        }
-
-        .header-sub {
-            font-family: var(--font-kr);
-            font-size: 0.95rem;
-            color: #a08c78;
-            font-weight: 300;
-        }
-
-        /* ── 서재 래퍼 ── */
-        .library-wrap {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 30px 80px;
-        }
-
-        /* ── 섹션 타이틀 ── */
-        .shelf-label {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 14px;
-        }
-
-        .shelf-label h2 {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: var(--wood-light);
-            letter-spacing: 1px;
-        }
-
-        .shelf-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #d8ccbc;
-        }
-
-        /* ── 책장 (서가) ── */
-        .bookshelf {
-            background: linear-gradient(to bottom, #4a3520 0%, #3a2814 40%, #3a2814 90%, #2c1f14 100%);
-            border-radius: 4px;
-            padding: 28px 28px 0;
-            position: relative;
-            margin-bottom: 48px;
-            box-shadow:
-                inset 0 2px 8px rgba(0,0,0,0.4),
-                0 8px 24px rgba(0,0,0,0.25);
-        }
-
-        /* 책들이 놓인 선반 */
-        .shelf-row {
-            display: flex;
-            align-items: flex-end;
-            gap: 10px;
-            padding-bottom: 0;
-            position: relative;
-        }
-
-        /* 선반 판자 */
-        .shelf-board {
-            background: linear-gradient(to bottom, var(--wood-shelf) 0%, #7a5535 60%, #6b4828 100%);
-            height: 18px;
-            margin: 0 -28px;
-            border-radius: 0 0 4px 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
-            position: relative;
-        }
-
-        .shelf-board::after {
-            content: '';
-            position: absolute;
-            top: 3px; left: 0; right: 0;
-            height: 2px;
-            background: rgba(255,255,255,0.07);
-        }
-
-        /* ── 책 (spine) ── */
-        .book {
-            position: relative;
-            cursor: pointer;
-            flex-shrink: 0;
-            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-            transform-origin: bottom center;
-            transform-style: preserve-3d;
-        }
-
-        .book:hover {
-            transform: translateY(-22px) rotate(-3deg);
-            z-index: 10;
-        }
-
-        .book-spine {
-            width: 54px;
-            border-radius: 3px 0 0 3px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 0 14px;
-            position: relative;
-            box-shadow:
-                inset -3px 0 8px rgba(0,0,0,0.3),
-                inset 1px 0 2px rgba(255,255,255,0.1),
-                2px 0 6px rgba(0,0,0,0.4);
-        }
-
-        .book-spine::after {
-            content: '';
-            position: absolute;
-            top: 0; right: 0;
+            top: 0; left: 0;
             width: 4px;
             height: 100%;
-            background: rgba(0,0,0,0.25);
-            border-radius: 0 2px 2px 0;
+            background: linear-gradient(to bottom, var(--accent), #e0a89e);
         }
 
-        .spine-title {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transform: rotate(180deg);
-            font-family: var(--font-kr);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            line-height: 1.3;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding: 6px 0;
-            word-break: keep-all;
-        }
-
-        .spine-icon {
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-
-        .spine-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.35);
-            margin-top: 4px;
-        }
-
-        /* 책 뒤에 뜨는 카드 */
-        .book-card-popup {
-            position: absolute;
-            bottom: 110%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            background: var(--cream);
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 18px;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s, transform 0.25s;
-            transform: translateX(-50%) translateY(10px);
-            z-index: 20;
-        }
-
-        .book:hover .book-card-popup {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-            pointer-events: auto;
-        }
-
-        .popup-cat {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .popup-title {
-            font-family: var(--font-kr);
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            word-break: keep-all;
-            line-height: 1.4;
-        }
-
-        .popup-desc {
-            font-size: 0.8rem;
-            color: var(--text-sub);
-            line-height: 1.6;
-            margin-bottom: 14px;
-        }
-
-        .popup-btn {
-            display: block;
-            text-align: center;
-            padding: 8px;
-            background: var(--text);
-            color: white;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .popup-btn:hover { background: var(--accent); }
-
-        /* 책 색상 테마들 */
-        .book-burgundy .book-spine { background: linear-gradient(to right, #6b2737, #8b3547); color: #fde8ec; }
-        .book-navy     .book-spine { background: linear-gradient(to right, #1e3a5f, #2a5082); color: #e0ecf8; }
-        .book-forest   .book-spine { background: linear-gradient(to right, #1e4d2b, #2a6b3c); color: #e0f0e5; }
-        .book-amber    .book-spine { background: linear-gradient(to right, #7a4a00, #a86200); color: #fff3d0; }
-        .book-slate    .book-spine { background: linear-gradient(to right, #334155, #475569); color: #e2e8f0; }
-        .book-plum     .book-spine { background: linear-gradient(to right, #4a1d60, #6b2f8a); color: #f3e8ff; }
-        .book-teal     .book-spine { background: linear-gradient(to right, #134e4a, #1a6b64); color: #ccfbf1; }
-        .book-rose     .book-spine { background: linear-gradient(to right, #9f1239, #be185d); color: #ffe4e6; }
-        .book-khaki    .book-spine { background: linear-gradient(to right, #4a4020, #6b5c2a); color: #fdf6dc; }
-        .book-gray     .book-spine { background: linear-gradient(to right, #3a3a3a, #555); color: #f0f0f0; }
-        .book-coming   .book-spine { background: linear-gradient(to right, #888, #aaa); color: #eee; opacity: 0.6; }
-
-        /* ── 추천 도서 (가로 배너) ── */
-        .featured-banner {
-            background: white;
-            border: 1px solid #e0d8cc;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            padding: 36px 40px;
-            margin-bottom: 48px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .featured-banner::before {
-            content: '✦ EDITOR\'S PICK';
-            position: absolute;
-            top: 18px; right: 24px;
-            font-size: 0.68rem;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .featured-book-3d {
+        .book-cover-wrap {
             flex-shrink: 0;
-            width: 120px;
-            height: 170px;
-            position: relative;
-            perspective: 600px;
         }
 
-        .book-3d-inner {
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transform: rotateY(-25deg);
-            position: relative;
-        }
-
-        .book-3d-front {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 2px 6px 6px 2px;
+        .book-cover {
+            width: 200px;
+            height: 290px;
+            border-radius: 4px 14px 14px 4px;
             overflow: hidden;
-            box-shadow: 4px 4px 14px rgba(0,0,0,0.2);
+            box-shadow: 8px 8px 24px rgba(0,0,0,0.15), 2px 2px 6px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
 
-        .book-3d-front img {
+        .book-cover:hover { transform: rotate(-2deg) scale(1.03); }
+
+        .book-cover img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .book-3d-spine {
-            position: absolute;
-            left: -14px;
-            width: 14px;
-            height: 100%;
-            background: linear-gradient(to right, #6b4c30, #8b6340);
-            transform: rotateY(90deg);
-            transform-origin: right center;
         }
 
         .featured-text { flex: 1; }
 
-        .featured-cat {
-            font-size: 0.72rem;
+        .featured-tag {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 10px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 18px;
         }
 
         .featured-title {
-            font-family: var(--font-kr);
-            font-size: 1.7rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .featured-desc {
-            font-size: 0.88rem;
-            color: var(--text-sub);
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1.25;
+            margin: 0 0 18px;
             word-break: keep-all;
         }
 
-        .featured-meta {
-            font-size: 0.78rem;
+        .featured-desc {
             color: var(--text-sub);
-            margin-bottom: 22px;
+            font-size: 1rem;
+            margin-bottom: 14px;
+            word-break: keep-all;
+            line-height: 1.8;
         }
 
-        .featured-meta span { margin-right: 14px; }
+        .featured-meta {
+            font-size: 0.82rem;
+            color: var(--text-sub);
+            margin-bottom: 28px;
+        }
+
+        .featured-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-right: 16px;
+        }
 
         .btn-read {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: var(--text);
+            gap: 8px;
+            padding: 13px 30px;
+            background: var(--text-main);
             color: white;
-            padding: 11px 26px;
             border-radius: 30px;
-            font-size: 0.88rem;
+            font-size: 0.92rem;
             font-weight: 600;
+            letter-spacing: 0.3px;
             transition: 0.25s;
         }
 
         .btn-read:hover {
             background: var(--accent);
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(201,125,110,0.35);
+            box-shadow: 0 6px 16px rgba(201, 125, 110, 0.35);
         }
 
-        /* ── Latest Issues ── */
-        .latest-wrap { margin-bottom: 60px; }
+        /* ===== 섹션 헤더 ===== */
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 36px;
+            border-bottom: 1.5px solid var(--accent-line);
+            padding-bottom: 16px;
+        }
 
-        .post-list { display: flex; flex-direction: column; }
+        .section-head h2 {
+            font-family: var(--font-logo);
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .section-head a {
+            font-size: 0.82rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .section-head a:hover { color: var(--accent); }
+
+        /* ===== 책 서가 그리드 ===== */
+        .bookshelf {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 28px;
+            margin-bottom: 90px;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid var(--accent-line);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .book-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(58, 46, 39, 0.12);
+            border-color: var(--accent);
+        }
+
+        .book-thumbnail {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-thumbnail .thumb-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(58,46,39,0.15));
+        }
+
+        .book-info {
+            padding: 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-category {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .book-title {
+            font-family: var(--font-title);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+            line-height: 1.4;
+            word-break: keep-all;
+        }
+
+        .book-desc {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .book-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid var(--accent-line);
+        }
+
+        .book-chapters {
+            font-size: 0.78rem;
+            color: var(--text-sub);
+        }
+
+        .book-link {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+        }
+
+        .book-link:hover { color: var(--text-main); }
+
+        .book-badge-new {
+            position: absolute;
+            top: 12px; right: 12px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .book-badge-daily {
+            position: absolute;
+            top: 12px; right: 12px;
+            background: #3a7d44;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 8px;
+        }
+
+        /* ===== 최신 글 목록 ===== */
+        .latest-section {
+            margin-bottom: 90px;
+        }
+
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
 
         .post-item {
             display: flex;
             align-items: center;
-            gap: 18px;
-            padding: 16px 0;
-            border-bottom: 1px solid #e0d8cc;
-            transition: padding-left 0.2s;
-            cursor: pointer;
-        }
-
-        .post-item:hover { padding-left: 8px; }
-        .post-item:hover .post-title { color: var(--accent); }
-
-        .post-date { font-size: 0.76rem; color: var(--text-sub); width: 80px; flex-shrink: 0; }
-
-        .post-cat {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--accent);
-            background: #f5ede9;
-            padding: 3px 9px;
-            border-radius: 10px;
-            flex-shrink: 0;
-        }
-
-        .post-title {
-            font-family: var(--font-kr);
-            font-size: 0.92rem;
-            font-weight: 600;
-            flex: 1;
-            transition: color 0.2s;
-            word-break: keep-all;
-        }
-
-        .post-links { display: flex; gap: 6px; flex-shrink: 0; }
-
-        .post-links a {
-            font-size: 0.72rem;
-            color: var(--text-sub);
-            border: 1px solid #ddd;
-            padding: 2px 8px;
-            border-radius: 6px;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--accent-line);
             transition: 0.2s;
         }
 
-        .post-links a:hover { background: #f5ede9; border-color: var(--accent); color: var(--accent); }
+        .post-item:first-child { border-top: none; }
 
-        /* ── 푸터 ── */
+        .post-item:hover { padding-left: 6px; }
+
+        .post-item:hover .post-title { color: var(--accent); }
+
+        .post-date {
+            font-size: 0.78rem;
+            color: var(--text-sub);
+            flex-shrink: 0;
+            width: 90px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .post-cat {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 3px 9px;
+            border-radius: 10px;
+            flex-shrink: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .post-title {
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            font-weight: 600;
+            flex: 1;
+            word-break: keep-all;
+            transition: color 0.2s;
+        }
+
+        .post-lang {
+            font-size: 0.75rem;
+            color: var(--text-sub);
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .post-lang a {
+            color: var(--text-sub);
+            padding: 2px 8px;
+            border: 1px solid var(--accent-line);
+            border-radius: 8px;
+            font-size: 0.72rem;
+            transition: 0.2s;
+        }
+
+        .post-lang a:hover {
+            background: var(--accent-soft);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ===== 빈티지 캐러셀 카드 (핫이슈) ===== */
+        .card-vintage {
+            background: #f4ecd8;
+            border: 2px solid var(--text-main) !important;
+        }
+
+        .card-vintage .book-category { color: var(--text-main); }
+        .card-vintage .book-link { color: var(--text-main); }
+        .card-vintage .book-footer { border-color: rgba(58,46,39,0.2); }
+
+        .lang-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .lang-row a {
+            flex: 1;
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 5px;
+            border: 1px solid var(--text-main);
+            border-radius: 6px;
+            color: var(--text-main);
+            transition: 0.2s;
+        }
+
+        .lang-row a:hover {
+            background: var(--text-main);
+            color: #f4ecd8;
+        }
+
+        /* ===== 푸터 ===== */
         footer {
-            background: var(--wood-dark);
-            padding: 40px;
+            border-top: 1px solid var(--accent-line);
+            padding: 50px 0;
             text-align: center;
         }
 
         .footer-logo {
-            font-family: var(--font-serif);
+            font-family: var(--font-logo);
+            font-size: 1.3rem;
             font-style: italic;
-            font-size: 1.2rem;
-            color: #c8b49a;
-            margin-bottom: 8px;
+            color: var(--text-sub);
+            margin-bottom: 10px;
         }
 
-        .footer-copy { font-size: 0.78rem; color: #6b5840; }
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
 
-        /* ── 반응형 ── */
+        /* ===== 반응형 ===== */
         @media (max-width: 768px) {
-            .featured-banner { flex-direction: column; text-align: center; padding: 28px 24px; gap: 24px; }
-            .featured-banner::before { display: none; }
+            .featured-book {
+                flex-direction: column;
+                text-align: center;
+                padding: 36px 28px;
+                gap: 32px;
+            }
+
+            .featured-book::before { width: 100%; height: 4px; }
+
+            .book-cover { width: 160px; height: 230px; margin: 0 auto; }
+
+            .hero-title { font-size: 2.8rem; }
+
+            .bookshelf { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
             .nav-links { display: none; }
-            .book-spine { width: 44px; }
-            .spine-title { font-size: 0.65rem; }
-            .post-date, .post-links { display: none; }
+
+            .post-date { display: none; }
+
+            .post-lang { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .bookshelf { grid-template-columns: 1fr 1fr; gap: 12px; }
+        }
+
+        /* ===== 스크롤 등장 애니메이션 ===== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
-<!-- ── 네비게이션 ── -->
-<nav>
-    <div class="nav-inner">
-        <a href="/" class="nav-logo">Archive S</a>
-        <ul class="nav-links">
-            <li><a href="#shelf">📚 서재</a></li>
-            <li><a href="/suneung-ko">📰 핫이슈</a></li>
-            <li><a href="/daily-english">✒️ 연습장</a></li>
-            <li><a href="/entropy.html">엔트로피 학습법</a></li>
-        </ul>
-        <a href="/about/" class="nav-author">
-            <img src="assets/IMG_1754.webp" alt="작가" onerror="this.style.display='none'">
-            Writer
-        </a>
-    </div>
-</nav>
-
-<!-- ── 헤더 ── -->
-<header class="library-header">
-    <p class="header-eyebrow">Digital Library</p>
-    <h1 class="header-title">Archive S</h1>
-    <p class="header-sub">기록하고, 연결하고, 성장하는 공간</p>
-</header>
-
-<main class="library-wrap">
-
-    <!-- ── 추천 도서 ── -->
-    <section>
-        <div class="shelf-label">
-            <h2>Editor's Pick</h2>
+    <!-- ===== 네비게이션 ===== -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">Archive S</a>
+            <ul class="nav-links">
+                <li><a href="#bookshelf">📚 서가</a></li>
+                <li><a href="/suneung-ko">📰 핫이슈</a></li>
+                <li><a href="/daily-english">✒️ 연습장</a></li>
+                <li><a href="/entropy.html">엔트로피 학습법</a></li>
+            </ul>
+            <a href="/about/" class="nav-author">
+                <img src="assets/IMG_1754.webp" alt="작가" onerror="this.style.display='none'">
+                Writer
+            </a>
         </div>
+    </nav>
 
-        <div class="featured-banner">
-            <div class="featured-book-3d">
-                <div class="book-3d-inner">
-                    <div class="book-3d-spine"></div>
-                    <div class="book-3d-front">
-                        <img src="IMG_2282.webp" alt="엔트로피 학습법" loading="eager">
-                    </div>
+    <!-- ===== 히어로 ===== -->
+    <section class="hero-section">
+        <div class="container">
+            <span class="hero-eyebrow">Digital Bookstore</span>
+            <h1 class="hero-title">Archive S</h1>
+            <p class="hero-sub">기록하고, 연결하고, 성장하는 공간</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- ===== 추천 도서 배너 ===== -->
+        <div class="featured-book fade-up">
+            <div class="book-cover-wrap">
+                <div class="book-cover">
+                    <img src="IMG_2282.webp" alt="엔트로피 학습법 표지" loading="eager">
                 </div>
             </div>
             <div class="featured-text">
-                <div class="featured-cat">학습법</div>
+                <span class="featured-tag">✦ Editor's Pick</span>
                 <h2 class="featured-title">엔트로피 학습법</h2>
                 <p class="featured-desc">
                     학습할수록 머릿속이 복잡해지나요?<br>
@@ -622,186 +654,145 @@
                 <a href="/entropy.html" class="btn-read">책 읽으러 가기 →</a>
             </div>
         </div>
-    </section>
 
-    <!-- ── 서재 서가 ── -->
-    <section id="shelf">
-        <div class="shelf-label">
-            <h2>Collections — 책을 뽑아보세요</h2>
-        </div>
+        <!-- ===== 책 서가 ===== -->
+        <section id="bookshelf">
+            <div class="section-head fade-up">
+                <h2>Collections</h2>
+                <a href="#">전체 보기 →</a>
+            </div>
 
-        <div class="bookshelf">
-            <div class="shelf-row">
+            <div class="bookshelf">
 
-                <!-- 책 1: 엔트로피 학습법 -->
-                <a href="/entropy.html" class="book book-burgundy" style="height: 210px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-icon">🧠</span>
-                        <span class="spine-title">엔트로피 학습법</span>
-                        <span class="spine-dot"></span>
+                <!-- 카드 1: 엔트로피 학습법 -->
+                <article class="book-card fade-up" onclick="location.href='/entropy.html'">
+                    <div class="book-thumbnail" style="background: linear-gradient(135deg, #e8d5c4, #c9a990);">
+                        <img src="IMG_2282.webp" alt="엔트로피 학습법" loading="lazy">
+                        <div class="thumb-overlay"></div>
                     </div>
-                    <div class="book-card-popup">
-                        <div class="popup-cat">학습법</div>
-                        <div class="popup-title">엔트로피 학습법</div>
-                        <p class="popup-desc">뇌과학에 기반한 공부 전략. 혼돈을 질서로 바꾸는 11챕터.</p>
-                        <span class="popup-btn">읽으러 가기 →</span>
+                    <div class="book-info">
+                        <div class="book-category">학습법</div>
+                        <h3 class="book-title">엔트로피 학습법</h3>
+                        <p class="book-desc">뇌과학에 기반한 공부의 기술. 혼돈을 질서로 바꾸는 학습 전략.</p>
+                        <div class="book-footer">
+                            <span class="book-chapters">📖 11챕터</span>
+                            <a href="/entropy.html" class="book-link">READ →</a>
+                        </div>
                     </div>
-                </a>
+                </article>
 
-                <!-- 책 2: 엔트로피 Ch1 -->
-                <a href="/library/entropy-ch1" class="book book-navy" style="height:190px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-icon">①</span>
-                        <span class="spine-title">Ch.1 학습 엔트로피의 정체</span>
-                        <span class="spine-dot"></span>
+                <!-- 카드 2: 오늘의 핫이슈 (빈티지 스타일) -->
+                <article class="book-card card-vintage fade-up">
+                    <div class="book-thumbnail" style="background: #ddd;">
+                        <img src="/assets/images/daily_news.png" alt="오늘의 핫이슈" loading="lazy" style="filter: grayscale(100%) contrast(1.2);" onerror="this.parentElement.innerHTML='📰'">
+                        <div class="thumb-overlay"></div>
+                        <span class="book-badge-daily">DAILY</span>
                     </div>
-                    <div class="book-card-popup">
-                        <div class="popup-cat">엔트로피 Ch.1</div>
-                        <div class="popup-title">학습 엔트로피의 정체</div>
-                        <p class="popup-desc">물리학의 엔트로피가 교실로 들어오다.</p>
-                        <span class="popup-btn">읽으러 가기 →</span>
+                    <div class="book-info">
+                        <div class="book-category">매일 아침 6시 최신화</div>
+                        <h3 class="book-title">오늘의 핫이슈</h3>
+                        <p class="book-desc">시사 핵심을 한글·영어·국한문으로 읽는 매일의 지식 신문.</p>
+                        <div class="lang-row">
+                            <a href="/suneung-ko">한글</a>
+                            <a href="/suneung-en">English</a>
+                            <a href="/suneung-ko-classic">國漢文</a>
+                        </div>
                     </div>
-                </a>
+                </article>
 
-                <!-- 책 3: 핫이슈 한글 -->
-                <a href="/suneung-ko" class="book book-forest" style="height:220px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-icon">📰</span>
-                        <span class="spine-title">오늘의 핫이슈 한글판</span>
-                        <span class="spine-dot"></span>
+                <!-- 카드 3: 직독직해 연습장 -->
+                <article class="book-card fade-up" onclick="location.href='/daily-english'">
+                    <div class="book-thumbnail" style="background: linear-gradient(135deg, #d4e8d4, #a8c8a8);">
+                        <span style="font-size:3.5rem;">✒️</span>
                     </div>
-                    <div class="book-card-popup">
-                        <div class="popup-cat">매일 핫이슈</div>
-                        <div class="popup-title">오늘의 핫이슈 — 한글판</div>
-                        <p class="popup-desc">매일 아침 6시, 시사 핵심을 한국어로.</p>
-                        <span class="popup-btn">읽으러 가기 →</span>
+                    <div class="book-info">
+                        <div class="book-category">영어</div>
+                        <h3 class="book-title">직독직해 연습장</h3>
+                        <p class="book-desc">매일 한 문장, 직독직해로 읽는 습관. 수능 영어를 넘는 진짜 독해력.</p>
+                        <div class="book-footer">
+                            <span class="book-chapters">📅 매일</span>
+                            <a href="/daily-english" class="book-link">READ →</a>
+                        </div>
                     </div>
-                </a>
+                </article>
 
-                <!-- 책 4: 핫이슈 영어 -->
-                <a href="/suneung-en" class="book book-slate" style="height:200px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-icon">🌐</span>
-                        <span class="spine-title">Hot Issue — English</span>
-                        <span class="spine-dot"></span>
+                <!-- 카드 4: 디지털 가든 가이드 -->
+                <article class="book-card fade-up" style="opacity: 0.75;">
+                    <div class="book-thumbnail" style="background: linear-gradient(135deg, #dde4f0, #b8c8e8);">
+                        <span style="font-size:3.5rem;">🌸</span>
+                        <span class="book-badge-new" style="background: #888;">준비중</span>
                     </div>
-                    <div class="book-card-popup">
-                        <div class="popup-cat">Daily Issue</div>
-                        <div class="popup-title">Hot Issue — English</div>
-                        <p class="popup-desc">Read today's news in English. Updated every morning.</p>
-                        <span class="popup-btn">Read Now →</span>
+                    <div class="book-info">
+                        <div class="book-category">지식 관리</div>
+                        <h3 class="book-title">디지털 가든 가이드</h3>
+                        <p class="book-desc">옵시디언으로 짓는 나만의 지식 정원. 기록이 책이 되는 과정.</p>
+                        <div class="book-footer">
+                            <span class="book-chapters">Coming soon</span>
+                            <a href="#" class="book-link" style="color: #aaa;">준비중</a>
+                        </div>
                     </div>
-                </a>
-
-                <!-- 책 5: 핫이슈 국한문 -->
-                <a href="/suneung-ko-classic" class="book book-plum" style="height:215px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-icon">漢</span>
-                        <span class="spine-title">핫이슈 國漢文</span>
-                        <span class="spine-dot"></span>
-                    </div>
-                    <div class="book-card-popup">
-                        <div class="popup-cat">國漢文</div>
-                        <div class="popup-title">오늘의 핫이슈 — 國漢文</div>
-                        <p class="popup-desc">한자와 국어를 함께 읽는 고전적 지식 신문.</p>
-                        <span class="popup-btn">읽으러 가기 →</span>
-                    </div>
-                </a>
-
-                <!-- 책 6: 직독직해 -->
-                <a href="/daily-english" class="book book-teal" style="height:205px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-icon">✒️</span>
-                        <span class="spine-title">직독직해 연습장</span>
-                        <span class="spine-dot"></span>
-                    </div>
-                    <div class="book-card-popup">
-                        <div class="popup-cat">영어</div>
-                        <div class="popup-title">직독직해 연습장</div>
-                        <p class="popup-desc">매일 한 문장, 직독직해로 읽는 진짜 독해력.</p>
-                        <span class="popup-btn">연습하러 가기 →</span>
-                    </div>
-                </a>
-
-                <!-- 책 7: 디지털가든 (준비중) -->
-                <div class="book book-coming" style="height:195px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-icon">🌸</span>
-                        <span class="spine-title">디지털 가든 가이드</span>
-                        <span class="spine-dot"></span>
-                    </div>
-                    <div class="book-card-popup">
-                        <div class="popup-cat">준비중</div>
-                        <div class="popup-title">디지털 가든 가이드</div>
-                        <p class="popup-desc">옵시디언으로 짓는 나만의 지식 정원. 곧 출간됩니다.</p>
-                        <span class="popup-btn" style="background:#aaa;">Coming Soon</span>
-                    </div>
-                </div>
-
-                <!-- 책 8~10: 빈 책 (자리 확보용) -->
-                <div class="book book-amber" style="height:185px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-title" style="font-size:0.65rem; opacity:0.6;">곧 출간</span>
-                    </div>
-                </div>
-                <div class="book book-rose" style="height:200px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-title" style="font-size:0.65rem; opacity:0.6;">곧 출간</span>
-                    </div>
-                </div>
-                <div class="book book-khaki" style="height:190px;">
-                    <div class="book-spine" style="height:100%;">
-                        <span class="spine-title" style="font-size:0.65rem; opacity:0.6;">곧 출간</span>
-                    </div>
-                </div>
+                </article>
 
             </div>
-            <div class="shelf-board"></div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ── Latest Issues ── -->
-    <section class="latest-wrap">
-        <div class="shelf-label">
-            <h2>Latest Issues</h2>
-        </div>
-        <div class="post-list">
-            <a href="/suneung-ko" class="post-item">
-                <span class="post-date">2026.03.10</span>
-                <span class="post-cat">핫이슈</span>
-                <span class="post-title">최신 핫이슈 읽기</span>
-                <div class="post-links">
-                    <a href="/suneung-ko">한글</a>
-                    <a href="/suneung-en">EN</a>
-                    <a href="/suneung-ko-classic">漢</a>
-                </div>
-            </a>
-            <a href="/entropy.html" class="post-item">
-                <span class="post-date">2026.02.02</span>
-                <span class="post-cat">학습법</span>
-                <span class="post-title">엔트로피 학습법 — Chapter 1. 학습 엔트로피의 정체</span>
-                <div class="post-links">
-                    <a href="/entropy.html">목차</a>
-                </div>
-            </a>
-            <a href="/daily-english" class="post-item">
-                <span class="post-date">매일</span>
-                <span class="post-cat">영어</span>
-                <span class="post-title">직독직해 연습장 — 오늘의 문장</span>
-                <div class="post-links">
-                    <a href="/daily-english">연습</a>
-                </div>
-            </a>
-        </div>
-    </section>
+        <!-- ===== 최신 글 목록 ===== -->
+        <section class="latest-section">
+            <div class="section-head fade-up">
+                <h2>Latest Issues</h2>
+                <a href="/suneung-ko">더 보기 →</a>
+            </div>
 
-</main>
+            <div class="post-list fade-up">
+                <a href="/suneung-ko" class="post-item">
+                    <span class="post-date">2026. 03. 10</span>
+                    <span class="post-cat">핫이슈</span>
+                    <span class="post-title">최신 핫이슈 읽기</span>
+                    <div class="post-lang">
+                        <a href="/suneung-ko">한글</a>
+                        <a href="/suneung-en">EN</a>
+                        <a href="/suneung-ko-classic">漢</a>
+                    </div>
+                </a>
+                <a href="/entropy.html" class="post-item">
+                    <span class="post-date">2026. 02. 02</span>
+                    <span class="post-cat">학습법</span>
+                    <span class="post-title">엔트로피 학습법 — Chapter 1. 학습 엔트로피의 정체</span>
+                    <div class="post-lang">
+                        <a href="/entropy.html">목차</a>
+                    </div>
+                </a>
+                <a href="/daily-english" class="post-item">
+                    <span class="post-date">매일</span>
+                    <span class="post-cat">영어</span>
+                    <span class="post-title">직독직해 연습장 — 오늘의 문장</span>
+                    <div class="post-lang">
+                        <a href="/daily-english">연습</a>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-<!-- ── 푸터 ── -->
-<footer>
-    <div class="footer-logo">Archive S</div>
-    <p class="footer-copy">Copyright © 2026 Archive S. All rights reserved.</p>
-</footer>
+    </div>
+
+    <!-- ===== 푸터 ===== -->
+    <footer>
+        <div class="footer-logo">Archive S</div>
+        <p class="footer-copy">Copyright © 2026 Archive S. All rights reserved.</p>
+    </footer>
+
+    <!-- ===== 스크롤 등장 애니메이션 JS ===== -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
