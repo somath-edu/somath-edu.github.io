@@ -238,6 +238,77 @@
             margin-top: auto;
         }
 
+        /* --- 프리미엄 전시형 카드 --- */
+        .premium-book-card {
+            border: 1px solid var(--accent-line) !important;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .premium-book-card:hover {
+            border-color: var(--accent-point) !important;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(74, 59, 50, 0.12);
+        }
+
+        .card-image-box {
+            position: relative;
+            height: 380px; /* 세로형 표지 강조 */
+            overflow: hidden;
+            background-color: #f5f0eb;
+        }
+
+        .card-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .premium-book-card:hover .card-image-box img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .premium-book-card:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .overlay-label {
+            color: white;
+            font-family: var(--font-logo);
+            font-style: italic;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .premium-book-card .card-body {
+            background-color: #fff;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-point);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
         footer {
             border-top: 1px solid var(--accent-line);
             text-align: center;
@@ -311,15 +382,21 @@
         </div>
 
         <div class="grid-list">
-            <article class="card">
-                <div class="card-thumb" style="color: #6d8e6d; background-color: #e5ede5;">🌿</div>
+            <article class="card premium-book-card" onclick="location.href='https://somath-edu.github.io/jekyll-survivlism'">
+                <div class="card-image-box">
+                    <img src="assets/survivlism-cover.webp" alt="생동주의자 전시형 표지" onerror="this.src='https://raw.githubusercontent.com/somath-edu/somath-edu.github.io/master/assets/survivlism-cover.webp'">
+                    <div class="image-overlay">
+                        <span class="overlay-label">The Survivlism</span>
+                    </div>
+                </div>
                 <div class="card-body">
+                    <span class="card-tag">Collection 01</span>
                     <h3 class="card-title">생동주의자</h3>
                     <p class="card-desc">
                         과거에 갇히지 않고 나를 바로 세워<br>
-                        행동하는 생동주의자의 철학과 심리 에세이.
+                        행동하는 철학과 심리 에세이 시리즈.
                     </p>
-                    <a href="https://somath-edu.github.io/jekyll-survivlism" class="card-link" style="margin-top: auto; color: #6d8e6d;">책 펼치기 →</a>
+                    <div class="card-link">View Collection →</div>
                 </div>
             </article>
         </div>
