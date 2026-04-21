@@ -36,11 +36,11 @@ layout: default
   grid-template-columns: 1fr 2fr;
   gap: 3rem;
   margin-bottom: 3rem;
-  background: #f8f9fa;
-  padding: 2.5rem;
+  background: #fff;
+  padding: 3rem;
   border-radius: 20px;
-  border: 1px solid #e9ecef;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #e6ddd8;
+  box-shadow: 0 15px 35px rgba(74, 59, 50, 0.05);
 }
 
 .book-cover {
@@ -55,18 +55,29 @@ layout: default
 }
 
 .book-title {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #1a1a1b 0%, #4a4a4b 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #4a3b32;
+  line-height: 1.2;
+}
+
+.book-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #d88e88;
+  margin-top: 1rem;
 }
 
 .book-author {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
   font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 1.5rem;
+  color: #8c7b75;
+  margin-bottom: 2rem;
 }
 
 .book-meta {
