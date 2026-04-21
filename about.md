@@ -69,8 +69,8 @@ permalink: /about/
     /* 3. Message Section */
     .message-box {
         text-align: center;
-        margin-bottom: 60px;
-        padding: 0 20px;
+        margin-bottom: 40px;
+        padding: 0 10px;
     }
 
     .main-message {
@@ -78,12 +78,12 @@ permalink: /about/
         font-size: 1.5rem;
         font-weight: 700;
         color: #6B4F3F;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         word-break: keep-all;
     }
 
     .sub-message {
-        font-size: 1.05rem;
+        font-size: 1rem;
         color: #777;
         max-width: 600px;
         margin: 0 auto;
@@ -93,9 +93,10 @@ permalink: /about/
     /* 4. Donation Card (Glassmorphism) */
     .donation-section {
         display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 40px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px;
     }
 
     .glass-card {
@@ -103,39 +104,41 @@ permalink: /about/
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 20px;
-        padding: 40px;
+        padding: 30px 20px;
         width: 100%;
-        max-width: 450px;
+        max-width: 400px;
         box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         text-align: center;
         position: relative;
+        box-sizing: border-box;
     }
 
     .kakaopay-btn {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
         background-color: #FFEB00;
         color: #3C1E1E;
         text-decoration: none;
-        padding: 18px 40px;
-        border-radius: 14px;
+        padding: 15px 20px;
+        border-radius: 12px;
         font-weight: 700;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         width: 100%;
-        box-shadow: 0 8px 20px rgba(255, 235, 0, 0.3);
-        margin-bottom: 30px;
+        box-shadow: 0 8px 20px rgba(255, 235, 0, 0.2);
+        margin-bottom: 25px;
+        box-sizing: border-box;
     }
 
     .kakaopay-btn:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 25px rgba(255, 235, 0, 0.4);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(255, 235, 0, 0.3);
     }
 
     .kakaopay-logo {
-        height: 24px;
+        height: 20px;
     }
 
     /* QR Placeholder Overlay */
@@ -143,42 +146,47 @@ permalink: /about/
         background: #fdfaf5;
         border: 1px dashed #D4A373;
         border-radius: 16px;
-        padding: 20px;
+        padding: 15px;
         margin: 0 auto;
-        width: 160px;
-        height: 160px;
+        width: 150px;
+        height: 150px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: relative;
         cursor: help;
+        box-sizing: border-box;
     }
 
     .qr-container span {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: #D4A373;
-        margin-top: 10px;
+        margin-top: 8px;
         font-weight: 500;
     }
 
     .qr-placeholder-icon {
-        font-size: 2.5rem;
-        opacity: 0.5;
+        font-size: 2rem;
+        opacity: 0.4;
     }
 
     /* 5. Animations */
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
+        from { opacity: 0; transform: translateY(15px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
     /* Small screens */
     @media (max-width: 600px) {
-        .hero-img { height: 300px; }
-        .hero-title { font-size: 1.7rem; }
-        .main-message { font-size: 1.25rem; }
-        .kakaopay-btn { font-size: 1.1rem; }
+        .coffee-page { padding: 20px 15px; }
+        .hero-img { height: 240px; }
+        .hero-title { font-size: 1.4rem; }
+        .hero-overlay { padding: 20px; }
+        .main-message { font-size: 1.2rem; }
+        .sub-message { font-size: 0.95rem; }
+        .glass-card { padding: 25px 15px; }
+        .kakaopay-btn { font-size: 1rem; padding: 12px 15px; }
     }
 </style>
 
