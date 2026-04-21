@@ -225,7 +225,7 @@ permalink: /about/
             <div class="card-title-mini">Kakaopay Donation</div>
             
             <div class="qr-frame">
-                <img src="/assets/qrcodes/donation_qr.png" class="qr-image" alt="KakaoPay QR Code">
+                <img src="/assets/donation/qr-code.png" class="qr-image" alt="KakaoPay QR Code">
             </div>
 
             <a href="https://qr.kakaopay.com/FSSJrWbkG" class="kakaopay-btn" target="_blank">
