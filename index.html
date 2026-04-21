@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Noto+Serif+KR:wght@400;600;900&family=Pretendard:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bookstore.css">
 
     <style>
         /* --- 변수 및 색상 설정 --- */
@@ -225,7 +226,11 @@
             line-height: 1.5;
             margin-bottom: 20px;
             display: -webkit-box;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             -webkit-line-clamp: 2;
+            line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -378,10 +383,48 @@
         </section>
 
         <div class="section-header">
+            <h2>Digital Bookstore</h2>
+        </div>
+
+        <div class="book-grid">
+            {% for book in site.books %}
+            <article class="book-card" onclick="location.href='{{ book.url }}'">
+                <img src="{{ book.cover }}" alt="{{ book.title }}" class="book-card-image">
+                <div class="book-card-content">
+                    <h3 class="book-card-title">{{ book.title }}</h3>
+                    <p class="book-card-author">By {{ book.author }}</p>
+                    <div class="book-card-footer">
+                        <span class="book-card-price">{{ book.price }}</span>
+                        <a href="{{ book.url }}" class="book-card-link">View Details</a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <div class="section-header">
             <h2>Collections</h2>
         </div>
 
         <div class="grid-list">
+            <article class="card premium-book-card" onclick="location.href='/wiki/'">
+                <div class="card-image-box">
+                    <img src="assets/images/calculus_cover.png" alt="미적분 I 디지털 교과서 표지">
+                    <div class="image-overlay">
+                        <span class="overlay-label">Calculus I : Digital Wiki</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Interactive Textbook</span>
+                    <h3 class="card-title">미적분 I - 디지털 서브교과서</h3>
+                    <p class="card-desc">
+                        코넬 노트 방식의 체계적인 개념 정리와<br>
+                        난이도별 최적화 문제집을 경험해 보세요.
+                    </p>
+                    <div class="card-link">Enter Digital Library →</div>
+                </div>
+            </article>
+
             <article class="card premium-book-card" onclick="location.href='https://somath-edu.github.io/jekyll-survivlism'">
                 <div class="card-image-box">
                     <img src="assets/survivlism-cover.webp" alt="생동주의자 전시형 표지" onerror="this.src='https://raw.githubusercontent.com/somath-edu/somath-edu.github.io/master/assets/survivlism-cover.webp'">

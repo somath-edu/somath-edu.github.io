@@ -1,261 +1,150 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | Archive S</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
+---
+layout: default
+---
 
-    <style>
-        :root {
-            --bg-main: #fdfcf8;       
-            --text-main: #332b26;     
-            --text-sub: #8c7b75;      
-            --accent-point: #d88e88;  
-            --line-color: #e6ddd8;
-            
-            --font-logo: 'Playfair Display', serif; 
-            --font-title: 'Noto Serif KR', serif;   
-            --font-body: 'Pretendard', sans-serif;  
-        }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            margin: 0;
-            line-height: 1.65;
-        }
-
-        header {
-            text-align: center;
-            padding: 10px 0 5px; /* 헤더 높이 최소화 유지 */
-            border-bottom: 1px solid var(--line-color);
-        }
-        .brand-mini {
-            font-family: var(--font-logo);
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-main);
-            text-decoration: none;
-            font-style: italic;
-        }
-
-        .book-container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 10px 20px 80px; /* 본문 위 여백 최소화 유지 */
-        }
-
-        .chapter-header {
-            text-align: center;
-            margin-bottom: 15px; /* 제목과 본문 사이 좁게 유지 */
-        }
-        .chapter-label {
-            display: block;
-            font-family: var(--font-logo);
-            color: var(--accent-point);
-            font-size: 0.75rem;
-            margin-bottom: 3px;
-            letter-spacing: 1px;
-        }
-        .chapter-title {
-            font-family: var(--font-title);
-            font-size: 1.7rem;
-            margin: 0;
-            word-break: keep-all;
-            line-height: 1.1;
-            font-weight: 700;
-        }
-        .chapter-meta {
-            margin-top: 5px;
-            color: var(--text-sub);
-            font-size: 0.75rem;
-            font-family: var(--font-body);
-        }
-
-        .content-body {
-            font-size: 1.0rem;
-            text-align: left;         
-            word-break: keep-all;     
-            color: #423833;           
-            letter-spacing: -0.02em;
-        }
-
-        .content-body p {
-            margin-bottom: 1.0rem;
-        }
-
-        /* Part 제목 여백 최적화 (초밀착) */
-        .content-body h1 {
-            font-family: var(--font-title);
-            font-size: 1.5rem;
-            text-align: center;
-            margin-top: 10px;    /* 구분선 바로 밑으로 당김 */
-            margin-bottom: 10px; 
-            color: var(--text-main);
-            border-bottom: 2px solid var(--text-main);
-            padding-bottom: 8px;
-            line-height: 1.2;
-        }
-
-        /* Chapter 소제목 여백 최적화 */
-        .content-body h2 {
-            font-family: var(--font-title);
-            font-size: 1.3rem;
-            margin-top: 20px;
-            margin-bottom: 8px; 
-            color: var(--text-main);
-            font-weight: 700;
-            border-left: 3px solid var(--accent-point);
-            padding-left: 10px;
-            line-height: 1.2;
-        }
-
-        .content-body blockquote {
-            background: #f7f3f0;
-            border: 1px solid var(--line-color);
-            border-radius: 8px;
-            margin: 15px 0;
-            padding: 12px;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: #5a4d46;
-            line-height: 1.5;
-        }
-        .content-body blockquote strong {
-            color: var(--accent-point);
-        }
-
-        .content-body img {
-            display: block;           
-            max-width: 85%;           
-            max-height: 280px;        
-            width: auto;              
-            height: auto;             
-            margin: 15px auto;
-            border-radius: 8px;       
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06); 
-            object-fit: contain;      
-        }
-
-        .content-body ul {
-            padding-left: 18px;
-            margin-bottom: 15px;
-        }
-        .content-body li {
-            margin-bottom: 4px;
-            line-height: 1.6;
-        }
-        .content-body li strong {
-            font-weight: 600;
-            color: #2a211d;
-            background: linear-gradient(to top, #eee3d8 40%, transparent 40%);
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: var(--line-color);
-            margin: 15px 0;
-        }
-
-        /* [네비게이션 스타일 유지] */
-        .book-navigation {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--line-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--font-body);
-        }
-
-        .nav-btn {
-            text-decoration: none;
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-        .nav-btn:hover {
-            color: var(--text-main);
-            background-color: #f5f0eb;
-        }
-
-        .nav-center {
-            font-weight: 600;
-            border: 1px solid var(--line-color);
-            border-radius: 30px;
-            padding: 8px 20px;
-        }
-        .nav-center:hover {
-            border-color: var(--text-main);
-        }
-
-        .nav-placeholder {
-            width: 80px; 
-        }
-
-        @media (max-width: 600px) {
-            .book-container {
-                padding: 10px 15px 50px;
-            }
-            .content-body img {
-                max-width: 100%;   
-                max-height: 250px; 
-                margin: 15px auto;
-            }
-            .nav-btn {
-                font-size: 0.8rem; 
-                padding: 6px 8px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <a href="/" class="brand-mini">Archive S</a>
-    </header>
-
-    <div class="book-container">
-        
-        <div class="chapter-header">
-            <span class="chapter-label">Essay</span>
-            <h1 class="chapter-title">{{ page.title }}</h1>
-            <div class="chapter-meta">
-                Written by Archive S · {{ page.date | date: "%Y. %m. %d" }}
-            </div>
-        </div>
-
-        <div class="content-body">
-            {{ content }}
-        </div>
-
-        <div class="book-navigation">
-            
-            {% if page.prev_link %}
-                <a href="{{ page.prev_link }}" class="nav-btn">← 뒤로가기</a>
-            {% else %}
-                <span class="nav-placeholder"></span>
-            {% endif %}
-
-            <a href="/entropy.html" class="nav-btn nav-center">서재로</a>
-
-            {% if page.next_link %}
-                <a href="{{ page.next_link }}" class="nav-btn">앞으로가기 →</a>
-            {% else %}
-                <span class="nav-placeholder"></span>
-            {% endif %}
-
-        </div>
-
+<div class="book-detail-container">
+  <div class="book-header">
+    <div class="book-cover-wrapper">
+      <img src="{{ page.cover }}" alt="{{ page.title }}" class="book-cover">
     </div>
+    <div class="book-info">
+      <h1 class="book-title">{{ page.title }}</h1>
+      <p class="book-author">By {{ page.author }}</p>
+      <div class="book-meta">
+        <span class="book-price">{{ page.price }}</span>
+        <span class="book-date">{{ page.date | date: "%B %d, %Y" }}</span>
+      </div>
+      <p class="book-description">{{ page.description }}</p>
+      
+      <div class="notebooklm-integration">
+        <h3>AI Insights by NotebookLM</h3>
+        <p>Unlock deeper understanding with AI-generated summaries and audio overviews.</p>
+        <div class="integration-buttons">
+          <a href="{{ page.notebook_url }}" target="_blank" class="btn btn-primary">Open Notebook</a>
+          <button id="play-audio" class="btn btn-secondary">Listen to Audio Overview</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</body>
-</html>
+  <div class="book-content">
+    {{ content }}
+  </div>
+</div>
+
+<style>
+.book-detail-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.book-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.book-cover {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.book-cover:hover {
+  transform: scale(1.02);
+}
+
+.book-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.book-author {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+.book-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.book-price {
+  color: #4facfe;
+}
+
+.book-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+.notebooklm-integration {
+  background: rgba(79, 172, 254, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px dashed #4facfe;
+}
+
+.integration-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #4facfe;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #00f2fe;
+  box-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.book-content {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .book-header {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+</style>

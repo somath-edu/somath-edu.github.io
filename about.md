@@ -1,106 +1,238 @@
 ---
 layout: page
-title: Archive S
+title: Support - 커피 한 잔의 응원
 permalink: /about/
 ---
 
 <style>
-    /* 1. 기본 폰트 및 배경 설정 */
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+    /* 1. Global & Font Setup */
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Playfair+Display:ital,wght@0,400;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap');
     
-    .author-page { font-family: 'Noto Sans KR', sans-serif; color: #4A3B32; padding: 20px 0; max-width: 800px; margin: 0 auto; }
-
-    /* 2. 프로필 섹션 디자인 */
-    .profile-box { text-align: center; margin-bottom: 50px; }
-    .profile-img { width: 130px; height: 130px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.08); object-fit: cover; transition: transform 0.3s ease; }
-    .profile-img:hover { transform: scale(1.05); }
-    .profile-name { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 15px 0 5px; font-weight: 700; }
-    .profile-job { color: #D4A373; font-weight: 700; letter-spacing: 1.5px; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 15px; }
-    .profile-desc { font-size: 0.95rem; color: #666; line-height: 1.6; }
-
-    /* 3. 3S 카드 (Storage / Share / Step-up) */
-    .s-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 60px; }
-    .s-card { background: #fff; padding: 25px 15px; border-radius: 15px; text-align: center; border: 1px solid #f0f0f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s ease; }
-    .s-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
-    .s-icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
-    .s-card strong { font-size: 1.1rem; color: #4A3B32; display: block; margin-bottom: 5px; }
-
-    /* 4. 방명록 섹션 꾸미기 */
-    .guestbook-section { margin-top: 80px; padding-top: 40px; border-top: 1px solid #eee; }
-    .guestbook-header { text-align: center; margin-bottom: 40px; }
-    .guestbook-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #4A3B32; margin-bottom: 10px; }
-    
-    .guestbook-notice { 
-        background-color: #fcfbf9; 
-        border-radius: 20px; 
-        padding: 35px 25px; 
-        margin-bottom: 40px; 
-        border: 1px dashed #D4A373;
-        text-align: center;
+    .coffee-page {
+        font-family: 'Noto Sans KR', sans-serif;
+        color: #4A3B32;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.8;
     }
 
-    /* Giscus 영역 여백 */
-    .giscus { margin-top: 20px; }
+    /* 2. Hero Section */
+    .hero-container {
+        position: relative;
+        text-align: center;
+        margin-bottom: 60px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(74, 59, 50, 0.1);
+        animation: fadeIn 1s ease-out;
+    }
+
+    .hero-img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .hero-container:hover .hero-img {
+        transform: scale(1.02);
+    }
+
+    .hero-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 40px;
+        background: linear-gradient(to top, rgba(74, 59, 50, 0.8), transparent);
+        color: white;
+        text-align: left;
+    }
+
+    .hero-title {
+        font-family: 'Nanum Myeongjo', serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        margin: 0 0 10px 0;
+        word-break: keep-all;
+    }
+
+    .hero-subtitle {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    /* 3. Message Section */
+    .message-box {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 0 20px;
+    }
+
+    .main-message {
+        font-family: 'Nanum Myeongjo', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #6B4F3F;
+        margin-bottom: 25px;
+        word-break: keep-all;
+    }
+
+    .sub-message {
+        font-size: 1.05rem;
+        color: #777;
+        max-width: 600px;
+        margin: 0 auto;
+        word-break: keep-all;
+    }
+
+    /* 4. Donation Card (Glassmorphism) */
+    .donation-section {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        padding: 40px;
+        width: 100%;
+        max-width: 450px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        text-align: center;
+        position: relative;
+    }
+
+    .kakaopay-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: #FFEB00;
+        color: #3C1E1E;
+        text-decoration: none;
+        padding: 18px 40px;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        width: 100%;
+        box-shadow: 0 8px 20px rgba(255, 235, 0, 0.3);
+        margin-bottom: 30px;
+    }
+
+    .kakaopay-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(255, 235, 0, 0.4);
+    }
+
+    .kakaopay-logo {
+        height: 24px;
+    }
+
+    /* QR Placeholder Overlay */
+    .qr-container {
+        background: #fdfaf5;
+        border: 1px dashed #D4A373;
+        border-radius: 16px;
+        padding: 20px;
+        margin: 0 auto;
+        width: 160px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: help;
+    }
+
+    .qr-container span {
+        font-size: 0.8rem;
+        color: #D4A373;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+
+    .qr-placeholder-icon {
+        font-size: 2.5rem;
+        opacity: 0.5;
+    }
+
+    /* 5. Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Small screens */
+    @media (max-width: 600px) {
+        .hero-img { height: 300px; }
+        .hero-title { font-size: 1.7rem; }
+        .main-message { font-size: 1.25rem; }
+        .kakaopay-btn { font-size: 1.1rem; }
+    }
 </style>
 
-<div class="author-page">
-    <header class="profile-box">
-        <img src="/assets/IMG_1754.webp" class="profile-img" alt="Archive S">
-        <h1 class="profile-name">Archive S</h1>
-        <div class="profile-job">Education Archiver : So-Du</div>
-        <p class="profile-desc">무질서한 지식의 엔트로피를 낮추고,<br>교육의 본질을 정갈하게 기록하는 공간입니다.</p>
-    </header>
-
-    <div class="s-grid">
-        <div class="s-card">
-            <span class="s-icon">📂</span>
-            <strong>Storage</strong>
-            <span style="font-size:0.8rem; color:#999;">흩어진 지식을 갈무리하고</span>
-        </div>
-        <div class="s-card">
-            <span class="s-icon">🔗</span>
-            <strong>Share</strong>
-            <span style="font-size:0.8rem; color:#999;">너와 나를 지혜로 연결하며</span>
-        </div>
-        <div class="s-card">
-            <span class="s-icon">📈</span>
-            <strong>Step-up</strong>
-            <span style="font-size:0.8rem; color:#999;">어제보다 나은 오늘로 성장하다</span>
+<div class="coffee-page">
+    <!-- Hero Section -->
+    <div class="hero-container">
+        <img src="/assets/images/coffee_donation.png" class="hero-img" alt="Digital Library Coffee Support">
+        <div class="hero-overlay">
+            <h1 class="hero-title">Archive S : Digital Library Support</h1>
+            <p class="hero-subtitle">Cultivating Knowledge, One Cup at a Time.</p>
         </div>
     </div>
 
-    <section class="guestbook-section">
-        <div class="guestbook-header">
-            <h2 class="guestbook-title">Guestbook</h2>
-        </div>
-
-        <div class="guestbook-notice">
-            <p style="margin: 0; font-size: 1rem; color: #555; line-height: 1.8;">
-                세상의 소음으로 마음이 흩어진 순간인가요?<br>
-                당신의 생각을 남겨주세요. <br>
-                <strong>Archive S</strong>가 따뜻한 시선으로 답장을 보냅니다.
-            </p>
-        </div>
-
-        <script src="https://giscus.app/client.js"
-                data-repo="somath-edu/somath-edu.github.io"
-                data-repo-id="R_kgDORFSD4g"
-                data-category="General"
-                data-category-id="DIC_kwDORFSD4s4C2DWI"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="light"
-                data-lang="ko"
-                crossorigin="anonymous"
-                async>
-        </script>
-
-        <p style="text-align: center; font-size: 0.75rem; color: #aaa; margin-top: 30px;">
-            * GitHub 계정으로 로그인 후 마음을 남겨주세요.<br>
-            * 작성하신 글은 Archive S의 기록으로 소중히 보관됩니다.
+    <!-- Message -->
+    <section class="message-box">
+        <h2 class="main-message">"더 나은 디지털 도서관 콘텐츠 제작을 위해<br>커피 한 잔의 힘을 보태주세요."</h2>
+        <p class="sub-message">
+            Archive S는 파편화된 지식을 정갈하게 갈무리하고, 수학교육의 새로운 가능성을 탐구하는 디지털 공간입니다. 
+            당신이 보내주신 따뜻한 응원은 더 깊이 있는 도서관 콘텐츠와 학습 도구들을 개발하는 데 소중히 사용됩니다.
         </p>
     </section>
+
+    <!-- Donation Action -->
+    <section class="donation-section">
+        <div class="glass-card">
+            <!-- 
+                TIP: 카카오페이 송금 링크가 생기면 아래 href를 교체하세요. 
+                예: https://qr.kakaopay.com/281006011... 
+            -->
+            <a href="#" class="kakaopay-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/KakaoPay_logo.svg" class="kakaopay-logo" alt="KakaoPay">
+                카카오페이로 후원하기
+            </a>
+
+            <div class="qr-container" title="준비 중입니다. 곧 여러분만의 코드를 담아드릴게요!">
+                <div class="qr-placeholder-icon">🔲</div>
+                <span>Scan QR to Support</span>
+                
+                <!-- 
+                    TIP: QR 코드 이미지 파일이 준비되면 아래 img 태그를 활성화하세요.
+                    <img src="/assets/images/my_kakaopay_qr.png" style="width:100%; height:100%; position:absolute; top:0; left:0; border-radius:14px; padding:10px; background:white;"> 
+                -->
+            </div>
+            
+            <p style="margin-top: 25px; font-size: 0.85rem; color: #999;">
+                * 후원해주시는 모든 분들의 따뜻한 마음을 소중히 기억하겠습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Quote -->
+    <footer style="margin-top: 100px; text-align: center; border-top: 1px solid #eee; padding-top: 40px;">
+        <p style="font-family: 'Playfair Display', serif; font-style: italic; color: #aaa; font-size: 0.9rem;">
+            "Entropy decreases where care increases."
+        </p>
+    </footer>
 </div>
