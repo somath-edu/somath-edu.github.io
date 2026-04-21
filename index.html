@@ -330,11 +330,11 @@
         }
         
         .author-badge img {
-            width: 60px; height: 60px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.15); background-color: #fff; object-fit: cover;
+            width: 70px; height: 70px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); background-color: #fff; object-fit: cover;
         }
         
         .badge-text {
-            background-color: #333; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 10px; margin-top: -10px; z-index: 10000; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            background-color: #FFEB00; color: #3C1E1E; font-size: 11px; font-weight: bold; padding: 3px 10px; border-radius: 10px; margin-top: -12px; z-index: 10000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         .author-badge:hover { transform: scale(1.1) rotate(-10deg); }
@@ -352,9 +352,9 @@
 </head>
 <body>
 
-    <a href="/about/" class="author-badge" title="작가 방으로 이동">
-      <img src="assets/IMG_1754.webp" alt="작가 프로필" onerror="this.src='IMG_1754.webp'" loading="eager">
-      <span class="badge-text">Writer</span>
+    <a href="/about/" class="author-badge" title="후원 페이지로 이동">
+      <img src="assets/images/coffee_donation.png" alt="후원 프로필" loading="eager">
+      <span class="badge-text">후원하기</span>
     </a>
 
     <header>
@@ -386,17 +386,16 @@
             <h2>Digital Bookstore</h2>
         </div>
 
-        <div class="book-grid">
+        <div class="grid-list">
             {% for book in site.books %}
-            <article class="book-card" onclick="location.href='{{ book.url }}'">
-                <img src="{{ book.cover }}" alt="{{ book.title }}" class="book-card-image">
-                <div class="book-card-content">
-                    <h3 class="book-card-title">{{ book.title }}</h3>
-                    <p class="book-card-author">By {{ book.author }}</p>
-                    <div class="book-card-footer">
-                        <span class="book-card-price">{{ book.price }}</span>
-                        <a href="{{ book.url }}" class="book-card-link">View Details</a>
-                    </div>
+            <article class="card" onclick="location.href='{{ book.url }}'">
+                <div class="card-thumb">
+                    <img src="{{ book.cover }}" alt="{{ book.title }}">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{ book.title }}</h3>
+                    <p class="card-desc">By {{ book.author }}</p>
+                    <div class="card-link">View Details →</div>
                 </div>
             </article>
             {% endfor %}
