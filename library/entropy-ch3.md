@@ -103,18 +103,7 @@ next_link: /entropy-ch4.html
 3. **집중력 저하**: 5분도 집중하기 힘들다
 4. **불안과 초조**: 해야 할 게 많은데 아무것도 못 하겠다
 
-<br>
-<hr>
 
-<div style="width: 100%; max-width: 600px; margin: 40px auto; text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 15px; background-color: #f9f9f9;">
-  
-  <video controls playsinline style="width: 100%; border-radius: 10px; outline: none;">
-    <source src="https://github.com/user-attachments/assets/d9c237b3-230d-4eb1-8818-a6418876f47e" type="video/mp4">
-    브라우저가 비디오 태그를 지원하지 않습니다.
-  </video>
-</div>
-<hr>
-<br>
 
 
 ## 핵심 요약

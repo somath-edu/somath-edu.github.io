@@ -83,18 +83,7 @@ next_link: /entropy-ch3.html
 > **단권화의 비밀**<br>
 > 공부 고수들이 "단권화"를 하는 이유는 간단합니다. 흩어진 10권의 정보를 1권으로 압축하여 **정보 엔트로피**를 극도로 낮추기 위함입니다.
 
-<br>
-<hr>
 
-<div style="width: 100%; max-width: 600px; margin: 40px auto; text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 15px; background-color: #f9f9f9;">
-  
-  <video controls playsinline style="width: 100%; border-radius: 10px; outline: none;">
-    <source src="https://github.com/user-attachments/assets/490ce443-ee03-48f9-bef5-db3c666d6be6" type="video/mp4">
-    브라우저가 비디오 태그를 지원하지 않습니다.
-  </video>
-</div>
-<hr>
-<br>
 
 ## 핵심 요약
 
