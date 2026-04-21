@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 4. 단순함의 힘
 permalink: /entropy-ch4.html
 date: 2026-02-02

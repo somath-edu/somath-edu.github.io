@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 10. 몸이라는 그릇, 관계라는 통로
 permalink: /entropy-ch10.html
 date: 2026-02-08

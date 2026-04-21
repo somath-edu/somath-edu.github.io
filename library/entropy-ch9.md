@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 9. 사랑이라는 착각, 욕심이라는 독
 permalink: /entropy-ch9.html
 date: 2026-02-07

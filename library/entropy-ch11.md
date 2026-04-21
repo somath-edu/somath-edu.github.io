@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 11. 오해와 진실
 permalink: /entropy-ch11.html
 date: 2026-02-09

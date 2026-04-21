@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 6. 지식 압축, 청킹과 구조화
 permalink: /entropy-ch6.html
 date: 2026-02-05

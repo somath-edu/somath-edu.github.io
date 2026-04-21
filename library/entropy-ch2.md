@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 2. 외부의 적, 디지털과 환경
 permalink: /entropy-ch2.html
 date: 2026-02-02

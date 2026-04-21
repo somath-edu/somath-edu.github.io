@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 3. The Inner Enemy: Cognitive Overload
 permalink: /entropy-ch3-en.html
 date: 2026-02-02

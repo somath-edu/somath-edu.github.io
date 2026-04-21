@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 1. 학습 엔트로피의 정체
 permalink: /entropy-ch1.html
 date: 2026-02-02

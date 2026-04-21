@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 8. AI 노트법 활용
 permalink: /entropy-ch8.html
 date: 2026-02-06

@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 3. 내부의 적, 인지 과부하
 permalink: /entropy-ch3.html
 date: 2026-02-02

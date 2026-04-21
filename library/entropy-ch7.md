@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: chapter
 title: Chapter 7. 루틴, 지속 가능한 시스템
 permalink: /entropy-ch7.html
 date: 2026-02-06
