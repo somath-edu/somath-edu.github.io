@@ -117,28 +117,31 @@ permalink: /about/
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
+        gap: 12px;
         background-color: #FFEB00;
         color: #3C1E1E;
         text-decoration: none;
-        padding: 15px 20px;
-        border-radius: 12px;
+        padding: 18px 30px;
+        border-radius: 16px;
         font-weight: 700;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         width: 100%;
         box-shadow: 0 8px 20px rgba(255, 235, 0, 0.2);
-        margin-bottom: 25px;
+        margin-bottom: 30px;
         box-sizing: border-box;
+        border: none;
     }
 
     .kakaopay-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(255, 235, 0, 0.3);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(255, 235, 0, 0.3);
     }
 
     .kakaopay-logo {
-        height: 20px;
+        height: 22px;
+        width: auto;
+        display: block;
     }
 
     /* QR Placeholder Overlay */
