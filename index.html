@@ -383,25 +383,6 @@
         </section>
 
         <div class="section-header">
-            <h2>Digital Bookstore</h2>
-        </div>
-
-        <div class="grid-list">
-            {% for book in site.books %}
-            <article class="card" onclick="location.href='{{ book.url }}'">
-                <div class="card-thumb">
-                    <img src="{{ book.cover }}" alt="{{ book.title }}">
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{ book.title }}</h3>
-                    <p class="card-desc">By {{ book.author }}</p>
-                    <div class="card-link">View Details →</div>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-
-        <div class="section-header">
             <h2>Collections</h2>
         </div>
 
