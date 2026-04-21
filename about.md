@@ -216,7 +216,7 @@ permalink: /about/
                 TIP: 카카오페이 송금 링크가 생기면 아래 href를 교체하세요. 
                 예: https://qr.kakaopay.com/281006011... 
             -->
-            <a href="#" class="kakaopay-btn">
+            <a href="https://qr.kakaopay.com/FSSJrWbkG" class="kakaopay-btn" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/KakaoPay_logo.svg" class="kakaopay-logo" alt="KakaoPay">
                 카카오페이로 후원하기
             </a>
