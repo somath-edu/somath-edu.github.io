@@ -16,14 +16,6 @@ layout: default
       </div>
       <p class="book-description">{{ page.description }}</p>
       
-      <div class="notebooklm-integration">
-        <h3>AI Insights by NotebookLM</h3>
-        <p>Unlock deeper understanding with AI-generated summaries and audio overviews.</p>
-        <div class="integration-buttons">
-          <a href="{{ page.notebook_url }}" target="_blank" class="btn btn-primary">Open Notebook</a>
-          <button id="play-audio" class="btn btn-secondary">Listen to Audio Overview</button>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -66,6 +58,7 @@ layout: default
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -94,18 +87,7 @@ layout: default
   margin-bottom: 2rem;
 }
 
-.notebooklm-integration {
-  background: rgba(79, 172, 254, 0.1);
-  padding: 1.5rem;
-  border-radius: 15px;
-  border: 1px dashed #4facfe;
-}
 
-.integration-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
 
 .btn {
   padding: 0.8rem 1.5rem;
