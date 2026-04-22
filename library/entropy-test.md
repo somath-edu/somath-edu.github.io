@@ -131,10 +131,8 @@ permalink: /entropy-test.html
     <div class="result-description" id="result-desc">
       결과 설명이 여기에 표시됩니다.
     </div>
-    <div class="result-action">
-      <a href="/entropy-ch4.html" class="next-step-link">솔루션 보러 가기 →</a>
-    </div>
   </div>
+
 </div>
 
 <style>
@@ -280,21 +278,7 @@ permalink: /entropy-test.html
   word-break: keep-all;
 }
 
-.next-step-link {
-  display: inline-block;
-  padding: 12px 25px;
-  background: #2c2c2c;
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
 
-.next-step-link:hover {
-  background: #000;
-  transform: scale(1.05);
-}
 </style>
 
 <script>
