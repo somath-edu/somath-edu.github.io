@@ -60,30 +60,77 @@ next_link: /entropy-ch2.html
 
 ## 3. [진단] 우리 아이 학습 상태의 무질서도 체크리스트
 
-그렇다면 현재 학습 상태는 얼마나 무질서할까요? 아래 체크리스트를 통해 보이지 않는 '학습 엔트로피' 수치를 가시화해 봅시다. 해당되는 항목에 체크해보세요.
+그렇다면 현재 학습 상태는 얼마나 무질서할까요? 아래 버튼을 눌러 보이지 않는 '학습 엔트로피' 수치를 직접 점검해 보세요.
 
-### 학습 엔트로피 자가 진단표
+<div class="test-cta-container">
+  <div class="test-cta-card">
+    <div class="test-cta-icon">📉</div>
+    <div class="test-cta-text">
+      <h3>학습 엔트로피 자가 진단</h3>
+      <p>10가지 항목을 통해 현재 뇌의 무질서도를 측정하고 맞춤 처방을 확인하세요.</p>
+    </div>
+    <a href="/entropy-test.html" class="test-cta-button">점검 시작하기 →</a>
+  </div>
+</div>
 
-- [ ] **설명 불가**: 방금 배운 내용을 책을 덮고 설명하라고 하면 꿀 먹은 벙어리가 된다.
-- [ ] **시작 지연**: "공부하자"라고 마음먹고 실제 책을 펴기까지 10분 이상 딴짓을 한다.
-- [ ] **물건 찾기**: 필기구, 노트, 프린트물을 찾는 데 시간을 자주 허비한다. (책상이 어지럽다.)
-- [ ] **메타인지 오류**: 눈으로 보고 "안다"고 착각하지만, 막상 문제를 풀면 틀린다.
-- [ ] **맥락 부재**: 단편적인 지식(영어 단어, 수학 공식)은 외우지만, 전체적인 단원의 흐름은 모른다.
-- [ ] **만성 불안**: 공부를 안 하면 불안한데, 막상 앉아 있어도 집중이 안 된다.
-- [ ] **멀티태스킹**: 공부 중에 스마트폰 알림이 울리면 즉시 확인하거나, 음악을 들으며 공부해야 마음이 편하다.
-- [ ] **용두사미**: 계획은 거창하게 세우지만, 3일을 넘기지 못하고 흐지부지된다.
-- [ ] **응용 불가**: 교과서 문제는 풀지만, 조금만 비틀어 낸 응용문제는 손도 못 댄다.
-- [ ] **번아웃**: 시험 기간이 끝나면 머릿속이 텅 빈 것 같고, 다시 공부할 의욕이 전혀 생기지 않는다.
+<style>
+.test-cta-container {
+  margin: 3rem 0;
+}
 
----
+.test-cta-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #fdf8f8;
+  border: 1px solid #d88e88;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(216, 142, 136, 0.1);
+}
 
-### 진단 결과
+.test-cta-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
 
-> **0~2개 (저엔트로피 상태 - 안정)**<br>
-> 학습 효율이 매우 높습니다. 지식이 체계적으로 정리되어 있으며, 최소한의 노력으로 최대의 효과를 내고 있습니다. 지금의 흐름을 유지하며 'Part 2'의 기술을 더해 속도를 높여보세요.
+.test-cta-text h3 {
+  font-size: 1.6rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.8rem !important;
+  color: #2c2c2c !important;
+  border-bottom: none !important;
+}
 
-> **3~6개 (중엔트로피 상태 - 주의)**<br>
-> 열심히는 하지만 효율이 떨어지기 시작했습니다. 무질서가 스멀스멀 피어오르고 있어요. 지금 바로 정돈하지 않으면 곧 '고엔트로피'의 늪에 빠지게 됩니다. 엔트로피를 낮추는 기술이 시급합니다.
+.test-cta-text p {
+  font-size: 1.05rem;
+  color: #666;
+  margin-bottom: 2rem;
+  word-break: keep-all;
+}
 
-> **7개 이상 (고엔트로피 상태 - 위험)**<br>
-> 비상사태입니다. 뇌는 이미 혼란의 도가니에 빠져 있습니다. 아무리 시간을 쏟아부어도 '밑 빠진 독에 물 붓기'일 뿐입니다. 지금은 새로운 지식을 넣는 것을 멈추고, 먼저 '비우고 정리하는' 작업부터 시작해야 합니다.
+.test-cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #d88e88;
+  color: white !important;
+  border-radius: 40px;
+  text-decoration: none !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.test-cta-button:hover {
+  background: #c27b75;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(216, 142, 136, 0.3);
+}
+
+@media (max-width: 768px) {
+  .test-cta-card {
+    padding: 2rem 1rem;
+  }
+}
+</style>

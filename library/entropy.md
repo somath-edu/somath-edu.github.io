@@ -160,6 +160,27 @@ permalink: /entropy.html
     <span class="page-mark">p.28</span>
   </a>
 
+  <div class="test-item-link">
+    <a href="/entropy-test.html" class="chapter-item diagnostic-link">
+      <span class="chapter-num">TEST</span>
+      <span class="chapter-text">학습 엔트로피 자가 진단</span>
+    </a>
+  </div>
+<style>
+.diagnostic-link {
+  background: #fdf8f8 !important;
+  border: 1px solid #d88e88 !important;
+  border-radius: 8px !important;
+  margin: 20px 0 30px 0 !important;
+  padding: 10px 15px !important;
+}
+.diagnostic-link .chapter-num {
+  color: #d88e88 !important;
+  font-size: 0.8rem !important;
+  font-style: normal !important;
+}
+</style>
+
   <a href="/entropy-ch3.html" class="chapter-item">
     <span class="chapter-num">03</span>
     <span class="chapter-text">내부의 적: 인지 과부하</span>
