@@ -2,6 +2,8 @@
 layout: chapter
 title: 학습 엔트로피 자가 진단
 permalink: /entropy-test.html
+prev_link: /entropy-ch1.html
+next_link: /entropy-ch2.html
 ---
 
 <div class="test-intro">
