@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive S - 지식의 정원</title>
+    
+    <link rel="preload" as="image" href="assets/IMG_1754.webp">
+
+    <link rel="stylesheet" href="assets/css/bookstore.css">
+
+    <style>
+        /* --- 변수 및 색상 설정 --- */
+        :root {
+            --bg-main: #fdfcf8;
+            --bg-card: #ffffff;       
+            --text-main: #4a3b32;     
+            --text-sub: #8c7b75;      
+            --accent-point: #d88e88;  
+            --accent-line: #e6ddd8;   
+            
+            --font-logo: 'Playfair Display', serif; 
+            --font-title: 'Noto Serif KR', serif;
+            --font-body: 'Pretendard', sans-serif;  
+            
+            --radius: 16px;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- 헤더 --- */
+        header {
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .brand-name {
+            font-family: var(--font-logo);
+            font-size: 3rem; 
+            color: var(--text-main);
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-style: italic; 
+            border-bottom: 2px solid var(--accent-point);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .brand-sub {
+            display: block;
+            margin-top: 15px;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            font-family: var(--font-title);
+        }
+
+        /* --- 메인 히어로 섹션 --- */
+        .hero {
+            background-color: #fff;
+            border: 1px solid var(--accent-line);
+            border-radius: var(--radius);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+            box-shadow: 0 10px 25px rgba(74, 59, 50, 0.05);
+            flex-wrap: wrap;
+        }
+
+        .hero-img-box {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .book-cover {
+            width: 240px;
+            height: 350px;
+            background: linear-gradient(to bottom right, #eaddcf, #d8c3b5);
+            border-radius: 4px 12px 12px 4px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-cover img {
+            width: 100%;
+            height: 100%; object-fit: cover;
+        }
+
+        .hero-text-box {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .badge {
+            background-color: var(--accent-point);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+            word-break: keep-all;
+        }
+
+        .hero-desc {
+            color: var(--text-sub);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid var(--text-main);
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .btn-main:hover {
+            background-color: var(--text-main);
+            color: white;
+            border-color: var(--text-main);
+        }
+
+        /* --- 서브 섹션 타이틀 --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* --- 책 리스트 (그리드) --- */
+        .grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            border-color: var(--accent-point);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(216, 142, 136, 0.15);
+        }
+
+        .card-thumb {
+            height: 180px;
+            background-color: #f5f0eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        
+        .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+        .card-body {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-link {
+            font-size: 0.85rem;
+            color: var(--accent-point);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+        }
+
+        /* --- 프리미엄 전시형 카드 --- */
+        .premium-book-card {
+            border: 1px solid var(--accent-line) !important;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .premium-book-card:hover {
+            border-color: var(--accent-point) !important;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(74, 59, 50, 0.12);
+        }
+
+        .card-image-box {
+            position: relative;
+            height: 380px; /* 세로형 표지 강조 */
+            overflow: hidden;
+            background-color: #f5f0eb;
+        }
+
+        .card-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .premium-book-card:hover .card-image-box img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .premium-book-card:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .overlay-label {
+            color: white;
+            font-family: var(--font-logo);
+            font-style: italic;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .premium-book-card .card-body {
+            background-color: #fff;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-point);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        footer {
+            border-top: 1px solid var(--accent-line);
+            text-align: center;
+            padding: 60px 0;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+        
+        /* --- 작가 아이콘 스타일 --- */
+        .author-badge {
+            position: fixed;
+            top: 20px; right: 20px;
+            z-index: 9999; display: flex; flex-direction: column; align-items: center; text-decoration: none; cursor: pointer; transition: transform 0.2s ease;
+        }
+        
+        .author-badge img {
+            width: 70px; height: 70px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); background-color: #fff; object-fit: cover;
+        }
+        
+        .badge-text {
+            background-color: #FFEB00; color: #3C1E1E; font-size: 11px; font-weight: bold; padding: 3px 10px; border-radius: 10px; margin-top: -12px; z-index: 10000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .author-badge:hover { transform: scale(1.1) rotate(-10deg); }
+
+        /* 모바일 대응 */
+        @media (max-width: 768px) {
+            .author-badge { top: 15px; right: 15px; }
+            .author-badge img { width: 50px; height: 50px; }
+            .badge-text { font-size: 9px; padding: 2px 6px; }
+            .hero { padding: 30px 20px; gap: 30px; text-align: center; }
+            .hero-img-box, .hero-text-box { min-width: 100%; }
+            .brand-name { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/about/" class="author-badge" title="후원 페이지로 이동">
+      <img src="assets/images/coffee_donation.png" alt="후원 프로필" loading="eager">
+      <span class="badge-text">커피한잔 콜</span>
+    </a>
+
+    <header>
+        <div class="brand-name">Archive S</div>
+        <span class="brand-sub">기록하고, 연결하고, 성장하는 공간</span>
+    </header>
+
+    <div class="container">
+        
+        <section class="hero">
+            <div class="hero-img-box">
+                <div class="book-cover">
+                    <img src="IMG_2282.webp" alt="엔트로피 학습법 표지" loading="lazy">
+                </div>
+            </div>
+            <div class="hero-text-box">
+                <span class="badge">추천 도서</span>
+                <h1 class="hero-title">엔트로피 학습법</h1>
+                <p class="hero-desc">
+                    학습할수록 머릿속이 복잡해지나요?<br>
+                    심리적 엔트로피를 낮추고 몰입을 극대화하는<br>
+                    가장 과학적인 학습 전략을 소개합니다.
+                </p>
+                <a href="/entropy.html" class="btn-main">책 읽으러 가기</a>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2>Collections</h2>
+        </div>
+
+        <div class="grid-list">
+            <article class="card premium-book-card" onclick="location.href='/wiki/'">
+                <div class="card-image-box">
+                    <img src="assets/images/calculus_cover.png" alt="미적분 I 디지털 교과서 표지">
+                    <div class="image-overlay">
+                        <span class="overlay-label">Calculus I : Sub Textbook</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Interactive Textbook</span>
+                    <h3 class="card-title">미적분 I - 서브교과서</h3>
+                    <p class="card-desc">
+                        코넬 노트 방식의 체계적인 개념 정리와<br>
+                        난이도별 최적화 문제집을 경험해 보세요.
+                    </p>
+                    <div class="card-link">Enter Digital Library →</div>
+                </div>
+            </article>
+
+            <article class="card premium-book-card" onclick="location.href='https://somath-edu.github.io/jekyll-survivlism'">
+                <div class="card-image-box">
+                    <img src="assets/survivlism-cover.webp" alt="생동주의자 전시형 표지" onerror="this.src='https://raw.githubusercontent.com/somath-edu/somath-edu.github.io/master/assets/survivlism-cover.webp'">
+                    <div class="image-overlay">
+                        <span class="overlay-label">The Survivlism</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Collection 01</span>
+                    <h3 class="card-title">생동주의자</h3>
+                    <p class="card-desc">
+                        과거에 갇히지 않고 나를 바로 세워<br>
+                        행동하는 철학과 심리 에세이 시리즈.
+                    </p>
+                    <div class="card-link">View Collection →</div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright © 2026 Archive S. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
