@@ -104,7 +104,7 @@ permalink: /calculus.html
     <div class="part-name">함수의 극한과 연속</div>
   </div>
 
-  <a href="/wiki/" class="chapter-item">
+  <a href="/wiki/chapter01/limits/" class="chapter-item">
     <span class="chapter-num">01</span>
     <span class="chapter-text">함수의 극한</span>
     <span class="chevron">→</span>
