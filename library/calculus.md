@@ -110,7 +110,7 @@ permalink: /calculus.html
     <span class="chevron">→</span>
   </a>
   
-  <a href="/wiki/" class="chapter-item">
+  <a href="/wiki/chapter01/continuity/" class="chapter-item">
     <span class="chapter-num">02</span>
     <span class="chapter-text">함수의 연속</span>
     <span class="chevron">→</span>
