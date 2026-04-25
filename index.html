@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Archive S - Digital Library</title>
+    <title>Archive S - Home</title>
     
     <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -18,7 +18,7 @@
 
     <div class="container">
         <header>
-            <div class="brand-title">Archive S : Digital Library</div>
+            <div class="brand-title">Archive S : Home</div>
             <div class="header-icons">
                 <button class="icon-btn" onclick="toggleSearch(true)">
                     <i data-lucide="search" style="color: var(--text-sub); width: 20px;"></i>
@@ -35,23 +35,14 @@
             </div>
         </section>
 
-        <!-- 3단계: 태그 필터 (Chips) -->
-        <div class="filter-container" id="category-filters">
-            <div class="filter-chip active" id="filter-all" onclick="filterBooks('all', this)">#전체</div>
-            <div class="filter-chip" onclick="filterBooks('math', this)">#수학</div>
-            <div class="filter-chip" onclick="filterBooks('philosophy', this)">#철학</div>
-            <div class="filter-chip" onclick="filterBooks('method', this)">#학습법</div>
-            <div class="filter-chip" onclick="filterBooks('new', this)">#신작</div>
-        </div>
-        
-        <!-- 2단계: 카테고리 서가 (Science & Math) -->
-        <section class="library-section" id="section-math">
+        <!-- 신작/추천 섹션 -->
+        <section class="library-section">
             <div class="section-header">
-                <h2 class="section-title">Science & Math</h2>
-                <a href="#" class="section-more">View All</a>
+                <h2 class="section-title">Latest Arrivals</h2>
+                <a href="/library.html" class="section-more">View All Library</a>
             </div>
             <div class="book-grid">
-                <a href="/calculus.html" class="book-card" data-category="math new">
+                <a href="/calculus.html" class="book-card">
                     <div class="book-cover-wrapper">
                         <img src="assets/images/calculus_cover.png" alt="미적분 I">
                     </div>
@@ -60,26 +51,7 @@
                         <div class="book-info-meta">Mathematics · Textbook</div>
                     </div>
                 </a>
-                <a href="#" class="book-card" data-category="math new">
-                    <div class="book-cover-wrapper">
-                        <img src="assets/images/calculus_workbook_cover.png" alt="미적분 I 문제집">
-                    </div>
-                    <div class="book-info">
-                        <div class="book-info-title">미적분 I - 문제집</div>
-                        <div class="book-info-meta">Mathematics · Workbook</div>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- 2단계: 카테고리 서가 (Humanities & Method) -->
-        <section class="library-section" id="section-humanities">
-            <div class="section-header">
-                <h2 class="section-title">Humanities & Method</h2>
-                <a href="#" class="section-more">View All</a>
-            </div>
-            <div class="book-grid">
-                <a href="/entropy.html" class="book-card" data-category="method">
+                <a href="/entropy.html" class="book-card">
                     <div class="book-cover-wrapper">
                         <img src="assets/images/entropy_cover.png" alt="엔트로피 학습법">
                     </div>
@@ -88,25 +60,22 @@
                         <div class="book-info-meta">Methodology · Best</div>
                     </div>
                 </a>
-                <a href="https://somath-edu.github.io/jekyll-survivlism" class="book-card" data-category="philosophy">
-                    <div class="book-cover-wrapper">
-                        <img src="assets/images/survivlism-cover.png" alt="생동주의자">
-                    </div>
-                    <div class="book-info">
-                        <div class="book-info-title">생동주의자</div>
-                        <div class="book-info-meta">Philosophy · Essay</div>
-                    </div>
-                </a>
             </div>
         </section>
 
+        <!-- 카테고리 바로가기 CTA -->
+        <div class="home-cta">
+            <h3 style="font-family: var(--font-serif); margin-bottom: 20px;">모든 도서 탐색하기</h3>
+            <a href="/library.html" class="cta-button">카테고리별 서재로 이동</a>
+        </div>
+
     </div>
 
-    <!-- 검색 오버레이 -->
+    <!-- 검색 오버레이 (Home에서도 검색 가능하게 유지) -->
     <div id="search-overlay" class="search-overlay">
         <div class="search-container">
             <div class="search-header">
-                <input type="text" id="search-input" placeholder="도서명 또는 카테고리 검색..." oninput="handleSearch(this.value)" onkeydown="if(event.key === 'Enter') toggleSearch(false)">
+                <input type="text" id="search-input" placeholder="도서명 또는 카테고리 검색..." onkeydown="if(event.key === 'Enter') handleSearch(this.value)">
                 <button class="close-search" onclick="toggleSearch(false)">
                     <i data-lucide="x"></i>
                 </button>
@@ -117,11 +86,11 @@
 
     <!-- 하단 내비게이션 바 -->
     <nav class="bottom-nav">
-        <a href="javascript:void(0)" class="nav-item active" id="nav-home" onclick="scrollToTop()">
+        <a href="/" class="nav-item active" id="nav-home">
             <i data-lucide="home"></i>
             <span>홈</span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" id="nav-categories" onclick="scrollToCategories()">
+        <a href="/library.html" class="nav-item" id="nav-categories">
             <i data-lucide="layout-grid"></i>
             <span>카테고리</span>
         </a>
@@ -136,13 +105,8 @@
     </nav>
 
     <script>
-        // Lucide 아이콘 초기화
         lucide.createIcons();
 
-        let currentCategory = 'all';
-        let searchQuery = '';
-
-        // 검색 오버레이 토글
         function toggleSearch(show) {
             const overlay = document.getElementById('search-overlay');
             const input = document.getElementById('search-input');
@@ -156,83 +120,12 @@
             }
         }
 
-        // 검색 입력 처리
+        // 홈에서는 검색 시 검색 결과를 보여줄 곳이 없으므로, 라이브러리 페이지로 검색어를 가지고 이동하게 하거나 간단히 알림을 띄울 수 있습니다.
+        // 여기서는 라이브러리 페이지로 이동하게 하는 것이 자연스럽습니다.
         function handleSearch(query) {
-            searchQuery = query.toLowerCase();
-            applyFilters();
-            
-            const info = document.getElementById('search-results-info');
-            if (searchQuery) {
-                const visibleCount = document.querySelectorAll('.book-card[style="display: block;"]').length;
-                info.innerText = `'${query}' 검색 결과: ${visibleCount}권`;
-            } else {
-                info.innerText = '';
+            if (query.trim()) {
+                window.location.href = `/library.html?search=${encodeURIComponent(query)}`;
             }
-        }
-
-        // 필터링 기능
-        function filterBooks(category, el) {
-            currentCategory = category;
-            
-            // 칩 스타일 업데이트
-            document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active'));
-            if (el) el.classList.add('active');
-            else document.getElementById('filter-all').classList.add('active');
-
-            applyFilters();
-        }
-
-        // 상단으로 이동 (홈 섹션)
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            updateNavState('nav-home');
-        }
-
-        // 카테고리 섹션으로 이동
-        function scrollToCategories() {
-            const el = document.getElementById('category-filters');
-            const offset = el.getBoundingClientRect().top + window.pageYOffset - 20;
-            window.scrollTo({ top: offset, behavior: 'smooth' });
-            updateNavState('nav-categories');
-        }
-
-        // 네비게이션 활성화 상태 업데이트
-        function updateNavState(activeId) {
-            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-            document.getElementById(activeId).classList.add('active');
-        }
-
-        // 서재 리셋 (카테고리 초기화용으로 유지)
-        function resetFilters() {
-            searchQuery = '';
-            document.getElementById('search-input').value = '';
-            document.getElementById('search-results-info').innerText = '';
-            filterBooks('all');
-        }
-
-        // 통합 필터 적용
-        function applyFilters() {
-            const cards = document.querySelectorAll('.book-card');
-            cards.forEach(card => {
-                const title = card.querySelector('.book-info-title').innerText.toLowerCase();
-                const meta = card.querySelector('.book-info-meta').innerText.toLowerCase();
-                const categories = card.getAttribute('data-category').split(' ');
-                
-                const matchesCategory = currentCategory === 'all' || categories.includes(currentCategory);
-                const matchesSearch = !searchQuery || title.includes(searchQuery) || meta.includes(searchQuery) || categories.some(cat => cat.includes(searchQuery));
-
-                if (matchesCategory && matchesSearch) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            // 빈 섹션 처리
-            document.querySelectorAll('.library-section').forEach(section => {
-                const currentlyVisible = Array.from(section.querySelectorAll('.book-card')).filter(c => c.style.display !== 'none').length;
-                section.style.display = currentlyVisible > 0 ? 'block' : 'none';
-            });
         }
     </script>
 
