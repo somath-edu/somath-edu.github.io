@@ -25,9 +25,18 @@
                 </button>
             </div>
         </header>
+        
+        <!-- 홍보 및 공지 섹션 (Home의 역할) -->
+        <section class="promo-section" id="section-home">
+            <div class="promo-banner">
+                <span class="promo-tag">New Release</span>
+                <h1 class="promo-title">미적분 I : <br>서브교과서 출간</h1>
+                <p class="promo-desc">가장 완벽한 개념 정리를 위한 단 하나의 서브 텍스트. 지금 바로 도서관에서 만나보세요.</p>
+            </div>
+        </section>
 
         <!-- 3단계: 태그 필터 (Chips) -->
-        <div class="filter-container">
+        <div class="filter-container" id="category-filters">
             <div class="filter-chip active" id="filter-all" onclick="filterBooks('all', this)">#전체</div>
             <div class="filter-chip" onclick="filterBooks('math', this)">#수학</div>
             <div class="filter-chip" onclick="filterBooks('philosophy', this)">#철학</div>
@@ -97,7 +106,7 @@
     <div id="search-overlay" class="search-overlay">
         <div class="search-container">
             <div class="search-header">
-                <input type="text" id="search-input" placeholder="도서명 또는 카테고리 검색..." oninput="handleSearch(this.value)">
+                <input type="text" id="search-input" placeholder="도서명 또는 카테고리 검색..." oninput="handleSearch(this.value)" onkeydown="if(event.key === 'Enter') toggleSearch(false)">
                 <button class="close-search" onclick="toggleSearch(false)">
                     <i data-lucide="x"></i>
                 </button>
@@ -108,13 +117,13 @@
 
     <!-- 하단 내비게이션 바 -->
     <nav class="bottom-nav">
-        <a href="/" class="nav-item active" id="nav-home">
+        <a href="javascript:void(0)" class="nav-item active" id="nav-home" onclick="scrollToTop()">
             <i data-lucide="home"></i>
             <span>홈</span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" id="nav-library" onclick="resetAndHome()">
-            <i data-lucide="book-open"></i>
-            <span>서재</span>
+        <a href="javascript:void(0)" class="nav-item" id="nav-categories" onclick="scrollToCategories()">
+            <i data-lucide="layout-grid"></i>
+            <span>카테고리</span>
         </a>
         <a href="javascript:void(0)" class="nav-item" id="nav-search" onclick="toggleSearch(true)">
             <i data-lucide="search"></i>
@@ -139,8 +148,8 @@
             const input = document.getElementById('search-input');
             if (show) {
                 overlay.classList.add('active');
-                input.focus();
-                document.body.style.overflow = 'hidden'; // 스크롤 방지
+                setTimeout(() => input.focus(), 300);
+                document.body.style.overflow = 'hidden';
             } else {
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
@@ -173,17 +182,32 @@
             applyFilters();
         }
 
-        // 서재 리셋 (홈으로)
-        function resetAndHome() {
+        // 상단으로 이동 (홈 섹션)
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateNavState('nav-home');
+        }
+
+        // 카테고리 섹션으로 이동
+        function scrollToCategories() {
+            const el = document.getElementById('category-filters');
+            const offset = el.getBoundingClientRect().top + window.pageYOffset - 20;
+            window.scrollTo({ top: offset, behavior: 'smooth' });
+            updateNavState('nav-categories');
+        }
+
+        // 네비게이션 활성화 상태 업데이트
+        function updateNavState(activeId) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            document.getElementById(activeId).classList.add('active');
+        }
+
+        // 서재 리셋 (카테고리 초기화용으로 유지)
+        function resetFilters() {
             searchQuery = '';
             document.getElementById('search-input').value = '';
             document.getElementById('search-results-info').innerText = '';
             filterBooks('all');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // 네비게이션 활성화 상태 업데이트
-            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-            document.getElementById('nav-library').classList.add('active');
         }
 
         // 통합 필터 적용
