@@ -19,18 +19,22 @@
     <div class="container">
         <header>
             <div class="brand-title">Archive S : Digital Library</div>
-            <i data-lucide="search" style="color: var(--text-sub); width: 20px;"></i>
+            <div class="header-icons">
+                <button class="icon-btn" onclick="toggleSearch(true)">
+                    <i data-lucide="search" style="color: var(--text-sub); width: 20px;"></i>
+                </button>
+            </div>
         </header>
 
         <!-- 3단계: 태그 필터 (Chips) -->
         <div class="filter-container">
-            <div class="filter-chip active" onclick="filterBooks('all', this)">#전체</div>
+            <div class="filter-chip active" id="filter-all" onclick="filterBooks('all', this)">#전체</div>
             <div class="filter-chip" onclick="filterBooks('math', this)">#수학</div>
             <div class="filter-chip" onclick="filterBooks('philosophy', this)">#철학</div>
             <div class="filter-chip" onclick="filterBooks('method', this)">#학습법</div>
             <div class="filter-chip" onclick="filterBooks('new', this)">#신작</div>
         </div>
-
+        
         <!-- 2단계: 카테고리 서가 (Science & Math) -->
         <section class="library-section" id="section-math">
             <div class="section-header">
@@ -86,19 +90,33 @@
                 </a>
             </div>
         </section>
+
+    </div>
+
+    <!-- 검색 오버레이 -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="도서명 또는 카테고리 검색..." oninput="handleSearch(this.value)">
+                <button class="close-search" onclick="toggleSearch(false)">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div id="search-results-info" class="search-results-info"></div>
+        </div>
     </div>
 
     <!-- 하단 내비게이션 바 -->
     <nav class="bottom-nav">
-        <a href="/" class="nav-item active">
+        <a href="/" class="nav-item active" id="nav-home">
             <i data-lucide="home"></i>
             <span>홈</span>
         </a>
-        <a href="/library/" class="nav-item">
+        <a href="javascript:void(0)" class="nav-item" id="nav-library" onclick="resetAndHome()">
             <i data-lucide="book-open"></i>
             <span>서재</span>
         </a>
-        <a href="#" class="nav-item">
+        <a href="javascript:void(0)" class="nav-item" id="nav-search" onclick="toggleSearch(true)">
             <i data-lucide="search"></i>
             <span>검색</span>
         </a>
@@ -112,37 +130,87 @@
         // Lucide 아이콘 초기화
         lucide.createIcons();
 
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        // 검색 오버레이 토글
+        function toggleSearch(show) {
+            const overlay = document.getElementById('search-overlay');
+            const input = document.getElementById('search-input');
+            if (show) {
+                overlay.classList.add('active');
+                input.focus();
+                document.body.style.overflow = 'hidden'; // 스크롤 방지
+            } else {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // 검색 입력 처리
+        function handleSearch(query) {
+            searchQuery = query.toLowerCase();
+            applyFilters();
+            
+            const info = document.getElementById('search-results-info');
+            if (searchQuery) {
+                const visibleCount = document.querySelectorAll('.book-card[style="display: block;"]').length;
+                info.innerText = `'${query}' 검색 결과: ${visibleCount}권`;
+            } else {
+                info.innerText = '';
+            }
+        }
+
         // 필터링 기능
         function filterBooks(category, el) {
+            currentCategory = category;
+            
             // 칩 스타일 업데이트
             document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active'));
-            el.classList.add('active');
+            if (el) el.classList.add('active');
+            else document.getElementById('filter-all').classList.add('active');
 
-            // 책 필터링
+            applyFilters();
+        }
+
+        // 서재 리셋 (홈으로)
+        function resetAndHome() {
+            searchQuery = '';
+            document.getElementById('search-input').value = '';
+            document.getElementById('search-results-info').innerText = '';
+            filterBooks('all');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // 네비게이션 활성화 상태 업데이트
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            document.getElementById('nav-library').classList.add('active');
+        }
+
+        // 통합 필터 적용
+        function applyFilters() {
             const cards = document.querySelectorAll('.book-card');
             cards.forEach(card => {
+                const title = card.querySelector('.book-info-title').innerText.toLowerCase();
+                const meta = card.querySelector('.book-info-meta').innerText.toLowerCase();
                 const categories = card.getAttribute('data-category').split(' ');
-                if (category === 'all' || categories.includes(category)) {
+                
+                const matchesCategory = currentCategory === 'all' || categories.includes(currentCategory);
+                const matchesSearch = !searchQuery || title.includes(searchQuery) || meta.includes(searchQuery) || categories.some(cat => cat.includes(searchQuery));
+
+                if (matchesCategory && matchesSearch) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
                 }
             });
 
-            // 빈 섹션 처리 (선택사항: 섹션 내 모든 책이 숨겨지면 섹션 제목도 숨김)
+            // 빈 섹션 처리
             document.querySelectorAll('.library-section').forEach(section => {
-                const visibleCards = section.querySelectorAll('.book-card[style="display: block;"]').length;
-                const allCards = section.querySelectorAll('.book-card').length;
-                // 'all'인 경우 명시적으로 block 처리
-                if (category === 'all') {
-                    section.style.display = 'block';
-                } else {
-                    // 섹션 내에 보이는 카드가 없으면 섹션 숨김
-                    const currentlyVisible = Array.from(section.querySelectorAll('.book-card')).filter(c => c.style.display !== 'none').length;
-                    section.style.display = currentlyVisible > 0 ? 'block' : 'none';
-                }
+                const currentlyVisible = Array.from(section.querySelectorAll('.book-card')).filter(c => c.style.display !== 'none').length;
+                section.style.display = currentlyVisible > 0 ? 'block' : 'none';
             });
         }
     </script>
+
 </body>
 </html>
