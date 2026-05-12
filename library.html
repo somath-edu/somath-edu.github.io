@@ -14,37 +14,42 @@
     
     <link rel="stylesheet" href="assets/css/bookstore.css">
     <style>
-        /* 모바일에서 모든 책 표지 크기를 일정하게 고정 */
+        /* 모바일 및 모든 환경에서 표지 크기 완벽 고정 */
         .book-cover-wrapper {
             position: relative;
             width: 100%;
-            aspect-ratio: 2 / 3 !important; /* 모든 표지를 2:3 비율로 고정 */
+            height: 0 !important;
+            padding-top: 150% !important; /* 2:3 비율 (3/2 * 100%) 고정 */
             overflow: hidden;
             background-color: #f5f5f5;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .book-cover-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100% !important;
             height: 100% !important;
-            object-fit: cover !important; /* 비율에 맞춰 꽉 채움 */
+            object-fit: cover !important;
             display: block;
         }
 
-        /* 모바일 그리드 간격 조정 */
+        /* 모바일 그리드 2열 고정 */
         @media (max-width: 768px) {
             .book-grid {
                 display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important; /* 무조건 2열로 정렬 */
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 15px !important;
                 padding: 10px 0;
             }
             .book-card {
                 width: 100% !important;
                 margin: 0 !important;
+            }
+            .book-info-title {
+                font-size: 0.85rem !important;
             }
         }
     </style>
@@ -86,9 +91,8 @@
                     </div>
                 </a>
                 <a href="https://somath-edu.github.io/h1_math_c1/" class="book-card" data-category="math new">
-                    <div class="book-cover-wrapper" style="background: #fdfaf5; background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png'); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; padding: 20px; height: 360px; position: relative; border-bottom: 1px solid #eee;">
-                        <!-- 공통수학 I의 이미지를 대체할 수도 있지만, 일단 II를 I의 스타일에 맞춤 -->
-                        <img src="assets/images/h1_math_cover.png" alt="공통수학 Ⅰ" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                    <div class="book-cover-wrapper">
+                        <img src="assets/images/h1_math_cover.png" alt="공통수학 Ⅰ">
                     </div>
                     <div class="book-info">
                         <div class="book-info-title">공통수학 Ⅰ - 디지털 교과서</div>
